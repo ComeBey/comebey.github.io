@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-08-05T15:11:56.447Z</updated>
+  <updated>2020-08-05T15:09:41.122Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>20200805231156</title>
-    <link href="https://www.rootfw.com/posts/6108edb0.html"/>
-    <id>https://www.rootfw.com/posts/6108edb0.html</id>
-    <published>2020-08-05T15:11:56.000Z</published>
-    <updated>2020-08-05T15:11:56.447Z</updated>
-    
-    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="文章已进行加密，需要密码才能继续阅读." data-whm="无效的密码。请检查并重试.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">请输入访问密码.</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="c81c75c4a397fbed6fde01f7099ae7633acd749c84589fa5a6d172739266d25b">cd56cf0ee10ea0a16d7a030409e33a8eb3d90fcd77cb5c34e5e69054b87a0910</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-    
-    <summary type="html">
-    
-      无权限访问，需要密码才能继续阅读.
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
-    
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
-    
-  </entry>
   
   <entry>
     <title>新版V2ray+WebSocket+TLS+Nginx</title>
@@ -589,6 +564,32 @@
     
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo部署命令报错</title>
+    <link href="https://www.rootfw.com/posts/ff417afe.html"/>
+    <id>https://www.rootfw.com/posts/ff417afe.html</id>
+    <published>2020-06-09T02:47:14.000Z</published>
+    <updated>2020-06-16T09:18:12.334Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend <span class="built_in">dirs</span>...</span><br><span class="line">fatal: Unable to create <span class="string">'/drives/c/blog/.deploy_git/.git/index.lock'</span>: File exists.</span><br><span class="line"></span><br><span class="line">Another git process seems to be running <span class="keyword">in</span> this repository, e.g.</span><br><span class="line">an editor opened by <span class="string">'git commit'</span>. Please make sure all processes</span><br><span class="line">are terminated <span class="keyword">then</span> try again. If it still fails, a git process</span><br><span class="line">may have crashed <span class="keyword">in</span> this repository earlier:</span><br><span class="line">remove the file manually to <span class="built_in">continue</span>.</span><br><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (C:\blog\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (events.js:310:20)</span></span><br><span class="line"><span class="string">    at ChildProcess.cp.emit (C:\blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12)</span></span><br></pre></td></tr></table></figure><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>fixed：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete .deploy_git directory：$ rm -rf .deploy_git <span class="comment">#delete</span></span><br><span class="line">re-deploy：$ hexo d -g <span class="comment">#重新部署</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://www.rootfw.com/categories/Hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://www.rootfw.com/tags/hexo/"/>
     
   </entry>
   
