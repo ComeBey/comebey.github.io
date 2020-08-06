@@ -133,7 +133,7 @@
     <link href="https://www.rootfw.com/posts/3828c730.html"/>
     <id>https://www.rootfw.com/posts/3828c730.html</id>
     <published>2020-07-26T07:18:33.000Z</published>
-    <updated>2020-08-06T11:34:57.392Z</updated>
+    <updated>2020-08-06T14:50:38.563Z</updated>
     
     <content type="html"><![CDATA[<h3 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h3><p>拿到root权限后，修改SSH配置文件<code>/etc/ssh/sshd_config</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PasswordAuthentication no 改成 yes</span><br><span class="line">PermitRootLogin no 改成 yes</span><br></pre></td></tr></table></figure><p>设置密码,输入两次，输入<code>不提示任何字符</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure><p>重启SSH服务，最后通过账号为root，密码为自己刚设置的通过第三方ssh登陆连接</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure><h3 id="Debian-9-10"><a href="#Debian-9-10" class="headerlink" title="Debian 9/10"></a>Debian 9/10</h3><a id="more"></a><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ssh <span class="comment">#选择安装</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment">#PermitRootLogin prohibit-password 改为 PermitRootLogin yes</span></span><br><span class="line"><span class="comment">#PasswordAuthentication no 改为 PasswordAuthentication yes</span></span><br></pre></td></tr></table></figure><p>设置密码,输入两次，输入<code>不提示任何字符</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure><p>重启SSH服务，最后通过账号为root，密码为自己刚设置的通过第三方ssh登陆连接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -489,9 +489,9 @@
       <category term="Brook" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/"/>
     
     
-      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
       <category term="Brook" scheme="https://www.rootfw.com/tags/Brook/"/>
+    
+      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
     
       <category term="定时重启" scheme="https://www.rootfw.com/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/"/>
     
@@ -519,9 +519,9 @@
       <category term="Brook" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/"/>
     
     
-      <category term="brook" scheme="https://www.rootfw.com/tags/brook/"/>
-    
       <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="brook" scheme="https://www.rootfw.com/tags/brook/"/>
     
   </entry>
   
