@@ -11687,3 +11687,39 @@ hr {
 .night .friend-card-item {
   color: unset;
 }
+.body_hot_comment .comment-content .card-comment-item .ava,
+.media-left,
+.is-6-widescreen .card-image {
+  display: none;
+}
+. {
+  background-color: unset;
+  box-shadow: unset;
+}
+.navbar,
+footer.footer {
+  background-color: unset;
+}
+body:not(.night) .navbar:hover,
+body:not(.night) .footer:hover,
+body:not(.night) .card:hover,
+body:not(.night) .pagination:hover,
+body:not(.night) .post-navigation:hover {
+  background-color: #deeafb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1);
+}
+.pagination,
+.post-navigation {
+  padding: 10px;
+}
+.pagination .pagination-link:not(.is-current),
+.pagination .pagination-previous,
+.pagination .pagination-next {
+  background-color: rgba(255,255,255,0);
+}
+.timeline .media:last-child:after {
+  background: unset;
+}
+.content .gt-container .gt-comment-admin .gt-comment-content {
+  border: 2px solid #deeafb;
+}
