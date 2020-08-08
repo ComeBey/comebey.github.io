@@ -191,7 +191,7 @@ function loadIndexHotData() {
                 } else {
                     classDiv = "class=\"item level0\"";
                 }
-                hotContent += "<a href =\"" + item.body.substr(0, item.body.indexOf("\n") - 1) + "\"target=\"_blank\"" + classDiv + ">" + item.title.substr(0, item.title.indexOf("-") - 1) + "&nbsp;🔥" + (item.comments * 101) + "</a>&nbsp;&nbsp;"
+                hotContent += "<a href =\"" + item.body.substr(0, item.body.indexOf("\n") - 1) + "\"target=\"_blank\"" + classDiv + ">" + item.title.substr(0, item.title.indexOf("-") - 1) + "&nbsp;🔥" + (item.comments) + "</a>&nbsp;&nbsp;"
             })
             hotDiv.html("");
             if (hotContent == "") {
