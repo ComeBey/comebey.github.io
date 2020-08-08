@@ -11681,8 +11681,15 @@ body:not(.night) .footer:hover,
 body:not(.night) .card:hover,
 body:not(.night) .pagination:hover,
 body:not(.night) .post-navigation:hover {
-  background-color: #deeafb;
+  background-color: rgba(0,0,0,0.004);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1);
+}
+body:not(.night) .navbar:hover:hover,
+body:not(.night) .footer:hover:hover,
+body:not(.night) .card:hover:hover,
+body:not(.night) .pagination:hover:hover,
+body:not(.night) .post-navigation:hover:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.1);
 }
 .pagination,
 .post-navigation {

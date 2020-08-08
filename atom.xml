@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-08-06T16:33:10.002Z</updated>
+  <updated>2020-08-08T04:21:39.488Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20200808113230</title>
+    <link href="https://www.rootfw.com/posts/ebfdd9df.html"/>
+    <id>https://www.rootfw.com/posts/ebfdd9df.html</id>
+    <published>2020-08-08T03:32:30.000Z</published>
+    <updated>2020-08-08T04:21:39.488Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight diff"><figcaption><span>etc/v2ray</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     &lt;% if (position <span class="comment">=== 'left') &#123; %&gt;</span></span><br><span class="line"><span class="deletion">-        &lt;div class="column-right-shadow is-hidden-widescreen &lt;%= sticky_class('right') %&gt;"&gt;</span></span><br><span class="line"><span class="addition">+        &lt;div class="column-right-shadow &lt;%= (page.__page !== true &amp;&amp; page.__post !== true) ? 'is-hidden-widescreen' : '' %&gt; &lt;%= sticky_class('right') %&gt;"&gt;</span></span><br><span class="line">         &lt;% get_widgets('right').forEach(widget =&gt; &#123;%&gt;</span><br><span class="line">             &lt;%- _partial('widget/' + widget.type, &#123; widget &#125;) %&gt;</span><br><span class="line">         &lt;% &#125;) %&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">     &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight diff&quot;&gt;&lt;figcaption&gt;&lt;span&gt;etc/v2ray&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
+    
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+  </entry>
   
   <entry>
     <title>Github API</title>
@@ -239,9 +267,9 @@
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
-      <category term="vip" scheme="https://www.rootfw.com/tags/vip/"/>
-    
       <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
+    
+      <category term="vip" scheme="https://www.rootfw.com/tags/vip/"/>
     
   </entry>
   
@@ -468,9 +496,9 @@
       <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
     
     
-      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
     
   </entry>
   
@@ -558,41 +586,9 @@
       <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
     
     
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
       <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>v2ray下载安装</title>
-    <link href="https://www.rootfw.com/posts/65f94be0.html"/>
-    <id>https://www.rootfw.com/posts/65f94be0.html</id>
-    <published>2020-06-09T13:29:49.000Z</published>
-    <updated>2020-08-06T11:22:28.791Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="v2ray主要特征"><a href="#v2ray主要特征" class="headerlink" title="v2ray主要特征"></a>v2ray主要特征</h1><ul><li>多入口多出口: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。</li><li>可定制化路由: 入站流量可按配置由不同的出口发出。轻松实现按区域或按域名分流，以达到最优的网络性能。</li><li>多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置– 传输载   　体，比如 TCP、mKCP、WebSocket 等。</li><li>隐蔽性: V2Ray 的节点可以伪装成正常的网站（HTTPS），将其流量与正常的网页流量混淆，以避开第三方干扰。</li><li>反向代理: 通用的反向代理支持，可实现内网穿透功能。</li><li>多平台支持: 原生支持所有常见平台，如 Windows、Mac OS、Linux，并已有第三方支持移动平台</li></ul><a id="more"></a><h1 id="v2ray在以下平台中可使用"><a href="#v2ray在以下平台中可使用" class="headerlink" title="v2ray在以下平台中可使用"></a>v2ray在以下平台中可使用</h1><ul><li>Windows 7 及之后版本（x86 / amd64）；</li><li>Mac OS X 10.10 Yosemite 及之后版本（amd64）；</li><li>Linux 2.6.23 及之后版本（x86 / amd64 / arm / arm64 / mips64 / mips）；包括但不限于 Debian 7 / 8、Ubuntu 12.04 / 14.04 及后续版本、CentOS 6 / 7、Arch Linux；</li><li>FreeBSD (x86 / amd64)；</li><li>OpenBSD (x86 / amd64)；</li><li>Dragonfly BSD (amd64)；</li><li>IOS/安卓/软路由等</li></ul><h1 id="下载-v2ray"><a href="#下载-v2ray" class="headerlink" title="下载 v2ray"></a>下载 v2ray</h1><ul><li><p><a href="https://github.com/v2ray/v2ray-core/releases">Github Release: github.com/v2ray/v2ray-core</a></p></li><li><p><a href="https://github.com/v2ray/dist/">Github 分流: github.com/v2ray/dist</a></p></li><li><p><a href="https://github.com/v2ray/homebrew-v2ray">Homebrew: github.com/v2ray/homebrew-v2ray</a></p></li><li><p><a href="https://www.archlinux.org/packages/community/x86_64/v2ray/">Arch Linux: packages/community/x86_64/v2ray</a></p></li><li><p><a href="https://snapcraft.io/v2ray-core">Snapcraft: snapcraft.io/v2ray-core</a></p></li><li><p>压缩包均为 zip 格式，找到对应平台的压缩包，下载解压即可使用。</p></li></ul><h1 id="验证安装包"><a href="#验证安装包" class="headerlink" title="验证安装包"></a>验证安装包</h1><ul><li>V2Ray 提供两种验证方式：</li></ul><ol><li>安装包 zip 文件的 SHA1 / SHA256 摘要，在每个安装包对应的.dgst文件中可以找到。</li><li>可运行程序（v2ray 或 v2ray.exe）的 gpg 签名，文件位于安装包中的 v2ray.sig 或 v2ray.exe.sig。签名公钥可以在<a href="https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/verify/official_release.asc">代码库</a>中找到。</li></ol><h1 id="Windows-和-Mac-OS-安装方式"><a href="#Windows-和-Mac-OS-安装方式" class="headerlink" title="Windows 和 Mac OS 安装方式"></a>Windows 和 Mac OS 安装方式</h1><ul><li>通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。直接运行即可。</li></ul><h1 id="Linux-发行版仓库"><a href="#Linux-发行版仓库" class="headerlink" title="Linux 发行版仓库"></a>Linux 发行版仓库</h1><ul><li>部分发行版可能已收录 V2Ray 到其官方维护和支持的软件仓库/软件源中。</li><li>出于兼容性、适配性考虑，您可以考虑选用由您发行版开发团队维护的软件包或下文的安装脚本亦或基于已发布的二进制文件或源代&emsp;码安装。</li></ul><h1 id="Linux-安装脚本"><a href="#Linux-安装脚本" class="headerlink" title="Linux 安装脚本"></a>Linux 安装脚本</h1><ul><li><p>V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自动检测有没有安装过 V2Ray，如果没有，则进行完整的安装和配  置；如果之前安装过 V2Ray，则只更新 V2Ray 二进制程序而不更新配置。</p></li><li><p>以下指令假设已在 su 环境下，如果不是，请先运行 sudo su。</p></li><li><p>运行下面的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。</p></li><li><p>这两个组件是安   装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br></pre></td></tr></table></figure></li><li><p>此脚本会自动安装以下文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;v2ray&#x2F;v2ray：V2Ray 程序；</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;v2ray&#x2F;v2ctl：V2Ray 工具；</span><br><span class="line">&#x2F;etc&#x2F;v2ray&#x2F;config.json：配置文件；</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;v2ray&#x2F;geoip.dat：IP 数据文件</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;v2ray&#x2F;geosite.dat：域名数据文件</span><br></pre></td></tr></table></figure></li><li><p>此脚本会配置自动运行脚本。自动运行脚本会在系统重启之后，自动运行 V2Ray。目前自动运行脚本只支持带有 Systemd 的系     统，以及 Debian / Ubuntu 全系列。</p></li><li><p>运行脚本位于系统的以下位置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/systemd/system/v2ray.service: Systemd</span><br><span class="line">/etc/init.d/v2ray: SysV</span><br></pre></td></tr></table></figure></li><li><p>脚本运行完成后，你需要：</p></li><li><p>输入<strong>vi/etc/v2ray/config.json</strong>文件来配置你需要的代理方式；</p></li><li><p>运行 service v2ray start 来启动 V2Ray 进程；</p></li><li><p>之后可以使用 <strong>service v2ray start|stop|status|reload|restart|force-reload</strong> 控制 V2Ray 的运行。</p></li><li><p>go.sh 参数</p></li><li><p>go.sh 支持如下参数，可在手动安装时根据实际情况调整：</p></li><li><p>-p 或 –proxy: 使用代理服务器来下载 V2Ray 的文件，格式与 curl 接受的参数一致，比如 “socks5://127.0.0.1:1080” 或  “<a href="http://127.0.0.1:3128&quot;。">http://127.0.0.1:3128&quot;。</a></p></li><li><p>-f 或 –force: 强制安装。在默认情况下，如果当前系统中已有最新版本的 V2Ray，go.sh 会在检测之后就退出。如果需要强制   重装一遍，则需要指定该参数。</p></li><li><p>version: 指定需要安装的版本，比如 “v1.13”。默认值为最新版本。</p></li><li><p>local: 使用一个本地文件进行安装。如果你已经下载了某个版本的 V2Ray，则可通过这个参数指定一个文件路径来进行安装。</p></li></ul><h1 id="示例如下："><a href="#示例如下：" class="headerlink" title="示例如下："></a>示例如下：</h1><ul><li><p>使用地址为 127.0.0.1:1080 的 SOCKS 代理下载并安装最新版本：./go.sh -p socks5://127.0.0.1:1080</p></li><li><p>安装本地的 v1.13 版本：./go.sh –version v1.13 –local /path/to/v2ray.zip</p></li><li><p>V2Ray 提供了两个预编译的 Docker image：</p></li><li><p>v2ray/official: 包含最新发布的版本，每周跟随新版本更新；</p></li><li><p>v2ray/dev: 包含由最新的代码编译而成的程序文件，随代码库更新；</p></li><li><p>两个 image 的文件结构相同：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/v2ray/config.json                  <span class="comment">#配置文件</span></span><br><span class="line">/usr/bin/v2ray/v2ray                   <span class="comment"># V2Ray 主程序</span></span><br><span class="line">/usr/bin/v2ray/v2ctl                   <span class="comment">#V2Ray 辅助工具</span></span><br><span class="line">/usr/bin/v2ray/geoip.dat              <span class="comment"># IP 数据文件</span></span><br><span class="line">/usr/bin/v2ray/geosite.dat           <span class="comment"># 域名数据文件</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;v2ray主要特征&quot;&gt;&lt;a href=&quot;#v2ray主要特征&quot; class=&quot;headerlink&quot; title=&quot;v2ray主要特征&quot;&gt;&lt;/a&gt;v2ray主要特征&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;多入口多出口: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。&lt;/li&gt;
-&lt;li&gt;可定制化路由: 入站流量可按配置由不同的出口发出。轻松实现按区域或按域名分流，以达到最优的网络性能。&lt;/li&gt;
-&lt;li&gt;多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置– 传输载   　体，比如 TCP、mKCP、WebSocket 等。&lt;/li&gt;
-&lt;li&gt;隐蔽性: V2Ray 的节点可以伪装成正常的网站（HTTPS），将其流量与正常的网页流量混淆，以避开第三方干扰。&lt;/li&gt;
-&lt;li&gt;反向代理: 通用的反向代理支持，可实现内网穿透功能。&lt;/li&gt;
-&lt;li&gt;多平台支持: 原生支持所有常见平台，如 Windows、Mac OS、Linux，并已有第三方支持移动平台&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
-    
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
   </entry>
   
