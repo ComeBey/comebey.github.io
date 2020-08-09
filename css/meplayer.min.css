@@ -623,7 +623,7 @@
 }
 
 .music-container {
-    overflow: auto;
+    overflow: scroll; /*overflow: auto;  scroll边框样式*/
 }
 
 .music-container #musicarea button {

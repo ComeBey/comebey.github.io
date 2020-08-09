@@ -10332,8 +10332,8 @@ fieldset[disabled] .select select:hover {
   .is-1-column .container,
   .is-2-column .container,
   .is-3-column .container {
-    max-width: 80%;
-    width: 80%;
+    max-width: 82%;
+    width: 82%;
   }
 }
 @media screen and (min-width: 769px), print {
@@ -10399,7 +10399,7 @@ fieldset[disabled] .select select:hover {
 .navbar-main .navbar-item {
   display: flex;
   align-items: center;
-  padding: 1.25rem 0.75rem;
+  padding: 0.25rem 0.75rem;
 }
 .navbar-main .navbar-item.is-active {
   color: #3273dc;
@@ -10482,6 +10482,30 @@ fieldset[disabled] .select select:hover {
 }
 .gist .file {
   all: initial;
+}
+.article {
+  counter-reset: section;
+}
+.article h2 {
+  counter-reset: sub-section;
+}
+.article h3 {
+  counter-reset: composite;
+}
+.article h4 {
+  counter-reset: detail;
+}
+.article h2:before {
+  content: counter(section) " ";
+  counter-increment: section;
+}
+.article h3:before {
+  content: counter(section) "." counter(sub-section) " ";
+  counter-increment: sub-section;
+}
+.article h4:before {
+  content: counter(section) "." counter(sub-section) "." counter(composite) " ";
+  counter-increment: composite;
 }
 /* ---------------------------------
  *        Fix code highlight
@@ -11086,11 +11110,9 @@ footer.footer .level-end .field {
 }
 .content h3 {
   font-size: 1.3em;
-  color: rgba(50,115,220,0.659);
 }
 .content h4 {
   font-size: 1.2em;
-  color: rgba(50,115,220,0.659);
 }
 .content h5 {
   color: rgba(50,115,220,0.659);
@@ -11366,7 +11388,7 @@ a.navbar-item.is-active,
 }
 .toc-scroll {
   max-height: 500px;
-  overflow: auto;
+  overflow: scroll;
 }
 .navbar-highlight {
   background-color: #fff !important;
