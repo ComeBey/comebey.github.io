@@ -11008,7 +11008,7 @@ footer.footer .level-end .field {
   padding-right: 0.5rem;
   white-space: nowrap;
   margin-bottom: 0.75rem;
-  box-shadow: 0px 0px 2px 1px #b5b5b5;
+  box-shadow: 0px 0px 2px 1px rgba(211,211,211,0.322);
 }
 .display-none-class {
   display: none;

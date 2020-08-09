@@ -178,7 +178,7 @@ function loadIndexHotData() {
     var hotContent = "";
     if ($("#index_hot_div").length > 0) {
         var hotDiv = $("#index_hot_div");
-        ajaxReqForGitHub(repoIssuesUrl + "?per_page=10&sort=comments",function (result) {
+        ajaxReqForGitHub(repoIssuesUrl + "?per_page=8&sort=comments",function (result) {
 
             $.each(result, function (i, item) {
                 // 标签配色
