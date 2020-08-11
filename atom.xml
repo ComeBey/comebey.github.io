@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-08-06T16:33:10.002Z</updated>
+  <updated>2020-08-11T10:29:53.841Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.rootfw.com/posts/87f1021.html"/>
     <id>https://www.rootfw.com/posts/87f1021.html</id>
     <published>2020-08-06T13:09:35.000Z</published>
-    <updated>2020-08-06T16:33:10.002Z</updated>
+    <updated>2020-08-11T10:29:53.841Z</updated>
     
     <content type="html"><![CDATA[<article class="message is-warning"><div class="message-body"><p>对于常用Github的用户来说，经常有一些自动化的需求。比如我的需求是定时备份Github的issues和comments到本地。以下为Github的API的使用参考</p></div></article><a id="more"></a><h3 id="基本访问路径-Root-Endpoints"><a href="#基本访问路径-Root-Endpoints" class="headerlink" title="基本访问路径 (Root Endpoints)"></a>基本访问路径 (Root Endpoints)</h3><article class="message is-info"><div class="message-body"><p>一开始读文档的时候，照着它的事例直接在命令行里curl，或者在InSomnia或Postman软件里访问，都完美显示200状态。可是一旦把链接里改写成自己的用户名就各种显示404无页面。还以为是授权问题，然后在页头HEADER中按照各种方式试了username和token密钥，都没用还是404。结果发现，原来不是方法的问题，纯粹是链接地址没写对！<br>实际上只是读取的话，完全不用任何授权，可以在命令行、Insomnia、网页等各种情况下直接输入链接访问任何人的所有公开信息。<br>然后对照官方路径列表Root Endpoints得到的链接，好像怎么访问都不对。反而在Stackoverflow中看到的一个链接，顺藤摸瓜自己发现了各种正确的访问路径，总结如下：</p></div></article><p>首先！访问的链接最后不能有/。如<a href="https://api.github.com/users/solomonxie是可以访问到我个人信息的，但是https://api.github.com/users/solomonxie/就不行了，唯一不同是多了一个/">https://api.github.com/users/solomonxie是可以访问到我个人信息的，但是https://api.github.com/users/solomonxie/就不行了，唯一不同是多了一个/</a>.<br>其次！不同于一般URL访问，GIthub的API访问链接是区分大小写的！<br>个人主要信息。 <a href="https://api.github.com/users/用户名,得到数据如下图：">https://api.github.com/users/用户名,得到数据如下图：</a><br>image</p><p>个人所有repo。<a href="https://api.github.com/users/用户名/repos。会得到一个repo的JSON格式列表。">https://api.github.com/users/用户名/repos。会得到一个repo的JSON格式列表。</a><br>repo详细信息。<a href="https://api.github.com/repos/用户名/仓库名。repo的路径就开始和个人信息不同了。">https://api.github.com/repos/用户名/仓库名。repo的路径就开始和个人信息不同了。</a><br>获取某个repo的内容列表。<a href="https://api.github.com/repos/solomonxie/gists/contents，注意这只会返回根目录的内容。">https://api.github.com/repos/solomonxie/gists/contents，注意这只会返回根目录的内容。</a><br>获取repo中子目录的内容列表。<a href="https://api.github.com/repos/solomonxie/gists/contents/目录名。一定要注意这里一定要完全遵循原文件名的大小写，否则无法获得信息。如果是更深层的内容，则在链接列按照顺序逐级写上目录名称。">https://api.github.com/repos/solomonxie/gists/contents/目录名。一定要注意这里一定要完全遵循原文件名的大小写，否则无法获得信息。如果是更深层的内容，则在链接列按照顺序逐级写上目录名称。</a><br>获取repo中某文件信息（不包括内容）。<a href="https://api.github.com/repos/solomonxie/gists/contents/文件路径。文件路径是文件的完整路径，区分大小写。只会返回文件基本信息。">https://api.github.com/repos/solomonxie/gists/contents/文件路径。文件路径是文件的完整路径，区分大小写。只会返回文件基本信息。</a><br>获取某文件的原始内容（Raw）。1. 通过上面的文件信息中提取download_url这条链接，就能获取它的原始内容了。2. 或者直接访问：<a href="https://raw.githubusercontent.com/用户名/仓库名/分支名/文件路径">https://raw.githubusercontent.com/用户名/仓库名/分支名/文件路径</a><br>repo中所有的commits列表。<a href="https://api.github.com/repos/用户名/仓库名/commits。">https://api.github.com/repos/用户名/仓库名/commits。</a><br>某一条commit详情。<a href="https://api.github.com/repos/用户名/仓库名/commits/某一条commit的SHA">https://api.github.com/repos/用户名/仓库名/commits/某一条commit的SHA</a><br>issues列表。<a href="https://api.github.com/repos/用户名/仓库名/issues。">https://api.github.com/repos/用户名/仓库名/issues。</a><br>某条issue详情。<a href="https://api.github.com/repos/用户名/仓库名/issues/序号。issues都是以1,2,3这样的序列排号的。">https://api.github.com/repos/用户名/仓库名/issues/序号。issues都是以1,2,3这样的序列排号的。</a><br>某issue中的comments列表。<a href="https://api.github.com/repos/用户名/仓库名/issues/序号/comments。">https://api.github.com/repos/用户名/仓库名/issues/序号/comments。</a><br>某comment详情。<a href="https://api.github.com/repos/用户名/仓库名/issues/comments/评论详情的ID。其中评论ID是从issues列表中获得的。">https://api.github.com/repos/用户名/仓库名/issues/comments/评论详情的ID。其中评论ID是从issues列表中获得的。</a></p><h3 id="查询参数-Parameters"><a href="#查询参数-Parameters" class="headerlink" title="查询参数 (Parameters)"></a>查询参数 (Parameters)</h3><p>如果在上面基本链接中加入查询条件，那么返回的数据就是filtered，过滤了的。比如要求只返回正在开放的issues，或者让列表数据分页显示。常用如下：</p><p>分页功能。格式是?page=页数&amp;per_page=每页包含数量。<br>如<a href="https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3">https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3</a></p><p>issues状态。格式是?state=状态。<br>如<a href="https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed">https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed</a></p>]]></content>
     
@@ -194,7 +194,7 @@
     <link href="https://www.rootfw.com/posts/4b7bc44c.html"/>
     <id>https://www.rootfw.com/posts/4b7bc44c.html</id>
     <published>2020-07-22T06:56:56.000Z</published>
-    <updated>2020-08-09T23:03:51.938Z</updated>
+    <updated>2020-08-11T10:25:32.206Z</updated>
     
     <content type="html"><![CDATA[<div class="notification is-info"><p>精品课程开课了：欢迎报名，多年实战沉淀跨平台，梯子源码解剖·一键脚本如何写·多服务器中转·匿名IP·linux实战·跨平台实战一针见血开启您的学术世界。本课程内容不在任何平台公开教学，同学们快来吧！</p></div><a id="more"></a><div class="notification is-danger"><p>感谢大家的支持，原频道Hasan W已经删除不在更新视频，新频道大家可以在YouTube自己搜索关键字comebey 或者 [点击关注]</p><h2 id="课程目录"><a href="#课程目录" class="headerlink" title="课程目录"></a>课程目录</h2><h3 id="开门见山"><a href="#开门见山" class="headerlink" title="开门见山"></a>开门见山</h3><p>多年实战横跨多平台沉淀，前后端，大数据等等！曾走过数不清的弯路，开发过主流某<code>知名</code>源码架构。因为某些核心点网络上基本学不到，必须不断实践总结的经验，那绝对不是任何平台能轻易学到的知识点。如果你真想学点有用的知识，方可报名。</p><h3 id="初级公开课程"><a href="#初级公开课程" class="headerlink" title="初级公开课程"></a>初级公开课程</h3><p>1.所有目前主流FQ开源部署，源码基础分析<br>2.各种服务器初级流量中转开源部署<br>3.各种机场模板介绍及基本部署<br>4.各种前端后端等等及习惯网络知识</p><p>所有视频我会上传YouTube，从最基础的学起，涵盖所有目前YouTube主流各类FQ原生部署方法，各种网站及博客部署等等网络知识，大家想学什么，可以给我提建议或者意见。包括一些基础的实操。我不想和大家灌输太多没用的理论，我也不想像其他UP主说相声一样，真正实操起来懂的真的没几个懂。youtube讲FQ的圈不大。YouTube缺少真正能把翻墙代码讲清楚讲透的人。从来不缺视频内容搬运，和二次创新。随便找个别人写的博客内容，拼拼凑凑。就开始录视频。最起码的版权是什么都不知道，一个不懂尊重原创作者的up不值得尊重！甚至很多朋友看了其他某些UP讲的视频来问我，说实话我感到很悲哀，如果他们解决不要你的问题，为什么要执着去学他们方法？因为有些视频内容就有误导性。但是反而大家就是喜欢看热闹。并不是点击高的视频内容一定优质，好的视频内容，建立在原创的基础，视频内容发布出来是能马上能解决你问题的，<code>一针见血</code>当然这和个人学习能力也有一定关系。那么在这初级阶段，我讲的每一期视频，只要你用心学习，哪怕多看几遍。我保证很快你能学以致用，且融会贯通。当然大家请支持任何原创视频。<code>公开电报群一个</code></p><h3 id="中级收费课程"><a href="#中级收费课程" class="headerlink" title="中级收费课程"></a>中级收费课程</h3><p>1.主流FQ原生部署中级培训，深入分析源码及功能实现，及相关理论知识。如果基础的理论知识不清楚，就输在起跑线了。<br>2.服务器中转核心知识点，服务器及多服务器延迟测试及基础知识点。相信我中转并不是那么的简单，当特殊人群需要特殊服务器做跳板去特殊地方匿名IP会开启你学术之旅。<br>3.因为特殊原因其他培训内容均不在博客中详细简介</p><p>课程针对真正想学知识，尊重知识的人，主要是大家遇到各种问题以后自己就能解决，培养自己有这种能力。大部分遇到的问题我都会让你自己亲手学会。linux系统各个版本从基础代码学起，结合到各种FQ服务，看懂核心代码真正的含义及基础功能添加，优化自己独一无二脚本。只有看懂了代码，自己知道如何优化，基本上你再去搭建任何翻墙服务是非常轻松的。包括其他等等系列课程<code>中级交流群一个</code>排除一些广告发布商进群。这也是我老群的教训。 费用366为期一年，每天一块钱</p><h3 id="高级收费课程"><a href="#高级收费课程" class="headerlink" title="高级收费课程"></a>高级收费课程</h3><p>主要针对想通过这个行业想变现盈利的朋友，各种FQ脚本深入优化，记住是深入优化，或二次开发。如何写自己的一键脚本。外贸公司中大型穿墙网络代码部署，外网访问各种功能纯代码配置等。搭建机场高级进阶，各种服务器深入学习中转，机场网站前端代码优化，后端功能添加。前端web css。网站安全维护等其他核心知识要点。<code>因为特殊原因其他培训内容均不在博客中详细简介</code> <code>高级交流群一个</code> 费用3685为期一年</p><h3 id="一对一课程"><a href="#一对一课程" class="headerlink" title="一对一课程"></a>一对一课程</h3><p>针对内心有迫切学习的欲望，尊重知识尊重版权的人。远程或直播亲自教学，一个礼拜脱变之路。课程不在此公布。费用5680，添加本人私人联系方式。笨鸟先飞！一个礼拜后可进高级交流群</p><p>所有报名截止到每年9月1号，在一年课程中所有学员中，我会选几名悟性高的学生一起和我共同开发项目。所有报名的同学请保持互相尊重谦虚的良好美德去学习。知识无价，请您尊重！也请您尊重知识产权！</p><p>以上所有视频为comebey原创视频版权所有。收费课程按需求选择购买，收费课程为本人多年实战总结的金品课。`</p>]]></content>
     
@@ -239,9 +239,9 @@
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
-      <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
-    
       <category term="vip" scheme="https://www.rootfw.com/tags/vip/"/>
+    
+      <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
     
   </entry>
   
@@ -433,9 +433,9 @@
       <category term="SSR" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/"/>
     
     
-      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
       <category term="SSR" scheme="https://www.rootfw.com/tags/SSR/"/>
+    
+      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
     
   </entry>
   
@@ -528,9 +528,9 @@
       <category term="Brook" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/"/>
     
     
-      <category term="brook" scheme="https://www.rootfw.com/tags/brook/"/>
-    
       <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="brook" scheme="https://www.rootfw.com/tags/brook/"/>
     
   </entry>
   
