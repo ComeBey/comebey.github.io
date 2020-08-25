@@ -1,4 +1,4 @@
-/*// 评论issues仓库 by.removeif https://removeif.github.io/
+// 评论issues仓库 by.removeif https://removeif.github.io/
 var repoIssuesUrl = "https://api.github.com/repos/ComeBey/comebey.github.io/issues";
 // 对应仓库 clientId、clientSecret 关于这两个参数的安全问题，查看 https://removeif.github.io/2019/09/19/博客源码分享.html#1-热门推荐，最新评论：
 var clientId = "baf373858a552d3e140c";
@@ -249,4 +249,3 @@ $(document).ready(setTimeout(function () { // 延迟1s执行，保证其余的�
     500
 ))
 ;
-*/
