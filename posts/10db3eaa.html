@@ -1,9 +1,178 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Brook crontab定时重启 - comebey</title><meta description="java,技术分享,后端开发,支付框架,数据接口,算法,leetcode"><meta property="og:type" content="blog"><meta property="og:title" content="comebey"><meta property="og:url" content="https://github.com/ComeBey"><meta property="og:site_name" content="comebey"><meta property="og:description" content="java,技术分享,后端开发,支付框架,数据接口,算法,leetcode"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/avatar.png"><meta property="article:published_time" content="2020-06-10T04:45:36.000Z"><meta property="article:modified_time" content="2020-08-06T11:06:42.318Z"><meta property="article:author" content="Hasan"><meta property="article:tag" content="Brook"><meta property="article:tag" content="翻墙"><meta property="article:tag" content="定时重启"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://github.com/ComeBey"},"headline":"comebey","image":["https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/avatar.png"],"datePublished":"2020-06-10T04:45:36.000Z","dateModified":"2020-08-06T11:06:42.318Z","author":{"@type":"Person","name":"ComeBey"},"description":"技术分享,后端开发,支付框架,数据接口,大数据"}</script><link rel="alternative" href="/atom.xml" title="comebey" type="application/atom+xml"><link rel="icon" href="https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@latest/img/wico.png"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.css"><link rel="stylesheet" href="https://fonts.useso.com/css?family=Ubuntu:400,600|Source+Code+Pro"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="//fonts.useso.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1" async></script><script>window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Brook crontab定时重启 - comebey</title>
+
+
+    <meta name="description" content="以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入 123yum -y install ntp ntpdate   &#x2F;&#x2F;安装ntpdate工具ntpdate cn.pool.ntp.org     &#x2F;&#x2F;设置系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Brook crontab定时重启">
+<meta property="og:url" content="https://www.rootfw.com/posts/10db3eaa.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入 123yum -y install ntp ntpdate   &#x2F;&#x2F;安装ntpdate工具ntpdate cn.pool.ntp.org     &#x2F;&#x2F;设置系统">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
+<meta property="article:published_time" content="2020-06-10T04:45:36.000Z">
+<meta property="article:modified_time" content="2020-08-06T11:06:42.318Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="Brook">
+<meta property="article:tag" content="翻墙">
+<meta property="article:tag" content="定时重启">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.rootfw.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
     
-        gtag('config', 'UA-174250713-1');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/style.css"><script src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/globalUtils.js"></script></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/0.svg" alt="comebey" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">培训</a><a class="navbar-item" href="/media">影音</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-06-10T04:45:36.000Z">2020-06-10</time><span class="level-item"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a><span> / </span><a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/">Brook</a></span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Brook crontab定时重启</h1><div class="content"><p>以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)<br><strong>方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入</strong></p>
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Brook crontab定时重启" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Brook crontab定时重启
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-10T04:45:36.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-06T11:06:42.318Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-06</time>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/">Brook</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    <i class="far fa-clock"></i>&nbsp;
+                    
+                    
+                    6 分钟 读完 (大约 835 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)<br><strong>方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install ntp ntpdate   //安装ntpdate工具</span><br><span class="line">ntpdate cn.pool.ntp.org     //设置系统时间与本地网络时间同步</span><br><span class="line">hwclock --systohc          //将系统时间写入硬件时间</span><br></pre></td></tr></table></figure>
 <p><strong>方法2.校准时间同步本地时间  date -R 查看vps时间</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install ntp                //安装ntp服务</span><br><span class="line">systemctl <span class="built_in">enable</span> ntpd              //开机启动服务</span><br><span class="line">systemctl start ntpd              //启动服务</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai           //更改时区</span><br><span class="line">timedatectl <span class="built_in">set</span>-ntp yes           //启用ntp同步</span><br><span class="line">ntpq -p          //同步时间</span><br></pre></td></tr></table></figure>
@@ -16,90 +185,419 @@
 <h2 id="服务操作说明："><a href="#服务操作说明：" class="headerlink" title="服务操作说明："></a>服务操作说明：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service crond start  (启动服务)</span><br><span class="line"></span><br><span class="line">/sbin/service crond stop  (关闭服务)</span><br><span class="line"></span><br><span class="line">/sbin/service crond restart  (重启服务)</span><br><span class="line"></span><br><span class="line">/sbin/service crond reload  (重新载入配置 //重新载入配置)</span><br><span class="line"></span><br><span class="line">/sbin/service crond status  (查看crond是否正常运行)</span><br></pre></td></tr></table></figure>
 <p>crontab -e (输入i键,复制以下代码ctrl+c,黏贴ctrl+v到加入计划任务,可自定义添加需要的功能)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * date &gt;&gt; ~/a.log 2&gt;&amp;1 </span><br><span class="line">*/1 * * * * sudo journalctl -b -u brook &gt;&gt; ~/a.log 2&gt;&amp;1</span><br><span class="line">*/1 * * * * /bin/systemctl restart brook.service &gt;&gt; ~/a.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">crontab -l (查看已经添加的crontab任务)</span><br><span class="line">tail ~/a.log 查看最近10条日志</span><br><span class="line">more /root/a.log 查看所有日志</span><br><span class="line">tail -f /var/<span class="built_in">log</span>/cron 查看正常运行的crontab计划任务</span><br><span class="line">验证crontab计划任务brook运行状态</span><br><span class="line">可以根据特定字段过滤输出</span><br><span class="line">journalctl -b   显示本次启动后的所有日志：</span><br><span class="line"></span><br><span class="line">journalctl -f 查看正在输出的进程</span><br><span class="line"></span><br><span class="line">sudo journalctl -b -u brook 查看brook状态</span><br><span class="line"></span><br><span class="line">man 1 journalctl 查看所有 journalctl使用方法</span><br><span class="line"></span><br><span class="line">rm -rf ~/a.log 日志清除方法</span><br><span class="line"></span><br><span class="line">实例1：每1分钟执行一次<span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* * * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例2：每小时的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 * * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例3：在上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例4：每隔两天的上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 */2 * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例5：每个星期一的上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * 1 <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例6：每晚的21:30重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">30 21 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例7：每月1、10、22日的4 : 45重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">45 4 1,10,22 * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例8：每周六、周日的1 : 10重启smb</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">10 1 * * 6,0 /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0,30 18-23 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例10：每星期六的晚上11 : 00 pm重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 23 * * 6 /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例11：每一小时重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* */1 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例12：晚上11点到早上7点之间，每隔一小时重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* 23-7/1 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例13：每月的4号与每周一到周三的11点重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 11 4 * mon-wed /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例14：一月一号的4点重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 4 1 jan * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例15：每小时执行/etc/cron.hourly目录内的脚本</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">01   *   *   *   *     root run-parts /etc/cron.hourly</span><br></pre></td></tr></table></figure></div><div class="article-tags size-small is-uppercase mb-4"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted mr-2" rel="tag" href="/tags/Brook/">Brook</a><a class="link-muted mr-2" rel="tag" href="/tags/%E7%BF%BB%E5%A2%99/">翻墙</a><a class="link-muted mr-2" rel="tag" href="/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/">定时重启</a></div><ul class="post-copyright"><li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">Brook crontab定时重启</a></li><li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li><li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">https://www.rootfw.com/posts/10db3eaa.html</a></li><li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li></ul><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 推荐文章</span><br><span>  1.<a class="is-size-6" href="/posts/3828c730.html" target="_blank">设置服务器登陆密码</a><br></span></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5efc9a98678aaf0012f25d0e&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="支付宝"></span></a><a class="button donate" href="https://www.buymeacoffee.com/comebey" style="background-color:rgba(255,128,62,.87);border-color:transparent;color:white;" target="_blank" rel="noopener"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a><a class="button is-danger donate" href="https://www.patreon.com/comebey" target="_blank" rel="noopener"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><a class="button is-warning donate" onclick="document.getElementById(&#039;paypal-donate-form&#039;).submit()"><span class="icon is-small"><i class="fab fa-paypal"></i></span><span>Paypal</span></a><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form"><input type="hidden" name="cmd" value="_donations"><input type="hidden" name="business" value="hasan.wang520@gmail.com"><input type="hidden" name="currency_code" value="USD"></form><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/posts/231b7e32.html"><i class="level-item fas fa-chevron-left"></i><span class="level-item">V2ray+WS+TCP+TLS配置</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/posts/c695a206.html"><span class="level-item">Brook centos7官方脚本搭建</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script><script>new Valine({
-            el: '#valine-thread' ,
-            notify: undefined,
-            verify: undefined,
-            appId: 'Ipp1FU7Rr7KCIYgNnv1mrOvj-gzGzoHsz',
-            appKey: '1pOvMu9iiGMSqeykFKQ5xcNM',
-            placeholder: '',
-            avatar: 'mm',
-            avatarForce: false,
-            meta: ["nick","mail","link"],
-            pageSize: 10,
-            visitor: false,
-            highlight: true,
-            recordIP: false
-        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget toc-scroll" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex" id="toc-item-服务操作说明：" href="#服务操作说明："><span>服务操作说明：</span></a></li></ul></div></div><script type="text/javascript" async>
-        $(document).ready(function () { //参考自 https://github.com/ppoffice/hexo-theme-icarus/pull/616/files
-            var observerTopMargin;
-            var scrollObserver;
-            var headerElems = $(".headerlink");
-            var activeTocItem;
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">crontab -l (查看已经添加的crontab任务)</span><br><span class="line">tail ~/a.log 查看最近10条日志</span><br><span class="line">more /root/a.log 查看所有日志</span><br><span class="line">tail -f /var/<span class="built_in">log</span>/cron 查看正常运行的crontab计划任务</span><br><span class="line">验证crontab计划任务brook运行状态</span><br><span class="line">可以根据特定字段过滤输出</span><br><span class="line">journalctl -b   显示本次启动后的所有日志：</span><br><span class="line"></span><br><span class="line">journalctl -f 查看正在输出的进程</span><br><span class="line"></span><br><span class="line">sudo journalctl -b -u brook 查看brook状态</span><br><span class="line"></span><br><span class="line">man 1 journalctl 查看所有 journalctl使用方法</span><br><span class="line"></span><br><span class="line">rm -rf ~/a.log 日志清除方法</span><br><span class="line"></span><br><span class="line">实例1：每1分钟执行一次<span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* * * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例2：每小时的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 * * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例3：在上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例4：每隔两天的上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 */2 * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例5：每个星期一的上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * 1 <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例6：每晚的21:30重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">30 21 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例7：每月1、10、22日的4 : 45重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">45 4 1,10,22 * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例8：每周六、周日的1 : 10重启smb</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">10 1 * * 6,0 /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0,30 18-23 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例10：每星期六的晚上11 : 00 pm重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 23 * * 6 /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例11：每一小时重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* */1 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例12：晚上11点到早上7点之间，每隔一小时重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* 23-7/1 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例13：每月的4号与每周一到周三的11点重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 11 4 * mon-wed /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例14：一月一号的4点重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 4 1 jan * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例15：每小时执行/etc/cron.hourly目录内的脚本</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">01   *   *   *   *     root run-parts /etc/cron.hourly</span><br></pre></td></tr></table></figure>
+        </div>
         
-            function initIntersectionObserver(docHeight) {
-                observerTopMargin = docHeight;
-                scrollObserver = new IntersectionObserver(scrollCallBack,
-                    {
-                        root: null,  // viewpoint
-                        rootMargin: docHeight + "px 0px -80% 0px"  // cover top 30% of viewport to the top of document
-                    })
-            }
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">Brook crontab定时重启</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">https://www.rootfw.com/posts/10db3eaa.html</a></li>
+            <li><strong>发布时间：</strong>2020-06-10</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
         
-            function scrollCallBack(entries, observer) {
-                if ($(window).scrollTop() > observerTopMargin * 0.7) { 
-                    // User somehow scroll to 70% of observerTopMargin (which is inited as 200% document height)
-                    // Observer top margin need to extend to cover all the space to the top of the document
-                    initIntersectionObserver(observerTopMargin * 2)
-                    observer.disconnect();
-                    return;
-                }
-                let toActive;
-                if (entries[0].intersectionRatio == 1) {  // enter viewed area
-                    let entry = entries.reduce((u, v) => (u.target.toc_id > v.target.toc_id ? u : v));  // get the lowest item
-                    toActive = $("#toc-item-" + $(entry.target).attr("href").substr(1));
-                } else {
-                    let entry = entries.reduce((u, v) => (u.target.toc_id < v.target.toc_id ? u : v));  // get the highest item
-                    let idx = Math.max(entry.target.toc_id - 1, 0);
-                    toActive = $("#toc-item-" + $(headerElems[idx]).attr("href").substr(1));
-                }
-                if (activeTocItem) activeTocItem.removeClass("is-current");
-                activeTocItem = toActive
-                activeTocItem.addClass("is-current");
-            }
         
-            initIntersectionObserver($(document).height() * 2);
-            headerElems.each(function (index, obj) {
-                obj.toc_id = index;
-                scrollObserver.observe(obj);
-            })
-        });</script></div><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/avatar.png" alt="comebey"></figure><p class="title is-size-4 is-block line-height-inherit">comebey</p><p class="is-size-6 is-block">Data Miner</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Shanghai, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">24</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">12</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">19</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ComeBey" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ComeBey"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com/WangTao_Im"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="电报群" href="https://t.me/RootInstitute"><i class="fab fa-telegram-plane"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1"><i class="fab fa-youtube"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://linktr.ee/wangtao.lm" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Linktr</span></span><span class="level-right"><span class="level-item tag">linktr.ee</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.patreon.com/comebey" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Patreon</span></span><span class="level-right"><span class="level-item tag">www.patreon.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://www.buymeacoffee.com/comebey" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Coffee</span></span><span class="level-right"><span class="level-item tag">www.buymeacoffee.com</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><a class="media-left" href="/posts/93baa7dd.html"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/vector2.svg" alt="V2ray vless+WebSocket+TLS+Nginx"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-23T05:56:29.000Z">2020-08-23</time></p><p class="title is-6"><a class="link-muted" href="/posts/93baa7dd.html">V2ray vless+WebSocket+TLS+Nginx</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a> / <a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a></p></div></article><article class="media"><a class="media-left" href="/posts/87f1021.html"><p class="image is-64x64"><img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/vector_landscape_2.svg" alt="Github API"></p></a><div class="media-content size-small"><p><time dateTime="2020-08-06T13:09:35.000Z">2020-08-06</time></p><p class="title is-6"><a class="link-muted" href="/posts/87f1021.html">Github API</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/github/">github</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-28T14:18:07.000Z">2020-07-28</time></p><p class="title is-6"><a class="link-muted" href="/posts/d2834d54.html">新版V2ray+WebSocket+TLS+Nginx</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a> / <a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-28T06:54:23.000Z">2020-07-28</time></p><p class="title is-6"><a class="link-muted" href="/posts/3e3bccee.html">v2ray新版本配置TLS</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a> / <a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-26T08:21:24.000Z">2020-07-26</time></p><p class="title is-6"><a class="link-muted" href="/posts/f3e24172.html">v2ray官方新老脚本安装</a></p><p class="is-uppercase"><i class="fas fa-folder-open has-text-grey"> </i><a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a> / <a class="link-muted" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Hexo/"><span class="level-start"><span class="level-item">Hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Linux/centos7/"><span class="level-start"><span class="level-item">centos7</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/VIP%E5%9F%B9%E8%AE%AD/"><span class="level-start"><span class="level-item">VIP培训</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/VIP%E5%9F%B9%E8%AE%AD/%E6%96%87%E7%AB%A0/"><span class="level-start"><span class="level-item">文章</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/github/"><span class="level-start"><span class="level-item">github</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%9A%97%E7%BD%91/"><span class="level-start"><span class="level-item">暗网</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"><span class="level-start"><span class="level-item">科学上网</span></span><span class="level-end"><span class="level-item tag">16</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/"><span class="level-start"><span class="level-item">Brook</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SS/"><span class="level-start"><span class="level-item">SS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/v2ray/"><span class="tag">v2ray</span><span class="tag is-grey-lightest">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BF%BB%E5%A2%99/"><span class="tag">翻墙</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vip/"><span class="tag">vip</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Brook/"><span class="tag">Brook</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SS/"><span class="tag">SS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSR/"><span class="tag">SSR</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/brook/"><span class="tag">brook</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/linux/"><span class="tag">linux</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vless/"><span class="tag">vless</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AD%E8%BD%AC/"><span class="tag">中转</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="tag">大数据</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/"><span class="tag">定时重启</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9A%97%E7%BD%91/"><span class="tag">暗网</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><span class="tag">服务器</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"><span class="tag">科学上网</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"><span class="tag">防火墙</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/0.svg" alt="comebey" height="28"></a><p class="size-small"><span>&copy; 2020 comebey</span>  Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank">ComeBey</a> &amp; <a href="https://github.com/ComeBey" target="_blank">Hasan</a>,Modify by <a href="https://github.com/ComeBey" target="_blank">ComeBey</a> </p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ComeBey"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
-            site: {
-                url: 'https://www.rootfw.com',
-                external_link: {"enable":true,"exclude":[]}
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Brook/" rel="tag">Brook</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/" rel="tag">定时重启</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/231b7e32.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">V2ray+WS+TCP+TLS配置</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/c695a206.html">
+                <span class="level-item">Brook centos7官方脚本搭建</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Your name">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            24
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            12
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            19
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#服务操作说明：">
+        <span class="has-mr-6">1</span>
+        <span>服务操作说明：</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Brook crontab定时重启" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 comebey&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/AlphaLxy">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/back-to-top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script src="/js/gallery.js" defer></script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" async></script><script>document.addEventListener("DOMContentLoaded", function () {
-            outdatedBrowser({
-                bgColor: '#f25648',
-                color: '#ffffff',
-                lowerThan: 'object-fit' // display on IE11 or below
-            });
-        });</script><!--!--><script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/main.js" defer></script><script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/comment-issue-data.js" defer></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io/css/insight.css"><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="想要查找什么..."><span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>(function (window) {
-            var INSIGHT_CONFIG = {
-                TRANSLATION: {
-                    POSTS: '文章',
-                    PAGES: '页面',
-                    CATEGORIES: '分类',
-                    TAGS: '标签',
-                    UNTITLED: '(无标题)',
-                },
-                CONTENT_URL: '/content.json',
-            };
-            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-        })(window);</script><script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/insight.js" defer></script></body></html>
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
