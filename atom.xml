@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-09-07T09:50:42.240Z</updated>
+  <updated>2020-09-11T02:17:29.819Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos7 升级python2至python3</title>
+    <link href="https://www.rootfw.com/posts/cf6ba610.html"/>
+    <id>https://www.rootfw.com/posts/cf6ba610.html</id>
+    <published>2020-09-11T01:50:16.000Z</published>
+    <updated>2020-09-11T02:17:29.819Z</updated>
+    
+    <content type="html"><![CDATA[<p>linux 的centos7 默认安装了 python2.7.5 , 需要升级到最新版本</p><a id="more"></a><h3 id="查看python-版本"><a href="#查看python-版本" class="headerlink" title="查看python 版本"></a>查看python 版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure><h3 id="查看软连接指向"><a href="#查看软连接指向" class="headerlink" title="查看软连接指向"></a>查看软连接指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al &#x2F;usr&#x2F;bin&#x2F;python</span><br></pre></td></tr></table></figure><h3 id="重命名软连接"><a href="#重命名软连接" class="headerlink" title="重命名软连接"></a>重命名软连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv &#x2F;usr&#x2F;bin&#x2F;python &#x2F;usr&#x2F;bin&#x2F;python2.7.5</span><br></pre></td></tr></table></figure><h3 id="下载并解压-python"><a href="#下载并解压-python" class="headerlink" title="下载并解压 python"></a>下载并解压 python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.6.4&#x2F;Python-3.6.4.tgz</span><br><span class="line">tar -xf Python-3.6.4.tgz</span><br></pre></td></tr></table></figure><h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd Python-3.6.4</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>python3.6.4 已经安装到系统里了。 python2.7.5 由于软连接被重命名了。所以。你查看python 版本时候。会不存在</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">命令 ： python -V</span><br><span class="line">结果：  -bash: &#x2F;usr&#x2F;bin&#x2F;python: No such file or directory</span><br></pre></td></tr></table></figure><h3 id="让系统默认使用Python-3-6-4"><a href="#让系统默认使用Python-3-6-4" class="headerlink" title="让系统默认使用Python 3.6.4"></a>让系统默认使用Python 3.6.4</h3><p>由于软连接指向被修改。此时 yum不能使用。需编辑一下 yum 的配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;usr&#x2F;bin&#x2F;yum</span><br></pre></td></tr></table></figure><p>把文件头部的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python2.7.5</span><br></pre></td></tr></table></figure><p>保存退出即可！shift+:输入wq</p><h3 id="建立新的链接"><a href="#建立新的链接" class="headerlink" title="建立新的链接"></a>建立新的链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf &#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">rm -rf &#x2F;usr&#x2F;bin&#x2F;py</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;bin&#x2F;python3.6  &#x2F;usr&#x2F;bin&#x2F;python</span><br></pre></td></tr></table></figure><h3 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;linux 的centos7 默认安装了 python2.7.5 , 需要升级到最新版本&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Centos7" scheme="https://www.rootfw.com/categories/Centos7/"/>
+    
+      <category term="python" scheme="https://www.rootfw.com/categories/Centos7/python/"/>
+    
+    
+      <category term="python" scheme="https://www.rootfw.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>trojan吹爆了！你了解v2ray吗？</title>
@@ -382,9 +407,9 @@
       <category term="centos7" scheme="https://www.rootfw.com/categories/Linux/centos7/"/>
     
     
-      <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
-    
       <category term="防火墙" scheme="https://www.rootfw.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    
+      <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
     
   </entry>
   
@@ -565,34 +590,6 @@
       <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
     
       <category term="定时重启" scheme="https://www.rootfw.com/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Brook centos7官方脚本搭建</title>
-    <link href="https://www.rootfw.com/posts/c695a206.html"/>
-    <id>https://www.rootfw.com/posts/c695a206.html</id>
-    <published>2020-06-10T01:58:30.000Z</published>
-    <updated>2020-08-06T11:05:12.892Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-更新服务器"><a href="#1-更新服务器" class="headerlink" title="1.更新服务器"></a>1.更新服务器</h3><p>1.输入sudo -i 进来root权限,  可自行选择升级内核,  yum update -y升级内核<br>2.yum install wget 下载wget工具<br>wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/brook">https://github.com/txthinking/brook/releases/download/v20190205/brook</a> 下载brook服务器版本<br>3.输入cp brook /usr/bin  把brook拷贝到bin目录下<br>4.chmod +x /usr/bin/brook 给予当前路径brook可执行权限<br>5.brook -h #查看帮助<br>6.nohup ./brook server -l :80 -p pass1234 &amp;  添加brook端口和密码且让brook在后台运行<br><strong>复制如下代码</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i   </span><br><span class="line">yum update -y</span><br><span class="line">yum install wget</span><br><span class="line">wget https://github.com/txthinking/brook/releases/download/v20190205/brook</span><br><span class="line">cp brook /usr/bin</span><br><span class="line">chmod +x /usr/bin/brook</span><br><span class="line">nohup ./brook server -l :80 -p pass1234 &amp;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="Brook设置随系统启动"><a href="#Brook设置随系统启动" class="headerlink" title="Brook设置随系统启动"></a>Brook设置随系统启动</h3><p>vi /etc/systemd/system/brook.service        用vi创建brook.service启动脚本</p><p>按” i “进入insert模式,输入脚本如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description &#x3D; This is brook</span><br><span class="line">            </span><br><span class="line">[Service]</span><br><span class="line">ExecStart &#x3D; &#x2F;usr&#x2F;bin&#x2F;.&#x2F;brook server -l :80 -p pass1234</span><br><span class="line">            </span><br><span class="line">[Install]</span><br><span class="line">WantedBy &#x3D; multi-user.target</span><br></pre></td></tr></table></figure><p>按Esc，输入”shift+:”输入wq 回车，保存并退出</p><p>赋予可执行属性并生效： </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;brook.service</span><br></pre></td></tr></table></figure><p>开启brook.service 服务  </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;brook.service</span><br></pre></td></tr></table></figure><p>reboot 重启vps </p><h3 id="查看brook服务是否正常运行这台"><a href="#查看brook服务是否正常运行这台" class="headerlink" title="查看brook服务是否正常运行这台"></a>查看brook服务是否正常运行这台</h3><p>如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service brook status -l     如果正常启动会返回绿色 active (running)</span><br><span class="line">service brook start         开启brook服务</span><br><span class="line">service brook stop          停止brook运行</span><br><span class="line">service brook restart       重启brook服务</span><br></pre></td></tr></table></figure><p>systemctl list-unit-files 查看brook脚本是否生效 当重新修改brook密码后 我们需重载信息输入systemctl daemon-reload 或者重新启动vps 输入reboot</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-更新服务器&quot;&gt;&lt;a href=&quot;#1-更新服务器&quot; class=&quot;headerlink&quot; title=&quot;1.更新服务器&quot;&gt;&lt;/a&gt;1.更新服务器&lt;/h3&gt;&lt;p&gt;1.输入sudo -i 进来root权限,  可自行选择升级内核,  yum update -y升级内核&lt;br&gt;2.yum install wget 下载wget工具&lt;br&gt;wget &lt;a href=&quot;https://github.com/txthinking/brook/releases/download/v20190205/brook&quot;&gt;https://github.com/txthinking/brook/releases/download/v20190205/brook&lt;/a&gt; 下载brook服务器版本&lt;br&gt;3.输入cp brook /usr/bin  把brook拷贝到bin目录下&lt;br&gt;4.chmod +x /usr/bin/brook 给予当前路径brook可执行权限&lt;br&gt;5.brook -h #查看帮助&lt;br&gt;6.nohup ./brook server -l :80 -p pass1234 &amp;amp;  添加brook端口和密码且让brook在后台运行&lt;br&gt;&lt;strong&gt;复制如下代码&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo -i   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum update -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum install wget&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget https://github.com/txthinking/brook/releases/download/v20190205/brook&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cp brook /usr/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;chmod +x /usr/bin/brook&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nohup ./brook server -l :80 -p pass1234 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="Brook" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/"/>
-    
-    
-      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
-      <category term="brook" scheme="https://www.rootfw.com/tags/brook/"/>
     
   </entry>
   
