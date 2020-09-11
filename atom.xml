@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-09-11T02:17:29.819Z</updated>
+  <updated>2020-09-11T02:21:34.691Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.rootfw.com/posts/cf6ba610.html"/>
     <id>https://www.rootfw.com/posts/cf6ba610.html</id>
     <published>2020-09-11T01:50:16.000Z</published>
-    <updated>2020-09-11T02:17:29.819Z</updated>
+    <updated>2020-09-11T02:21:34.691Z</updated>
     
     <content type="html"><![CDATA[<p>linux 的centos7 默认安装了 python2.7.5 , 需要升级到最新版本</p><a id="more"></a><h3 id="查看python-版本"><a href="#查看python-版本" class="headerlink" title="查看python 版本"></a>查看python 版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure><h3 id="查看软连接指向"><a href="#查看软连接指向" class="headerlink" title="查看软连接指向"></a>查看软连接指向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al &#x2F;usr&#x2F;bin&#x2F;python</span><br></pre></td></tr></table></figure><h3 id="重命名软连接"><a href="#重命名软连接" class="headerlink" title="重命名软连接"></a>重命名软连接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv &#x2F;usr&#x2F;bin&#x2F;python &#x2F;usr&#x2F;bin&#x2F;python2.7.5</span><br></pre></td></tr></table></figure><h3 id="下载并解压-python"><a href="#下载并解压-python" class="headerlink" title="下载并解压 python"></a>下载并解压 python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.6.4&#x2F;Python-3.6.4.tgz</span><br><span class="line">tar -xf Python-3.6.4.tgz</span><br></pre></td></tr></table></figure><h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd Python-3.6.4</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure><p>python3.6.4 已经安装到系统里了。 python2.7.5 由于软连接被重命名了。所以。你查看python 版本时候。会不存在</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">命令 ： python -V</span><br><span class="line">结果：  -bash: &#x2F;usr&#x2F;bin&#x2F;python: No such file or directory</span><br></pre></td></tr></table></figure><h3 id="让系统默认使用Python-3-6-4"><a href="#让系统默认使用Python-3-6-4" class="headerlink" title="让系统默认使用Python 3.6.4"></a>让系统默认使用Python 3.6.4</h3><p>由于软连接指向被修改。此时 yum不能使用。需编辑一下 yum 的配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;usr&#x2F;bin&#x2F;yum</span><br></pre></td></tr></table></figure><p>把文件头部的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;python2.7.5</span><br></pre></td></tr></table></figure><p>保存退出即可！shift+:输入wq</p><h3 id="建立新的链接"><a href="#建立新的链接" class="headerlink" title="建立新的链接"></a>建立新的链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf &#x2F;usr&#x2F;bin&#x2F;python</span><br><span class="line">rm -rf &#x2F;usr&#x2F;bin&#x2F;py</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;bin&#x2F;python3.6  &#x2F;usr&#x2F;bin&#x2F;python</span><br></pre></td></tr></table></figure><h3 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -V</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -407,9 +407,9 @@
       <category term="centos7" scheme="https://www.rootfw.com/categories/Linux/centos7/"/>
     
     
-      <category term="防火墙" scheme="https://www.rootfw.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
-    
       <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
+    
+      <category term="防火墙" scheme="https://www.rootfw.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
     
   </entry>
   
