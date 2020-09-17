@@ -407,9 +407,9 @@
       <category term="centos7" scheme="https://www.rootfw.com/categories/Linux/centos7/"/>
     
     
-      <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
-    
       <category term="防火墙" scheme="https://www.rootfw.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    
+      <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
     
   </entry>
   
