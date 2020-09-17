@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>v2ray新版本配置TLS - comebey</title>
+
+
+    <meta name="description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载  1.服务器时间同步设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间centos7时间同步 123date -Rtimedatectl set-local-rtc 1timedatectl set-timezone Asia&#x2F;Shanghai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v2ray新版本配置TLS">
+<meta property="og:url" content="https://www.rootfw.com/posts/3e3bccee.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载  1.服务器时间同步设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间centos7时间同步 123date -Rtimedatectl set-local-rtc 1timedatectl set-timezone Asia&#x2F;Shanghai">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/M_05.svg">
+<meta property="article:published_time" content="2020-07-28T06:54:23.000Z">
+<meta property="article:modified_time" content="2020-09-07T09:34:48.327Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="v2ray">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/M_05.svg">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/removeif/removeif.github.io@latest/img/wico.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/en/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    
+    
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1986829,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    
+    <link rel="stylesheet" href="/en/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/en/css/style.css">
+<link rel="alternate" href="/en/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/en/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="v2ray新版本配置TLS" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/en/">Home</a>
+                
+                <a class="navbar-item"
+                href="/en/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/en/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/en/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com/en/ || language">English</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/M_05.svg" alt="v2ray新版本配置TLS">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>v2ray新版本配置TLS
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-07-28T06:54:23.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-07-28</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-07T09:34:48.327Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-07</time>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    <i class="far fa-clock"></i>&nbsp;
+                    
+                    
+                    11 minutes read (About 1704 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p><a href="https://www.hostbuf.com/t/988.html">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html">Mobaxterm SSH连接工具下载</a> </p>
+<h3 id="1-服务器时间同步"><a href="#1-服务器时间同步" class="headerlink" title="1.服务器时间同步"></a>1.服务器时间同步</h3><p>设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间<br>centos7时间同步</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+
+<p>Debian系统同步时间如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">rm -rf /etc/localtime</span><br><span class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<h4 id="debian"><a href="#debian" class="headerlink" title="debian"></a>debian</h4><p>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install curl</span><br></pre></td></tr></table></figure>
+<h4 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h4><p>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br><span class="line">yum install curl</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装dat和release-sh"><a href="#2-安装dat和release-sh" class="headerlink" title="2.安装dat和release.sh"></a>2.安装dat和release.sh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</span><br><span class="line">curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh</span><br></pre></td></tr></table></figure>
+<h3 id="3-安装和更新V2Ray"><a href="#3-安装和更新V2Ray" class="headerlink" title="3.安装和更新V2Ray"></a>3.安装和更新V2Ray</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装v2ray输入如下内容"><a href="#安装v2ray输入如下内容" class="headerlink" title="安装v2ray输入如下内容"></a>安装v2ray输入如下内容</h4><p><code>最近v2fly维护版本拉取最新数据输出如下内容 &quot; + &quot; 代表目前输出内容，&quot; - &quot;代表在老版本基础上删除的信息</code></p>
+<figure class="highlight diff"><figcaption><span>每行代码 " + " ，" - "号忽略</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+info: unzip is installed.</span></span><br><span class="line"><span class="addition">+info: Extract the V2Ray package to /tmp/tmp.RS0y2YR2ZS/ and prepare it for installation.</span></span><br><span class="line"><span class="addition">+installed: /usr/local/bin/v2ray</span></span><br><span class="line"><span class="addition">+installed: /usr/local/bin/v2ctl</span></span><br><span class="line"><span class="addition">+installed: /usr/local/lib/v2ray/geoip.dat</span></span><br><span class="line"><span class="addition">+installed: /usr/local/lib/v2ray/geosite.dat</span></span><br><span class="line"><span class="addition">+installed: /usr/local/etc/v2ray/config.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/00_log.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/01_api.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/02_dns.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/03_routing.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/04_policy.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/05_inbounds.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/06_outbounds.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/07_transport.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/08_stats.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/09_reverse.json</span></span><br><span class="line"><span class="deletion">-installed: /var/log/v2ray/</span></span><br><span class="line"><span class="addition">+installed: /var/log/v2ray/access.log</span></span><br><span class="line"><span class="addition">+installed: /var/log/v2ray/error.log</span></span><br><span class="line"><span class="addition">+installed: /etc/systemd/system/v2ray.service</span></span><br><span class="line"><span class="addition">+installed: /etc/systemd/system/v2ray@.service</span></span><br><span class="line"><span class="addition">+removed: /tmp/tmp.KojGXm19Pa/</span></span><br><span class="line"><span class="addition">+info: V2Ray v4.27.0 is installed.</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-安裝最新發行的geoip-dat和geosite-dat"><a href="#4-安裝最新發行的geoip-dat和geosite-dat" class="headerlink" title="4.安裝最新發行的geoip.dat和geosite.dat"></a>4.安裝最新發行的geoip.dat和geosite.dat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-dat-release.sh</span><br></pre></td></tr></table></figure>
+<h3 id="5-创建和编辑配置文件"><a href="#5-创建和编辑配置文件" class="headerlink" title="5.创建和编辑配置文件"></a>5.创建和编辑配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;etc&#x2F;v2ray</span><br></pre></td></tr></table></figure>
+<p>在/usr/local/etc/v2ray下面创建一个新的config.json配置文件<br>复制以下代码到config.json</p>
+<figure class="highlight json"><figcaption><span>/usr/local/etc/v2ray</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">443</span>, <span class="comment">// 建议使用 443 端口</span></span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,    </span><br><span class="line">      <span class="attr">"settings"</span>: &#123;</span><br><span class="line">        <span class="attr">"clients"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"id"</span>: <span class="string">"23ad6b10-8d1ae3e35cd38297"</span>,  <span class="comment">//UUID</span></span><br><span class="line">            <span class="attr">"alterId"</span>: <span class="number">64</span> <span class="comment">//额外id</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>: <span class="string">"tcp"</span>, <span class="comment">//协议自己替换比如WS</span></span><br><span class="line">        <span class="attr">"security"</span>: <span class="string">"tls"</span>, <span class="comment">// security 要设置为 tls 才会启用 TLS</span></span><br><span class="line">        <span class="attr">"tlsSettings"</span>: &#123;</span><br><span class="line">          <span class="attr">"certificates"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="attr">"certificateFile"</span>: <span class="string">"/etc/v2ray/v2ray.crt"</span>, <span class="comment">// 证书文件</span></span><br><span class="line">              <span class="attr">"keyFile"</span>: <span class="string">"/etc/v2ray/v2ray.key"</span> <span class="comment">// 密钥文件</span></span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">      <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>v2ray调试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart v2ray</span><br><span class="line">sudo systemctl status -l v2ray</span><br></pre></td></tr></table></figure>
+<p>设置v2ray开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable v2ray</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-生成证书"><a href="#6-生成证书" class="headerlink" title="6.生成证书"></a>6.生成证书</h3><p><strong>如果你已经有其他证书可忽略，把证书和密钥放到服务器指定目录下。申请证书方法太多可通过安装acme.sh工具生成证书或其他方法生成证书，可Google搜索。</strong></p>
+<p><strong>1.安装acem.sh证书生成工具，以下提供3种方法安装，选其中任意一种方法安装证书工具 (温馨提示：自动升级acme.sh在root下输入 acme.sh upgrade)</strong></p>
+<figure class="highlight bash"><figcaption><span>/root/.acme.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh   // 如提示安装失败 请先安装curl 输入 yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O -  https://get.acme.sh | sh     //如提示安装失败请（先安装wget）输入 yum -y install wget 已经安装了忽略</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git   // 如提示安装失败 先安装git 已经安装了的忽略 输入 yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
+<p>通过以上代码安装acme.sh提示<code>红色</code>抱错 你可以按实际相关情况而定安装依赖 比如安装socat 或者 netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install socat     <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line">centos7  yum isntall netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">安装成功后执行 <span class="built_in">source</span> ~/.bashrc   <span class="comment">#以确保脚本所设置的命令别名生效</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2.生成证书 路径为/root/.acme.sh文件下 安装好后可自行查看</strong><br>  <strong>温馨提示：通过acme.sh生成证书有多种方法：</strong><br>  例如—自动DNS API集成 如：cloudflare DNS API 令牌 和 使用全局API密钥 acme.sh支持大多数dns生成证书<br>  例如—使用DNS手动模式，等多种其他安装方法，如果你是个好学的人可Google </p>
+<p>  生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用 <a href="http://www.baidu.com">www.baidu.com</a> 因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级 <a href="http://www.baidu.com">www.baidu.com</a> 可以备用你懂的 ）</p>
+<p><strong>1.通过侦听80端口申请证书，如果80端口被占用,请使用443端口,请确保这些端口都打开了</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure>
+<p><strong>2.如果您80在反向代理或负载均衡器后面使用非标准端口，则可以–httpport用来指定端口</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone --httpport 端口</span><br></pre></td></tr></table></figure>
+<p><strong>3.侦听443端口以颁发证书，请确保443端口开启</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn -k ec-256</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.如果您443在反向代理或负载均衡器后面使用非标准端口，则可以–tlsport用来指定端口</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn --tlsport 端口</span><br></pre></td></tr></table></figure>
+<p>  <strong>-k 表示密钥长度，后面的值可以是 ec-256 、ec-384、2048、3072、4096、8192，带有 ec 表示生成的是 ECC 证书，没有则是 RSA 证书。在安全性上 256 位的 ECC 证书等同于 3072 位的 RSA 证书</strong></p>
+<p>温馨提示：如何80或者443端口被占用导致我们无法申请密钥和证书，我们可以通过kill封杀端口在重新申请。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlnp|grep 80</span><br><span class="line">或者</span><br><span class="line">netstat -tlnp|grep 443</span><br><span class="line">然后</span><br><span class="line">kill 1103（这个1103是进程端口id）</span><br><span class="line"></span><br><span class="line">如果终止不了，可以强制终止</span><br><span class="line">kill -9 1103</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-证书和密钥安装到指定路径"><a href="#7-证书和密钥安装到指定路径" class="headerlink" title="7.证书和密钥安装到指定路径"></a>7.证书和密钥安装到指定路径</h3><p>/etc/v2ray （路径可自定义）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ecc 安装代码 sudo ~/.acme.sh/acme.sh --installcert -d 域名 --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc</span><br><span class="line"></span><br><span class="line">rsa 安装代码 sudo ~/.acme.sh/acme.sh --installcert -d 域名 --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key</span><br></pre></td></tr></table></figure>
+<p>將 /etc/v2ray/v2ray.key 修改為 644 权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-BBr安装"><a href="#8-BBr安装" class="headerlink" title="8.BBr安装"></a>8.BBr安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+<h3 id="9-查询tls开启状态"><a href="#9-查询tls开启状态" class="headerlink" title="9.查询tls开启状态"></a>9.查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可<br>关于config.json配置文件可以自己写，当然也包括其他各种负载均衡，反向代理。如果想短时间内提升自己的可以参加我的培训课。 </p>
+<h3 id="10-如果想卸载V2Ray执行下面代码"><a href="#10-如果想卸载V2Ray执行下面代码" class="headerlink" title="10.如果想卸载V2Ray执行下面代码"></a>10.如果想卸载V2Ray执行下面代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://t.me/RootInstitute">添加电报群</a></p>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/3e3bccee.html">v2ray新版本配置TLS</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/3e3bccee.html">https://www.rootfw.com/posts/3e3bccee.html</a></li>
+            <li><strong>发布时间：</strong>2020-07-28</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/en/tags/v2ray/" rel="tag">v2ray</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/en/posts/d2834d54.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">新版V2ray+WS+TLS+Nginx</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/en/posts/f3e24172.html">
+                <span class="level-item">v2ray官方新老脚本安装</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://www.rootfw.com/posts/3e3bccee.html';
+        this.page.identifier = 'posts/3e3bccee.html';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hasan-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="/en/images/avatar.png" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/en/archives">
+                        <p class="title has-text-weight-normal">
+                            26
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/en/categories">
+                        <p class="title has-text-weight-normal">
+                            14
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/en/tags">
+                        <p class="title has-text-weight-normal">
+                            20
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/WangTao_Im">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#1-服务器时间同步">
+        <span class="has-mr-6">1</span>
+        <span>1.服务器时间同步</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#debian">
+        <span class="has-mr-6">1.1</span>
+        <span>debian</span>
+        </a></li><li>
+        <a class="is-flex" href="#centos7">
+        <span class="has-mr-6">1.2</span>
+        <span>centos7</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-安装dat和release-sh">
+        <span class="has-mr-6">2</span>
+        <span>2.安装dat和release.sh</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-安装和更新V2Ray">
+        <span class="has-mr-6">3</span>
+        <span>3.安装和更新V2Ray</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安装v2ray输入如下内容">
+        <span class="has-mr-6">3.1</span>
+        <span>安装v2ray输入如下内容</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#4-安裝最新發行的geoip-dat和geosite-dat">
+        <span class="has-mr-6">4</span>
+        <span>4.安裝最新發行的geoip.dat和geosite.dat</span>
+        </a></li><li>
+        <a class="is-flex" href="#5-创建和编辑配置文件">
+        <span class="has-mr-6">5</span>
+        <span>5.创建和编辑配置文件</span>
+        </a></li><li>
+        <a class="is-flex" href="#6-生成证书">
+        <span class="has-mr-6">6</span>
+        <span>6.生成证书</span>
+        </a></li><li>
+        <a class="is-flex" href="#7-证书和密钥安装到指定路径">
+        <span class="has-mr-6">7</span>
+        <span>7.证书和密钥安装到指定路径</span>
+        </a></li><li>
+        <a class="is-flex" href="#8-BBr安装">
+        <span class="has-mr-6">8</span>
+        <span>8.BBr安装</span>
+        </a></li><li>
+        <a class="is-flex" href="#9-查询tls开启状态">
+        <span class="has-mr-6">9</span>
+        <span>9.查询tls开启状态</span>
+        </a></li><li>
+        <a class="is-flex" href="#10-如果想卸载V2Ray执行下面代码">
+        <span class="has-mr-6">10</span>
+        <span>10.如果想卸载V2Ray执行下面代码</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/en/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="v2ray新版本配置TLS" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/en/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/en/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/en/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/en/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/en/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/en/js/insight.js" defer></script>
+<link rel="stylesheet" href="/en/css/search.css">
+<link rel="stylesheet" href="/en/css/insight.css">
+    
+</body>
+</html>
