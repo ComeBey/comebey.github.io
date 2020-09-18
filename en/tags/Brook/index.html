@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: brook - comebey</title>
+<title>Tag: Brook - comebey</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="comebey">
-<meta property="og:url" content="https://www.rootfw.com/tags/brook/index.html">
+<meta property="og:url" content="https://www.rootfw.com/tags/Brook/index.html">
 <meta property="og:site_name" content="comebey">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
@@ -153,7 +153,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/en/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">brook</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Brook</a></li>
         </ul>
         </nav>
     </div>
@@ -165,15 +165,15 @@
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/en/posts/c695a206.html"><i class="fas fa-angle-double-right"></i>Brook centos7官方脚本搭建</a>
+                <a class="has-link-black-ter" href="/en/posts/10db3eaa.html"><i class="fas fa-angle-double-right"></i>Brook crontab定时重启</a>
             
         </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-06-10T01:58:30.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
+                <time class="level-item has-text-grey" datetime="2020-06-10T04:45:36.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-06T11:05:12.892Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-06</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-06T11:06:42.318Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-06</time>
                 
                 
                 <div class="level-item">
@@ -186,7 +186,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    2 minutes read (About 368 words)
+                    6 minutes read (About 835 words)
                 </span>
                 
                 
@@ -194,8 +194,10 @@
         </div>
         
         <div class="content">
-            <h3 id="1-更新服务器"><a href="#1-更新服务器" class="headerlink" title="1.更新服务器"></a>1.更新服务器</h3><p>1.输入sudo -i 进来root权限,  可自行选择升级内核,  yum update -y升级内核<br>2.yum install wget 下载wget工具<br>wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/brook">https://github.com/txthinking/brook/releases/download/v20190205/brook</a> 下载brook服务器版本<br>3.输入cp brook /usr/bin  把brook拷贝到bin目录下<br>4.chmod +x /usr/bin/brook 给予当前路径brook可执行权限<br>5.brook -h #查看帮助<br>6.nohup ./brook server -l :80 -p pass1234 &amp;  添加brook端口和密码且让brook在后台运行<br><strong>复制如下代码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i   </span><br><span class="line">yum update -y</span><br><span class="line">yum install wget</span><br><span class="line">wget https://github.com/txthinking/brook/releases/download/v20190205/brook</span><br><span class="line">cp brook /usr/bin</span><br><span class="line">chmod +x /usr/bin/brook</span><br><span class="line">nohup ./brook server -l :80 -p pass1234 &amp;</span><br></pre></td></tr></table></figure>
+            <p>以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)<br><strong>方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install ntp ntpdate   //安装ntpdate工具</span><br><span class="line">ntpdate cn.pool.ntp.org     //设置系统时间与本地网络时间同步</span><br><span class="line">hwclock --systohc          //将系统时间写入硬件时间</span><br></pre></td></tr></table></figure>
+<p><strong>方法2.校准时间同步本地时间  date -R 查看vps时间</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install ntp                //安装ntp服务</span><br><span class="line">systemctl <span class="built_in">enable</span> ntpd              //开机启动服务</span><br><span class="line">systemctl start ntpd              //启动服务</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai           //更改时区</span><br><span class="line">timedatectl <span class="built_in">set</span>-ntp yes           //启用ntp同步</span><br><span class="line">ntpq -p          //同步时间</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -206,13 +208,13 @@
                 
                 <div class="level-item is-size-7 is-uppercase">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/en/tags/brook/" rel="tag">brook</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a>
+                    <a class="has-link-grey -link" href="/en/tags/Brook/" rel="tag">Brook</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/" rel="tag">定时重启</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a>
                 </div>
                 
             </div>
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/en/posts/c695a206.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;Read More</a>
+                <a class="button is-size-7 is-light" href="/en/posts/10db3eaa.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;Read More</a>
                 </div>
             </div>
         </div>
@@ -1338,18 +1340,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
-            },
-            CONTENT_URL: '/en/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/en/js/insight.js" defer></script>
-<link rel="stylesheet" href="/en/css/search.css">
-<link rel="stylesheet" href="/en/css/insight.css">
-    
-</body>
-</html>              UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/en/content.json',
         };
