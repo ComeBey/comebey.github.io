@@ -168,67 +168,6 @@
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/en/posts/3ba3d10d.html"><i class="fas fa-angle-double-right"></i>v2ray TCP原生配置</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-06-10T00:39:10.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-06-25T04:14:00.155Z"><i class="far fa-calendar-check">&nbsp;</i>2020-06-25</time>
-                
-                
-                <div class="level-item">
-                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    <i class="far fa-clock"></i>&nbsp;
-                    
-                    
-                    6 minutes read (About 844 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            <h2 id="Linux-安装脚本"><a href="#Linux-安装脚本" class="headerlink" title="Linux 安装脚本"></a>Linux 安装脚本</h2><p>V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自动检测有没有安装过 V2Ray，如果没有，则进行完整的安装和配置；如果之前安装过 V2Ray，则只更新 V2Ray 二进制程序而不更新配置。</p>
-<p>以下指令假设已在 su 环境下，如果不是，请先运行 sudo su。</p>
-<p>运行下面的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon</p>
-<h2 id="安装v2ray官方代码-老版本代码"><a href="#安装v2ray官方代码-老版本代码" class="headerlink" title="安装v2ray官方代码(老版本代码)"></a>安装v2ray官方代码(老版本代码)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br></pre></td></tr></table></figure>
-<p>运行下面的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon</p>
-<h2 id="vps服务器时间同步本地时间"><a href="#vps服务器时间同步本地时间" class="headerlink" title="vps服务器时间同步本地时间"></a>vps服务器时间同步本地时间</h2><p>debian系统vps时间同步本地时间 (先输入sudo -i在同步时间 必须同步时间切记)<br>     <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -i     <span class="comment">#root权限</span></span><br><span class="line">sudo -R     <span class="comment">#查看vps服务器时间</span></span><br><span class="line">rm -rf /etc/localtime </span><br><span class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime     <span class="comment">#同步上海时间，如果您在海外请同步所在国家的时间</span></span><br></pre></td></tr></table></figure><br>centos7系统vps时间同步本地时间（先输入dudo -i在同步时间 必须同步时间切记）<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shangha                   <span class="comment">#同步上海时间，如果您在海外请同步所在国家的时间</span></span><br><span class="line">sudo -R                                                 <span class="comment">#重新查看本地时间</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置v2ray服务端"><a href="#配置v2ray服务端" class="headerlink" title="配置v2ray服务端"></a>配置v2ray服务端</h2><p>root权限下输入vi /etc/v2ray/config.json配置界面<br>长按键盘上 D键 清除所有当前配置，在按键盘上 Ins键 或者 键盘 i键<br>把下面代码复制并且黏贴到服务器中，在按键盘上ESC键，输入 ：wq 保存退出</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"log"</span>: &#123;</span><br><span class="line">        <span class="string">"access"</span>: <span class="string">"/var/log/v2ray/access.log"</span>,</span><br><span class="line">        <span class="string">"error"</span>: <span class="string">"/var/log/v2ray/error.log"</span>,</span><br><span class="line">        <span class="string">"loglevel"</span>: <span class="string">"warning"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"inbound"</span>: &#123;</span><br><span class="line">        <span class="string">"port"</span>: 12345, //请在防火墙开启对应的端口</span><br><span class="line">        <span class="string">"protocol"</span>: <span class="string">"vmess"</span>,  //vmess协议</span><br><span class="line">        <span class="string">"settings"</span>: &#123;</span><br><span class="line">            <span class="string">"clients"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"id"</span>: <span class="string">"db790014-700d-9b1c-d987-5aed2afa60ae"</span>,  //UUid 这个ID可以通过v2ray客户端生成new替换</span><br><span class="line">                    <span class="string">"level"</span>: 1,</span><br><span class="line">                    <span class="string">"alterId"</span>: 52  //额外id</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"outbound"</span>: &#123;</span><br><span class="line">        <span class="string">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">        <span class="string">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"inboundDetour"</span>: [],</span><br><span class="line">    <span class="string">"outboundDetour"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"protocol"</span>: <span class="string">"blackhole"</span>,</span><br><span class="line">            <span class="string">"settings"</span>: &#123;&#125;,</span><br><span class="line">            <span class="string">"tag"</span>: <span class="string">"blocked"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"routing"</span>: &#123;</span><br><span class="line">        <span class="string">"strategy"</span>: <span class="string">"rules"</span>,</span><br><span class="line">        <span class="string">"settings"</span>: &#123;</span><br><span class="line">            <span class="string">"rules"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="string">"type"</span>: <span class="string">"field"</span>,</span><br><span class="line">                    <span class="string">"ip"</span>: [</span><br><span class="line">                        <span class="string">"0.0.0.0/8"</span>,</span><br><span class="line">                        <span class="string">"10.0.0.0/8"</span>,</span><br><span class="line">                        <span class="string">"100.64.0.0/10"</span>,</span><br><span class="line">                        <span class="string">"127.0.0.0/8"</span>,</span><br><span class="line">                        <span class="string">"169.254.0.0/16"</span>,</span><br><span class="line">                        <span class="string">"172.16.0.0/12"</span>,</span><br><span class="line">                        <span class="string">"192.0.0.0/24"</span>,</span><br><span class="line">                        <span class="string">"192.0.2.0/24"</span>,</span><br><span class="line">                        <span class="string">"192.168.0.0/16"</span>,</span><br><span class="line">                        <span class="string">"198.18.0.0/15"</span>,</span><br><span class="line">                        <span class="string">"198.51.100.0/24"</span>,</span><br><span class="line">                        <span class="string">"203.0.113.0/24"</span>,</span><br><span class="line">                        <span class="string">"::1/128"</span>,</span><br><span class="line">                        <span class="string">"fc00::/7"</span>,</span><br><span class="line">                        <span class="string">"fe80::/10"</span></span><br><span class="line">                    ],</span><br><span class="line">                    <span class="string">"outboundTag"</span>: <span class="string">"blocked"</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h2><p>不同VPS服务器设置不一样，请在服务器网页后台添加防火墙规则，有些服务器后台没有防火墙设置则需要代码开启<br>启动防火墙： systemctl start firewalld<br>开机启动：systemctl enable firewalld.service<br>查看状态： systemctl status firewalld<br>开启12345端口：firewall-cmd –zone=public –add-port=12345/tcp –permanen 开12345tcp端口（端口自定义保持和v2ray端口一致）<br>重新加载防火墙：sudo firewall-cmd –reload<br>重新启动防火墙：systemctl restart firewalld </p>
-<h2 id="查看v2ray运行程序"><a href="#查看v2ray运行程序" class="headerlink" title="查看v2ray运行程序"></a>查看v2ray运行程序</h2><p>   输入代码service v2ray start 开启v2ray<br>   输入代码service v2ray stop  关闭v2ray<br>   输入代码service v2ray restart  重新启动v2ray<br>   输入代码service v2ray status -l 查看v2ray运行状态</p>
-
-        </div>
-        
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
                 <a class="has-link-black-ter" href="/en/posts/65f94be0.html"><i class="fas fa-angle-double-right"></i>v2ray下载安装</a>
             
         </h1>
@@ -444,7 +383,7 @@
                     </p>
                     <a href="/en/categories">
                         <p class="title has-text-weight-normal">
-                            14
+                            16
                         </p>
                     </a>
                 </div>
@@ -620,6 +559,22 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/en/categories/vpn/">
+            <span class="level-start">
+                <span class="level-item">vpn</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/en/categories/vpn/v2ray/">
+            <span class="level-start">
+                <span class="level-item">v2ray</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
         <a class="level is-marginless" href="/en/categories/%E6%9A%97%E7%BD%91/">
             <span class="level-start">
                 <span class="level-item">暗网</span>
@@ -633,7 +588,7 @@
                 <span class="level-item">科学上网</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">16</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/">
@@ -665,7 +620,7 @@
                 <span class="level-item">v2ray</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">13</span>
+                <span class="level-item tag">12</span>
             </span>
         </a></li></ul></li>
             </ul>
@@ -771,16 +726,16 @@
             
             <a href="/en/posts/d2834d54.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="新版V2ray+WS+TLS+Nginx">
+                    <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="V2ray+WS+TLS+Nginx">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-28T14:18:07.000Z">2020-07-28</time></div>
-                    <a href="/en/posts/d2834d54.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">新版V2ray+WS+TLS+Nginx</a>
+                    <a href="/en/posts/d2834d54.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">V2ray+WS+TLS+Nginx</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a> / <a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
+                        <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a> / <a class="has-link-grey -link" href="/en/categories/vpn/v2ray/">v2ray</a>
                     </p>
                 </div>
             </div>
@@ -1096,16 +1051,16 @@
             
             <a href="/en/posts/d2834d54.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="新版V2ray+WS+TLS+Nginx">
+                    <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="V2ray+WS+TLS+Nginx">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-28T14:18:07.000Z">2020-07-28</time></div>
-                    <a href="/en/posts/d2834d54.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">新版V2ray+WS+TLS+Nginx</a>
+                    <a href="/en/posts/d2834d54.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">V2ray+WS+TLS+Nginx</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a> / <a class="has-link-grey -link" href="/en/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
+                        <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a> / <a class="has-link-grey -link" href="/en/categories/vpn/v2ray/">v2ray</a>
                     </p>
                 </div>
             </div>
