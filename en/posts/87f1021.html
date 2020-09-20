@@ -10,18 +10,18 @@
 <title>Github API - comebey</title>
 
 
-    <meta name="description" content="对于常用Github的用户来说，经常有一些自动化的需求。比如我的需求是定时备份Github的issues和comments到本地。以下为Github的API的使用参考">
+    <meta name="description" content="For users who use Github, there are often some automation requirements. For example, my requirement is to regularly backup Github issues and comments locally. The following is a reference for using G">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github API">
 <meta property="og:url" content="https://www.rootfw.com/posts/87f1021.html">
 <meta property="og:site_name" content="comebey">
-<meta property="og:description" content="对于常用Github的用户来说，经常有一些自动化的需求。比如我的需求是定时备份Github的issues和comments到本地。以下为Github的API的使用参考">
+<meta property="og:description" content="For users who use Github, there are often some automation requirements. For example, my requirement is to regularly backup Github issues and comments locally. The following is a reference for using G">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/vector_landscape_2.svg">
 <meta property="article:published_time" content="2020-08-06T13:09:35.000Z">
-<meta property="article:modified_time" content="2020-08-11T10:29:53.841Z">
+<meta property="article:modified_time" content="2020-09-20T12:06:11.604Z">
 <meta property="article:author" content="comebey">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="-github">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/vector_landscape_2.svg">
 
@@ -172,12 +172,12 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-08-06T13:09:35.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-08-06</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-11T10:29:53.841Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-11</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T12:06:11.604Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/en/categories/github/">github</a>
+                <a class="has-link-grey -link" href="/en/categories/github/">-github</a>
                 </div>
                 
                 
@@ -185,7 +185,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    7 minutes read (About 1028 words)
+                    5 minutes read (About 706 words)
                 </span>
                 
                 
@@ -199,19 +199,19 @@
         
         <div class="content">
             <article class="message is-warning"><div class="message-body">
-<p>对于常用Github的用户来说，经常有一些自动化的需求。比如我的需求是定时备份Github的issues和comments到本地。以下为Github的API的使用参考</p>
+<p>For users who use Github, there are often some automation requirements. For example, my requirement is to regularly backup Github issues and comments locally. The following is a reference for using Github’s API</p>
 </div></article>
 <a id="more"></a>
-<h3 id="基本访问路径-Root-Endpoints"><a href="#基本访问路径-Root-Endpoints" class="headerlink" title="基本访问路径 (Root Endpoints)"></a>基本访问路径 (Root Endpoints)</h3><article class="message is-info"><div class="message-body">
-<p>一开始读文档的时候，照着它的事例直接在命令行里curl，或者在InSomnia或Postman软件里访问，都完美显示200状态。可是一旦把链接里改写成自己的用户名就各种显示404无页面。还以为是授权问题，然后在页头HEADER中按照各种方式试了username和token密钥，都没用还是404。结果发现，原来不是方法的问题，纯粹是链接地址没写对！<br>实际上只是读取的话，完全不用任何授权，可以在命令行、Insomnia、网页等各种情况下直接输入链接访问任何人的所有公开信息。<br>然后对照官方路径列表Root Endpoints得到的链接，好像怎么访问都不对。反而在Stackoverflow中看到的一个链接，顺藤摸瓜自己发现了各种正确的访问路径，总结如下：</p>
+<h3 id="Basic-Access-Path-Root-Endpoints"><a href="#Basic-Access-Path-Root-Endpoints" class="headerlink" title="Basic Access Path (Root Endpoints)"></a>Basic Access Path (Root Endpoints)</h3><article class="message is-info"><div class="message-body">
+<p>When reading the document at the beginning, follow its example to curl directly on the command line, or access it in InSomnia or Postman software, and the 200 status is perfectly displayed. But once I rewrite my username in the link, it will display 404 without page. I thought it was an authorization problem, and then tried various ways in the header HEADER for username and token keys, but it was useless or 404. It turned out that it was not a problem with the method, but the link address was not written correctly!<br>In fact, if you just read it, you don’t need any authorization at all. You can directly enter the link in the command line, Insomnia, web page and other situations to access all public information of anyone.<br>Then check the official path list Root Endpoints to get the link, it seems that how to access it is wrong. Instead, I saw a link in Stackoverflow. I found various correct access paths along the way, summarized as follows:</p>
 </div></article>
 
 
-<p>首先！访问的链接最后不能有/。如<a href="https://api.github.com/users/solomonxie是可以访问到我个人信息的，但是https://api.github.com/users/solomonxie/就不行了，唯一不同是多了一个/">https://api.github.com/users/solomonxie是可以访问到我个人信息的，但是https://api.github.com/users/solomonxie/就不行了，唯一不同是多了一个/</a>.<br>其次！不同于一般URL访问，GIthub的API访问链接是区分大小写的！<br>个人主要信息。 <a href="https://api.github.com/users/用户名,得到数据如下图：">https://api.github.com/users/用户名,得到数据如下图：</a><br>image</p>
-<p>个人所有repo。<a href="https://api.github.com/users/用户名/repos。会得到一个repo的JSON格式列表。">https://api.github.com/users/用户名/repos。会得到一个repo的JSON格式列表。</a><br>repo详细信息。<a href="https://api.github.com/repos/用户名/仓库名。repo的路径就开始和个人信息不同了。">https://api.github.com/repos/用户名/仓库名。repo的路径就开始和个人信息不同了。</a><br>获取某个repo的内容列表。<a href="https://api.github.com/repos/solomonxie/gists/contents，注意这只会返回根目录的内容。">https://api.github.com/repos/solomonxie/gists/contents，注意这只会返回根目录的内容。</a><br>获取repo中子目录的内容列表。<a href="https://api.github.com/repos/solomonxie/gists/contents/目录名。一定要注意这里一定要完全遵循原文件名的大小写，否则无法获得信息。如果是更深层的内容，则在链接列按照顺序逐级写上目录名称。">https://api.github.com/repos/solomonxie/gists/contents/目录名。一定要注意这里一定要完全遵循原文件名的大小写，否则无法获得信息。如果是更深层的内容，则在链接列按照顺序逐级写上目录名称。</a><br>获取repo中某文件信息（不包括内容）。<a href="https://api.github.com/repos/solomonxie/gists/contents/文件路径。文件路径是文件的完整路径，区分大小写。只会返回文件基本信息。">https://api.github.com/repos/solomonxie/gists/contents/文件路径。文件路径是文件的完整路径，区分大小写。只会返回文件基本信息。</a><br>获取某文件的原始内容（Raw）。1. 通过上面的文件信息中提取download_url这条链接，就能获取它的原始内容了。2. 或者直接访问：<a href="https://raw.githubusercontent.com/用户名/仓库名/分支名/文件路径">https://raw.githubusercontent.com/用户名/仓库名/分支名/文件路径</a><br>repo中所有的commits列表。<a href="https://api.github.com/repos/用户名/仓库名/commits。">https://api.github.com/repos/用户名/仓库名/commits。</a><br>某一条commit详情。<a href="https://api.github.com/repos/用户名/仓库名/commits/某一条commit的SHA">https://api.github.com/repos/用户名/仓库名/commits/某一条commit的SHA</a><br>issues列表。<a href="https://api.github.com/repos/用户名/仓库名/issues。">https://api.github.com/repos/用户名/仓库名/issues。</a><br>某条issue详情。<a href="https://api.github.com/repos/用户名/仓库名/issues/序号。issues都是以1,2,3这样的序列排号的。">https://api.github.com/repos/用户名/仓库名/issues/序号。issues都是以1,2,3这样的序列排号的。</a><br>某issue中的comments列表。<a href="https://api.github.com/repos/用户名/仓库名/issues/序号/comments。">https://api.github.com/repos/用户名/仓库名/issues/序号/comments。</a><br>某comment详情。<a href="https://api.github.com/repos/用户名/仓库名/issues/comments/评论详情的ID。其中评论ID是从issues列表中获得的。">https://api.github.com/repos/用户名/仓库名/issues/comments/评论详情的ID。其中评论ID是从issues列表中获得的。</a></p>
-<h3 id="查询参数-Parameters"><a href="#查询参数-Parameters" class="headerlink" title="查询参数 (Parameters)"></a>查询参数 (Parameters)</h3><p>如果在上面基本链接中加入查询条件，那么返回的数据就是filtered，过滤了的。比如要求只返回正在开放的issues，或者让列表数据分页显示。常用如下：</p>
-<p>分页功能。格式是?page=页数&amp;per_page=每页包含数量。<br>如<a href="https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3">https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3</a></p>
-<p>issues状态。格式是?state=状态。<br>如<a href="https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed">https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed</a></p>
+<p>First of all! The visited link cannot have / at the end. For example, <a href="https://api.github.com/users/solomonxie">https://api.github.com/users/solomonxie</a> can access my personal information, but <a href="https://api.github.com/users/solomonxie/">https://api.github.com/users/solomonxie/</a> does not work. The only difference is that there is one more/.<br>Second! Unlike general URL access, Github’s API access links are case sensitive!<br>Personal main information. <a href="https://api.github.com/users/">https://api.github.com/users/</a> username, the data obtained is as follows:<br>image</p>
+<p>Personally owned repo. <a href="https://api.github.com/users/username/repos">https://api.github.com/users/username/repos</a>. Will get a list of repo in JSON format.<br>Repo details. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name. The path of the repo began to be different from the personal information.<br>Get the content list of a repo. <a href="https://api.github.com/repos/solomonxie/gists/contents">https://api.github.com/repos/solomonxie/gists/contents</a>, note that this will only return the contents of the root directory.<br>Get the content list of subdirectories in the repo. <a href="https://api.github.com/repos/solomonxie/gists/contents/">https://api.github.com/repos/solomonxie/gists/contents/</a> directory name. It must be noted that the capitalization of the original file name must be completely followed here, otherwise the information cannot be obtained. If it is a deeper content, write the name of the directory in the link column in order.<br>Get information about a file in the repo (not including content). <a href="https://api.github.com/repos/solomonxie/gists/contents/">https://api.github.com/repos/solomonxie/gists/contents/</a> file path. The file path is the full path of the file and is case sensitive. Only basic file information will be returned.<br>Get the original content (Raw) of a file. 1. Extract the download_url link from the above file information, and then you can get its original content. 2. Or visit directly: <a href="https://raw.githubusercontent.com/username/warehouse">https://raw.githubusercontent.com/username/warehouse</a> name/branch name/file path<br>A list of all commits in the repo. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/commits.<br>Details of a certain commit. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/commits/SHA of a certain commit<br>List of issues. <a href="https://api.github.com/repos/username/repository">https://api.github.com/repos/username/repository</a> name/issues.<br>Details of an issue. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/issues/ serial number. Issues are listed in the order of 1, 2, and 3.<br>A list of comments in an issue. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/issues/serial number/comments.<br>Details of a comment. <a href="https://api.github.com/repos/Username/Repository">https://api.github.com/repos/Username/Repository</a> Name/issues/comments/ ID of comment details. The comment ID is obtained from the issues list.</p>
+<h3 id="Query-parameters-Parameters"><a href="#Query-parameters-Parameters" class="headerlink" title="Query parameters (Parameters)"></a>Query parameters (Parameters)</h3><p>If you add query conditions to the basic link above, then the returned data is filtered. For example, it is required to return only the open issues, or to display the list data in pages. Commonly used as follows:</p>
+<p>Paging function. The format is?page=page number&amp;per_page=each page contains number.<br>Such as <a href="https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3">https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3</a></p>
+<p>Issue status. The format is?state=state.<br>Such as <a href="https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed">https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed</a></p>
 
         </div>
         
@@ -220,7 +220,7 @@
             <li><strong>Author：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>URL：</strong><a href="https://www.rootfw.com/posts/87f1021.html">https://www.rootfw.com/posts/87f1021.html</a></li>
             <li><strong>Posted on：</strong>2020-08-06</li>
-            <li><strong>Licensed under：</strong>All articles in this blog are used except for special statements <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> agreement. Please indicate the source!
+            <li><strong>Licensed unde：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
         
@@ -230,7 +230,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/en/tags/github/" rel="tag">github</a>
+                    <a class="has-link-grey -link" href="/en/tags/github/" rel="tag">-github</a>
                 </div>
             </div>
         </div>
@@ -369,7 +369,7 @@
                     </p>
                     <a href="/en/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            22
                         </p>
                     </a>
                 </div>
@@ -381,7 +381,7 @@
                     </p>
                     <a href="/en/categories">
                         <p class="title has-text-weight-normal">
-                            16
+                            22
                         </p>
                     </a>
                 </div>
@@ -393,7 +393,7 @@
                     </p>
                     <a href="/en/tags">
                         <p class="title has-text-weight-normal">
-                            20
+                            17
                         </p>
                     </a>
                 </div>
@@ -444,13 +444,13 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#基本访问路径-Root-Endpoints">
+        <a class="is-flex" href="#Basic-Access-Path-Root-Endpoints">
         <span class="has-mr-6">1</span>
-        <span>基本访问路径 (Root Endpoints)</span>
+        <span>Basic Access Path (Root Endpoints)</span>
         </a></li><li>
-        <a class="is-flex" href="#查询参数-Parameters">
+        <a class="is-flex" href="#Query-parameters-Parameters">
         <span class="has-mr-6">2</span>
-        <span>查询参数 (Parameters)</span>
+        <span>Query parameters (Parameters)</span>
         </a></li></ul>
             </div>
         </div>
