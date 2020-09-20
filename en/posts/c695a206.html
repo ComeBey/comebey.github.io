@@ -7,19 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Brook centos7官方脚本搭建 - comebey</title>
+<title>Brook install - comebey</title>
 
 
-    <meta name="description" content="1. Update server Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel yum install wget download wget toolwget https:&#x2F;&#x2F;github.com&#x2F;txthinking&#x2F;b">
+    <meta name="description" content="1. Update server Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel yum install wget download wget tool">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Brook centos7官方脚本搭建">
+<meta property="og:title" content="Brook install">
 <meta property="og:url" content="https://www.rootfw.com/posts/c695a206.html">
 <meta property="og:site_name" content="comebey">
-<meta property="og:description" content="1. Update server Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel yum install wget download wget toolwget https:&#x2F;&#x2F;github.com&#x2F;txthinking&#x2F;b">
+<meta property="og:description" content="1. Update server Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel yum install wget download wget tool">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
 <meta property="article:published_time" content="2020-06-10T01:58:30.000Z">
-<meta property="article:modified_time" content="2020-09-20T12:05:17.822Z">
+<meta property="article:modified_time" content="2020-09-20T13:10:25.590Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="brook">
 <meta name="twitter:card" content="summary">
@@ -99,7 +99,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/en/">
             
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook centos7官方脚本搭建" height="28">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook install" height="28">
             
             </a>
         </div>
@@ -158,7 +158,7 @@
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Brook centos7官方脚本搭建
+                <i class="fas fa-angle-double-right"></i>Brook install
             
         </h1>
         
@@ -166,7 +166,7 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-06-10T01:58:30.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T12:05:17.822Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T13:10:25.590Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
                 
                 
                 <div class="level-item">
@@ -194,7 +194,8 @@
         <div class="content">
             <h3 id="1-Update-server"><a href="#1-Update-server" class="headerlink" title="1. Update server"></a>1. Update server</h3><ol>
 <li>Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel</li>
-<li>yum install wget download wget tool<br>wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/brook">https://github.com/txthinking/brook/releases/download/v20190205/brook</a> download brook server version</li>
+<li>yum install wget download wget tool<a id="more"></a>
+wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/brook">https://github.com/txthinking/brook/releases/download/v20190205/brook</a> download brook server version</li>
 <li>Enter cp brook /usr/bin to copy brook to the bin directory</li>
 <li>chmod +x /usr/bin/brook gives the current path brook executable permissions</li>
 <li>brook -h #View help</li>
@@ -202,8 +203,6 @@
 </ol>
 <p><strong>Copy the following code</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line">yum update -y</span><br><span class="line">yum install wget</span><br><span class="line">wget https://github.com/txthinking/brook/releases/download/v20190205/brook</span><br><span class="line">cp brook /usr/bin</span><br><span class="line">chmod +x /usr/bin/brook</span><br><span class="line">nohup ./brook server -l :80 -p pass1234 &amp;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
 
 <h3 id="Brook-settings-start-with-the-system"><a href="#Brook-settings-start-with-the-system" class="headerlink" title="Brook settings start with the system"></a>Brook settings start with the system</h3><p>vi /etc/systemd/system/brook.service Create brook.service startup script with vi<br>To<br>Press “i” to enter insert mode, enter the script as follows</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    [Unit]</span><br><span class="line">    Description &#x3D; This is brook</span><br><span class="line">                </span><br><span class="line">    [Service]</span><br><span class="line">    ExecStart &#x3D; &#x2F;usr&#x2F;bin&#x2F;.&#x2F;brook server -l :80 -p pass1234</span><br><span class="line">                </span><br><span class="line">    [Install]</span><br><span class="line">    WantedBy &#x3D; multi-user.target</span><br><span class="line">To</span><br></pre></td></tr></table></figure>
@@ -222,7 +221,7 @@
         </div>
         
             <ul class="post-copyright">
-            <li><strong>title：</strong><a href="https://www.rootfw.com/posts/c695a206.html">Brook centos7官方脚本搭建</a></li>
+            <li><strong>title：</strong><a href="https://www.rootfw.com/posts/c695a206.html">Brook install</a></li>
             <li><strong>Author：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>URL：</strong><a href="https://www.rootfw.com/posts/c695a206.html">https://www.rootfw.com/posts/c695a206.html</a></li>
             <li><strong>Posted on：</strong>2020-06-10</li>
@@ -387,7 +386,7 @@
                     </p>
                     <a href="/en/categories">
                         <p class="title has-text-weight-normal">
-                            21
+                            23
                         </p>
                     </a>
                 </div>
@@ -399,7 +398,7 @@
                     </p>
                     <a href="/en/tags">
                         <p class="title has-text-weight-normal">
-                            17
+                            20
                         </p>
                     </a>
                 </div>
@@ -484,7 +483,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/en/">
                 
-                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook centos7官方脚本搭建" height="28">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook install" height="28">
                 
                 </a>
                 <p class="is-size-7">
