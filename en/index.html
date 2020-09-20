@@ -152,77 +152,6 @@
     
 <div class="card">
     
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/en/posts/f4a1c961.html"><i class="fas fa-angle-double-right"></i>v2ray流量中转</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-09-17T09:23:54.956Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-09-17</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T12:56:34.856Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
-                
-                
-                <div class="level-item">
-                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/en/categories/vpn-v2ray/">-vpn -v2ray</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    <i class="far fa-clock"></i>&nbsp;
-                    
-                    
-                    7 minutes read (About 1014 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>When we are surfing the Internet scientifically, sometimes because the server-to-you local delay is too high, it will affect our use. When all the server-side configurations meet the needs (of course, including line problems), constantly too high will definitely cause illness There are many ways to transfer servers. Today we use v2ray, which will directly cause data transmission and affect the access rate, at least: the network speed is very slow, replace the package, then how can we reduce the delay? How to improve it? We can solve this problem by transferring traffic. Let’s configure a very simple transfer. Warm reminder: Today I will only discuss pure transfer, not server lines.<br>&lt;! -More-&gt;<br>! <a href="Https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/20200708074625805.png"></a><br>I drew a topology diagram to briefly explain:<br><code>1. Suppose that when the PC accesses server B, the delay is 60ms + 80ms = 140ms or higher, and server B is a middle-upper configuration server with a large traffic G port. Assuming that the peak delay is not above 140 140~560/ms, even if your server is configured well and has a large traffic G port, because the continuity is too high. If the vps line itself is not optimized, the disease may be extremely high and the packets may be dropped. Once the packet is disconnected, it will directly affect the normal access data and network speed.</code><br>&lt;! -More-&gt;</p>
-<p><code>2. Assuming that when the PC transfers to the server via server A, the delay is within 30 milliseconds. This server is not well configured, and is accessing the transferred server through the transfer server (finally accesses the external router server, assuming that the server is configured well). Server B is in 35ms delay, a total of 65ms, compared to the above 140ms-65ms = 75ms, which reduces the 75ms continuous, this kind of transfer is only possible, and the optimization effect of the BBR kernel is very very obvious.</code></p>
-<h3 id="Dokodemo-door"><a href="#Dokodemo-door" class="headerlink" title="Dokodemo door"></a>Dokodemo door</h3><p>It is a predetermined data protocol, it can monitor the port, and the data entering this port is sent to the port of the designated server, so as to achieve the effect of port mapping and traffic forwarding.</p>
-<p>###Local environment<br>One <code>vultr</code> server centos7 (of course you can also use other versions of servers)<br>Click this link to register and pay via Alipay with a minimum consumption of 10 US dollars = around 70 RMB, you can get (100 US dollars valid for 30 days use) <a href="https://www.vultr.com/?ref=8623585">https://www.vultr.com/?ref=8623585</a></p>
-<p>The telecommunications network is 100 megabytes, the PC computer is about 30 meters away from the router, and the WiFi on both sides of the subnet uses 5G transmission<br>In the actual test vultr, I chose the lowest configuration in Japan that is 5 US dollars a month, and the delay is around 200~230 or even higher. The dropped packets within one minute are very, very alternate (I only say roughly)</p>
-<p>###Install v2ray<br>Of course, you can also use the new version of the v2ray script or other circumvention services to install, Google search by yourself, this script is the old version of v2ray, please configure the relevant config.json` parameters after installation, and ensure that you can successfully access the external network.<br>Install v2ray official script<br>``<br>bash &lt;(curl -L -s <a href="https://install.direct/go.sh">https://install.direct/go.sh</a>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Configure config.json</span><br><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;Inbound&quot;: [&#123;</span><br><span class="line">    &quot;Port&quot;: 10073, &#x2F;&#x2F;port</span><br><span class="line">    &quot;Protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">    &quot;Settings&quot;: &#123;</span><br><span class="line">      &quot;client&quot;:[</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;Id&quot;: &quot;e61f55bf-8450-4fa6-884e-4b46b64122c4&quot;, &#x2F;&#x2F; UUid</span><br><span class="line">          &quot;Level 1,</span><br><span class="line">          &quot;AlterId&quot;: 64</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;],</span><br><span class="line">  &quot;Outbound&quot;: [&#123;</span><br><span class="line">    &quot;Protocol&quot;: &quot;free&quot;,</span><br><span class="line">    &quot;Settings&quot;:&#123;&#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    &quot;Protocol&quot;: &quot;blackhole&quot;,</span><br><span class="line">    &quot;Settings&quot;: &#123;&#125;,</span><br><span class="line">    &quot;Tag&quot;: &quot;Blocked&quot;</span><br><span class="line">  &#125;],</span><br><span class="line">  &quot;routing&quot;:&#123;</span><br><span class="line">    &quot;rule&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;Type&quot;: &quot;field&quot;,</span><br><span class="line">        &quot;Ip&quot;: [&quot; geoip: private&quot;],</span><br><span class="line">        &quot;OutboundTag&quot;: &quot;Blocked&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Open <code>port</code> in the v2ray configuration information (if it is Google Cloud, you can also add firewall rules)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone &#x3D; public --add-port&#x3D;port&#x2F;protocol --permanent</span><br><span class="line">Firewall cmd-reload</span><br></pre></td></tr></table></figure>
-<p>Then see if you can access the Internet normally, and continue to look down if it makes sense</p>
-<p>###Configure Dokodemo door<br>Prepare another server server Google Cloud or other brand servers, and also install the official v2ray script (please do not use one-click installation scripts other than the official script)</p>
-<p>``<br>bash &lt;(curl -L -s <a href="https://install.direct/go.sh">https://install.direct/go.sh</a>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Reminder: you can use &#96;vi or vim or nano&#96; to edit</span><br><span class="line">json</span><br><span class="line">vi &#x2F;etc&#x2F;v2ray&#x2F;config.json</span><br></pre></td></tr></table></figure>
-
-<p>Delete all the initial configuration information, long press the keyboard <code>D key</code> to clear it, press the keyboard <code>I</code> until the prompt <code>inster</code> (press once if there is no prompt), and then paste the code below<br><strong>method one</strong><br>json<br>{<br>  “Inbound”: [{<br>  “Port”: 23213, // your inbound port of the rotor network<br>  “Listen”: “0.0.0.0”,<br>  “Protocol”: “dokodemo-door”,<br>  “Settings”: {<br>    “Address”:”111.222.333.444”,//You got the external router ip inside the information<br>    “Port”: 32334, //The port of the overseas router inside the information you obtained<br>    “Network”: “tcp, udp”<br>  },<br>  “Label”: “”,<br>  “Sniffing”: {<br>    “Enabled”: Yes,<br>    “DestOverride”:[<br>      “Http”,<br>      “Tls”<br>    ]<br>  }<br>}],</p>
-<p>  “Outbound”: [{<br>    “Protocol”: “free”,<br>    “Settings”:{}<br>  }, {<br>    “Protocol”: “blackhole”,<br>    “Settings”: {},<br>    “Tag”: “Blocked”<br>  }],<br>  “routing”:{<br>    “rule”:[<br>      {<br>        “Type”: “field”,<br>        “Ip”: [“ geoip: private”],<br>        “OutboundTag”: “Blocked”<br>      }<br>    ]<br>  }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">**Method Two**</span><br><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;Log&quot;: &#123;</span><br><span class="line">    &quot;Access&quot;: &quot;&#x2F;var&#x2F;log&#x2F;v2ray&#x2F;access.log&quot;,</span><br><span class="line">    &quot;Error&quot;: &quot;&#x2F;var&#x2F;log&#x2F;v2ray&#x2F;error.log&quot;,</span><br><span class="line">    &quot;Loglevel&quot;: &quot;Warning&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;Inbound&quot;:[</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;Port&quot;: ###, &#x2F;&#x2F;port</span><br><span class="line">      &quot;Protocol&quot;: &quot;vmess&quot;,&#x2F;&#x2F;The inbound protocol is VMess</span><br><span class="line">      &quot;Settings&quot;: &#123;</span><br><span class="line">        &quot;client&quot;:[</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;Id&quot;: &quot;#######&quot;, &#x2F;&#x2F; UUID</span><br><span class="line">            &quot;Level&quot;: 1,</span><br><span class="line">            &quot;AlterId&quot;: 64</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;Outbound&quot;:[</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;Protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">      &quot;Settings&quot;: &#123;</span><br><span class="line">        &quot;Vnext&quot;:[</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;Address&quot;:&quot; #######&quot;, &#x2F;&#x2F;server address</span><br><span class="line">            &quot;Port&quot;: #####,&#x2F;&#x2F;server port</span><br><span class="line">            &quot;user&quot;:[</span><br><span class="line">                &#123;&quot; id&quot;: &quot;#####&quot;&#125; &#x2F;&#x2F;User UUID, which should be the same as the foreign server configuration</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;Protocol&quot;: &quot;blackhole&quot;,</span><br><span class="line">      &quot;Settings&quot;: &#123;&#125;,</span><br><span class="line">      &quot;Tag&quot;: &quot;block&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F;Increase free outgoing detours and direct domestic traffic</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;Protocol&quot;: &quot;free&quot;,</span><br><span class="line">      &quot;Tag&quot;: &quot;direct&quot;,</span><br><span class="line">      &quot;Settings&quot;:&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;Routing&quot;:&#123;&#x2F;&#x2F;Routing settings</span><br><span class="line">   &quot;DomainStrategy&quot;:&quot;IPOnDemand&quot;,</span><br><span class="line">    &quot;Strategy&quot;: &quot;rules&quot;,</span><br><span class="line">    &quot;rule&quot;:[</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;Type&quot;: &quot;field&quot;,&#x2F;&#x2F;Allow the client to access the initial address of the server to improve security</span><br><span class="line">        &quot;Ip&quot;:[</span><br><span class="line">          &quot;Geoip: private&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;OutboundTag&quot;: &quot;Block&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#x2F;&#x2F;Configure domestic website and IP direct connection rules</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;Type&quot;: &quot;field&quot;, &#x2F;&#x2F;For some common domestic websites, direct connection mode is also used</span><br><span class="line">        &quot;area&quot;:[</span><br><span class="line">          &quot;Geosite:cn&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;OutboundTag&quot;: &quot;Direct&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;Type&quot;: &quot;field&quot;,&#x2F;&#x2F;For all domestic IP, direct connection mode is adopted</span><br><span class="line">        &quot;Ip&quot;:[</span><br><span class="line">          &quot;Geoip:cn&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;OutboundTag&quot;: &quot;Direct&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Finally restart v2ray to check whether v2ray is running successfully</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Service v2ray restart</span><br><span class="line">Service v2ray status -l</span><br></pre></td></tr></table></figure>
-<p>The actual test of the blogger is very, very slow when there is no transfer, and the speed of the snail is the same. After the transfer, the speed is directly increased to more than 6w. I will explain it in detail in the video.</p>
-
-        </div>
-        
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
     <div class="card-image">
         <a href="/en/posts/cf6ba610.html" class="image is-7by1">
             <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/m2.svg" alt="Centos7 upgrade python2 to python3">
@@ -371,6 +300,76 @@
 
 
 
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/en/posts/93baa7dd.html"><i class="fas fa-angle-double-right"></i>V2ray vless+WebSocket+TLS+Nginx</a>
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-08-23T05:56:29.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-08-23</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T12:46:24.414Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/en/categories/VPN/">VPN</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/VPN/v2ray/">v2ray</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/VPN/v2ray/VLESS/">VLESS</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    <i class="far fa-clock"></i>&nbsp;
+                    
+                    
+                    19 minutes read (About 2840 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <article class="message is-default"><div class="message-body">
+<p>Currently VLESS does not have its own encryption, please use it for reliable channels, such as TLS.<br>VLESS is in the public beta. During the test, please ensure that both the client and server v2ray-core are the latest version.<br>The internal test warehouse of VLESS is <a href="https://github.com/rprx/v2ray-vless">rprx/v2ray-vless</a>, and the new version of the PREVIEW series will be merged into [v2fly/v2ray-core] after a period of release (<a href="https://github.com/v2fly/v2ray-core">https://github.com/v2fly/v2ray-core</a>). Please upgrade the <code>v2ray core</code> client to the latest version by yourself</p>
+</div></article>
+        </div>
+        
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <div class="level-item is-size-7 is-uppercase">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/en/tags/v2ray/" rel="tag">v2ray</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/vless/" rel="tag">vless</a>
+                </div>
+                
+            </div>
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/en/posts/93baa7dd.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
     
 <div class="card card-transparent">
@@ -439,7 +438,7 @@
                     </p>
                     <a href="/en/archives">
                         <p class="title has-text-weight-normal">
-                            21
+                            20
                         </p>
                     </a>
                 </div>
@@ -451,7 +450,7 @@
                     </p>
                     <a href="/en/categories">
                         <p class="title has-text-weight-normal">
-                            22
+                            21
                         </p>
                     </a>
                 </div>
@@ -611,14 +610,6 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/en/categories/vpn-v2ray/">
-            <span class="level-start">
-                <span class="level-item">-vpn -v2ray</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/en/categories/vpn-v2ray-trojan/">
             <span class="level-start">
                 <span class="level-item">-vpn -v2ray -trojan</span>
@@ -756,25 +747,6 @@
         
         <article class="media">
             
-            <a href="/en/posts/f4a1c961.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/en/images/thumbnail.svg" alt="v2ray流量中转">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-09-17T09:23:54.956Z">2020-09-17</time></div>
-                    <a href="/en/posts/f4a1c961.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">v2ray流量中转</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/en/categories/vpn-v2ray/">-vpn -v2ray</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/en/posts/cf6ba610.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/m2.svg" alt="Centos7 upgrade python2 to python3">
@@ -849,6 +821,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/en/posts/d2834d54.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="V2ray+WS+TLS+Nginx">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-28T14:18:07.000Z">2020-07-28</time></div>
+                    <a href="/en/posts/d2834d54.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">V2ray+WS+TLS+Nginx</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a> / <a class="has-link-grey -link" href="/en/categories/vpn/v2ray/">v2ray</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
             
@@ -866,7 +857,7 @@
                     <span class="level-item">September 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1060,25 +1051,6 @@
         
         <article class="media">
             
-            <a href="/en/posts/f4a1c961.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/en/images/thumbnail.svg" alt="v2ray流量中转">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-09-17T09:23:54.956Z">2020-09-17</time></div>
-                    <a href="/en/posts/f4a1c961.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">v2ray流量中转</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/en/categories/vpn-v2ray/">-vpn -v2ray</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/en/posts/cf6ba610.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/m2.svg" alt="Centos7 upgrade python2 to python3">
@@ -1153,6 +1125,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/en/posts/d2834d54.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="V2ray+WS+TLS+Nginx">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-28T14:18:07.000Z">2020-07-28</time></div>
+                    <a href="/en/posts/d2834d54.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">V2ray+WS+TLS+Nginx</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a> / <a class="has-link-grey -link" href="/en/categories/vpn/v2ray/">v2ray</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -1170,7 +1161,7 @@
                     <span class="level-item">September 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
