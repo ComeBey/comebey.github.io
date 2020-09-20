@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
 <meta property="article:published_time" content="2020-09-17T09:23:54.956Z">
-<meta property="article:modified_time" content="2020-09-20T12:27:40.919Z">
+<meta property="article:modified_time" content="2020-09-20T12:56:34.856Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="v2ray">
 <meta property="article:tag" content="ssr">
@@ -166,7 +166,7 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-09-17T09:23:54.956Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-09-17</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T12:27:40.919Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T12:56:34.856Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
                 
                 
                 <div class="level-item">
@@ -179,7 +179,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    7 minutes read (About 1013 words)
+                    7 minutes read (About 1014 words)
                 </span>
                 
                 
@@ -192,8 +192,7 @@
         </div>
         
         <div class="content">
-            <p>When we are surfing the Internet scientifically, sometimes because the server-to-you local delay is too high, it will affect our use. When all the server-side configurations meet the needs (of course, including line problems), constantly too high will definitely cause illness There are many ways to transfer servers. Today we use v2ray, which will directly cause data transmission and affect the access rate, at least: the network speed is very slow, replace the package, then how can we reduce the delay? How to improve it? We can solve this problem by transferring traffic. Let’s configure a very simple transfer. Warm reminder: Today I will only discuss pure transfer, not server lines.</p>
-<p>! <a href="Https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/20200708074625805.png"></a><br>I drew a topology diagram to briefly explain:<br><code>1. Suppose that when the PC accesses server B, the delay is 60ms + 80ms = 140ms or higher, and server B is a middle-upper configuration server with a large traffic G port. Assuming that the peak delay is not above 140 140~560/ms, even if your server is configured well and has a large traffic G port, because the continuity is too high. If the vps line itself is not optimized, the disease may be extremely high and the packets may be dropped. Once the packet is disconnected, it will directly affect the normal access data and network speed.</code><br>&lt;! -More-&gt;</p>
+            <p>When we are surfing the Internet scientifically, sometimes because the server-to-you local delay is too high, it will affect our use. When all the server-side configurations meet the needs (of course, including line problems), constantly too high will definitely cause illness There are many ways to transfer servers. Today we use v2ray, which will directly cause data transmission and affect the access rate, at least: the network speed is very slow, replace the package, then how can we reduce the delay? How to improve it? We can solve this problem by transferring traffic. Let’s configure a very simple transfer. Warm reminder: Today I will only discuss pure transfer, not server lines.<br>&lt;! -More-&gt;<br>! <a href="Https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/20200708074625805.png"></a><br>I drew a topology diagram to briefly explain:<br><code>1. Suppose that when the PC accesses server B, the delay is 60ms + 80ms = 140ms or higher, and server B is a middle-upper configuration server with a large traffic G port. Assuming that the peak delay is not above 140 140~560/ms, even if your server is configured well and has a large traffic G port, because the continuity is too high. If the vps line itself is not optimized, the disease may be extremely high and the packets may be dropped. Once the packet is disconnected, it will directly affect the normal access data and network speed.</code><br>&lt;! -More-&gt;</p>
 <p><code>2. Assuming that when the PC transfers to the server via server A, the delay is within 30 milliseconds. This server is not well configured, and is accessing the transferred server through the transfer server (finally accesses the external router server, assuming that the server is configured well). Server B is in 35ms delay, a total of 65ms, compared to the above 140ms-65ms = 75ms, which reduces the 75ms continuous, this kind of transfer is only possible, and the optimization effect of the BBR kernel is very very obvious.</code></p>
 <h3 id="Dokodemo-door"><a href="#Dokodemo-door" class="headerlink" title="Dokodemo door"></a>Dokodemo door</h3><p>It is a predetermined data protocol, it can monitor the port, and the data entering this port is sent to the port of the designated server, so as to achieve the effect of port mapping and traffic forwarding.</p>
 <p>###Local environment<br>One <code>vultr</code> server centos7 (of course you can also use other versions of servers)<br>Click this link to register and pay via Alipay with a minimum consumption of 10 US dollars = around 70 RMB, you can get (100 US dollars valid for 30 days use) <a href="https://www.vultr.com/?ref=8623585">https://www.vultr.com/?ref=8623585</a></p>
@@ -353,7 +352,7 @@
                     </p>
                     <a href="/en/archives">
                         <p class="title has-text-weight-normal">
-                            22
+                            21
                         </p>
                     </a>
                 </div>
