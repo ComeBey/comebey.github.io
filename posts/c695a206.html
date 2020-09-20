@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en">
+<html  lang="zh">
 <head>
     <meta charset="utf-8" />
 
@@ -7,23 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Brook install - comebey</title>
+<title>Brook centos7官方脚本搭建 - comebey</title>
 
 
-    <meta name="description" content="1. Update server Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel yum install wget download wget tool">
+    <meta name="description" content="1.更新服务器1.输入sudo -i 进来root权限,  可自行选择升级内核,  yum update -y升级内核2.yum install wget 下载wget工具wget https:&#x2F;&#x2F;github.com&#x2F;txthinking&#x2F;brook&#x2F;releases&#x2F;download&#x2F;v20190205&#x2F;brook 下载brook服务器版本3.输入cp brook &#x2F;usr&#x2F;bin  把bro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Brook install">
+<meta property="og:title" content="Brook centos7官方脚本搭建">
 <meta property="og:url" content="https://www.rootfw.com/posts/c695a206.html">
 <meta property="og:site_name" content="comebey">
-<meta property="og:description" content="1. Update server Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel yum install wget download wget tool">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
+<meta property="og:description" content="1.更新服务器1.输入sudo -i 进来root权限,  可自行选择升级内核,  yum update -y升级内核2.yum install wget 下载wget工具wget https:&#x2F;&#x2F;github.com&#x2F;txthinking&#x2F;brook&#x2F;releases&#x2F;download&#x2F;v20190205&#x2F;brook 下载brook服务器版本3.输入cp brook &#x2F;usr&#x2F;bin  把bro">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
 <meta property="article:published_time" content="2020-06-10T01:58:30.000Z">
-<meta property="article:modified_time" content="2020-09-20T13:10:25.590Z">
+<meta property="article:modified_time" content="2020-08-06T11:05:12.892Z">
 <meta property="article:author" content="comebey">
+<meta property="article:tag" content="翻墙">
 <meta property="article:tag" content="brook">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.rootfw.com/en/images/og_image.png">
+<meta name="twitter:image" content="https://www.rootfw.com/images/og_image.png">
 
 
 
@@ -57,7 +58,7 @@
     
     
     
-<link rel="stylesheet" href="/en/css/back-to-top.css">
+<link rel="stylesheet" href="/css/back-to-top.css">
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
@@ -83,23 +84,23 @@
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
     
-    <link rel="stylesheet" href="/en/css/progressbar.css">
+    <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
     <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
-<link rel="stylesheet" href="/en/css/style.css">
-<link rel="alternate" href="/en/atom.xml" title="comebey" type="application/atom+xml">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
 </head>
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/en/">
+            <a class="navbar-item navbar-logo" href="/">
             
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook install" height="28">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook centos7官方脚本搭建" height="28">
             
             </a>
         </div>
@@ -108,19 +109,19 @@
             <div class="navbar-start">
                 
                 <a class="navbar-item"
-                href="/en/">Home</a>
+                href="/">首页</a>
                 
                 <a class="navbar-item"
-                href="/en/archives">Archives</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
-                href="/en/categories">Categories</a>
+                href="/categories">分类</a>
                 
                 <a class="navbar-item"
-                href="/en/tags">Tags</a>
+                href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="https://rootfw.com">中文</a>
+                href="https://rootfw.com/en/">English</a>
                 
             </div>
             
@@ -135,12 +136,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -158,7 +159,7 @@
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Brook install
+                <i class="fas fa-angle-double-right"></i>Brook centos7官方脚本搭建
             
         </h1>
         
@@ -166,12 +167,12 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-06-10T01:58:30.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T13:10:25.590Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-06T11:05:12.892Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-06</time>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/vpn/brook/">brook</a>
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/">Brook</a>
                 </div>
                 
                 
@@ -179,53 +180,47 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    2 minutes read (About 291 words)
+                    2 分钟 读完 (大约 368 个字)
                 </span>
                 
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span> visits
+                    <span id="busuanzi_value_page_pv">0</span>次访问
                 </span>
                 
             </div>
         </div>
         
         <div class="content">
-            <h3 id="1-Update-server"><a href="#1-Update-server" class="headerlink" title="1. Update server"></a>1. Update server</h3><ol>
-<li>Enter sudo -i to enter root privileges, you can choose to upgrade the kernel, yum update -y upgrades the kernel</li>
-<li>yum install wget download wget tool<a id="more"></a>
-wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/brook">https://github.com/txthinking/brook/releases/download/v20190205/brook</a> download brook server version</li>
-<li>Enter cp brook /usr/bin to copy brook to the bin directory</li>
-<li>chmod +x /usr/bin/brook gives the current path brook executable permissions</li>
-<li>brook -h #View help</li>
-<li>nohup ./brook server -l :80 -p pass1234 &amp; add brook port and password and let brook run in the background</li>
-</ol>
-<p><strong>Copy the following code</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line">yum update -y</span><br><span class="line">yum install wget</span><br><span class="line">wget https://github.com/txthinking/brook/releases/download/v20190205/brook</span><br><span class="line">cp brook /usr/bin</span><br><span class="line">chmod +x /usr/bin/brook</span><br><span class="line">nohup ./brook server -l :80 -p pass1234 &amp;</span><br></pre></td></tr></table></figure>
+            <h3 id="1-更新服务器"><a href="#1-更新服务器" class="headerlink" title="1.更新服务器"></a>1.更新服务器</h3><p>1.输入sudo -i 进来root权限,  可自行选择升级内核,  yum update -y升级内核<br>2.yum install wget 下载wget工具<br>wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/brook">https://github.com/txthinking/brook/releases/download/v20190205/brook</a> 下载brook服务器版本<br>3.输入cp brook /usr/bin  把brook拷贝到bin目录下<br>4.chmod +x /usr/bin/brook 给予当前路径brook可执行权限<br>5.brook -h #查看帮助<br>6.nohup ./brook server -l :80 -p pass1234 &amp;  添加brook端口和密码且让brook在后台运行<br><strong>复制如下代码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo -i   </span><br><span class="line">yum update -y</span><br><span class="line">yum install wget</span><br><span class="line">wget https://github.com/txthinking/brook/releases/download/v20190205/brook</span><br><span class="line">cp brook /usr/bin</span><br><span class="line">chmod +x /usr/bin/brook</span><br><span class="line">nohup ./brook server -l :80 -p pass1234 &amp;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Brook-settings-start-with-the-system"><a href="#Brook-settings-start-with-the-system" class="headerlink" title="Brook settings start with the system"></a>Brook settings start with the system</h3><p>vi /etc/systemd/system/brook.service Create brook.service startup script with vi<br>To<br>Press “i” to enter insert mode, enter the script as follows</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    [Unit]</span><br><span class="line">    Description &#x3D; This is brook</span><br><span class="line">                </span><br><span class="line">    [Service]</span><br><span class="line">    ExecStart &#x3D; &#x2F;usr&#x2F;bin&#x2F;.&#x2F;brook server -l :80 -p pass1234</span><br><span class="line">                </span><br><span class="line">    [Install]</span><br><span class="line">    WantedBy &#x3D; multi-user.target</span><br><span class="line">To</span><br></pre></td></tr></table></figure>
-<p>Press Esc, enter “shift+:”, enter wq, press Enter, save and exit</p>
-<p>Give executable attributes and take effect:</p>
+<a id="more"></a>
+
+<h3 id="Brook设置随系统启动"><a href="#Brook设置随系统启动" class="headerlink" title="Brook设置随系统启动"></a>Brook设置随系统启动</h3><p>vi /etc/systemd/system/brook.service        用vi创建brook.service启动脚本</p>
+<p>按” i “进入insert模式,输入脚本如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description &#x3D; This is brook</span><br><span class="line">            </span><br><span class="line">[Service]</span><br><span class="line">ExecStart &#x3D; &#x2F;usr&#x2F;bin&#x2F;.&#x2F;brook server -l :80 -p pass1234</span><br><span class="line">            </span><br><span class="line">[Install]</span><br><span class="line">WantedBy &#x3D; multi-user.target</span><br></pre></td></tr></table></figure>
+<p>按Esc，输入”shift+:”输入wq 回车，保存并退出</p>
+<p>赋予可执行属性并生效： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;brook.service</span><br></pre></td></tr></table></figure>
-<p>Open brook.service service</p>
+<p>开启brook.service 服务  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;brook.service</span><br></pre></td></tr></table></figure>
-<p>reboot restart vps</p>
-<h3 id="Check-if-brook-service-is-running-normally"><a href="#Check-if-brook-service-is-running-normally" class="headerlink" title="Check if brook service is running normally"></a>Check if brook service is running normally</h3><p>The following code:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service brook status -l will return to green if started normally active (running)</span><br><span class="line">service brook start start brook service</span><br><span class="line">service brook stop stop brook running</span><br><span class="line">service brook restart restart brook service</span><br></pre></td></tr></table></figure>
+<p>reboot 重启vps </p>
+<h3 id="查看brook服务是否正常运行这台"><a href="#查看brook服务是否正常运行这台" class="headerlink" title="查看brook服务是否正常运行这台"></a>查看brook服务是否正常运行这台</h3><p>如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service brook status -l     如果正常启动会返回绿色 active (running)</span><br><span class="line">service brook start         开启brook服务</span><br><span class="line">service brook stop          停止brook运行</span><br><span class="line">service brook restart       重启brook服务</span><br></pre></td></tr></table></figure>
 
 
-<p>systemctl list-unit-files Check whether the Brook script takes effect. After re-modifying the Brook password, we need to reload the information and enter systemctl daemon-reload or restart vps and enter reboot</p>
+<p>systemctl list-unit-files 查看brook脚本是否生效 当重新修改brook密码后 我们需重载信息输入systemctl daemon-reload 或者重新启动vps 输入reboot</p>
 
         </div>
         
             <ul class="post-copyright">
-            <li><strong>title：</strong><a href="https://www.rootfw.com/posts/c695a206.html">Brook install</a></li>
-            <li><strong>Author：</strong><a href="https://www.rootfw.com">comebey</a></li>
-            <li><strong>URL：</strong><a href="https://www.rootfw.com/posts/c695a206.html">https://www.rootfw.com/posts/c695a206.html</a></li>
-            <li><strong>Posted on：</strong>2020-06-10</li>
-            <li><strong>Licensed unde：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/c695a206.html">Brook centos7官方脚本搭建</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/c695a206.html">https://www.rootfw.com/posts/c695a206.html</a></li>
+            <li><strong>发布时间：</strong>2020-06-10</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
         
@@ -235,7 +230,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
             <div class="level-start">
                 <div class="level-item">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/en/tags/brook/" rel="tag">brook</a>
+                    <a class="has-link-grey -link" href="/tags/brook/" rel="tag">brook</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a>
                 </div>
             </div>
         </div>
@@ -254,7 +249,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
                 
@@ -262,8 +257,8 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
     <span class="icon is-small">
         <i class="fab fa-alipay"></i>
     </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="Alipay"></div>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="支付宝"></div>
 </a>
 
                 
@@ -272,8 +267,8 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
     <span class="icon is-small">
         <i class="fab fa-weixin"></i>
     </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="Wechat"></div>
+    <span>微信</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="微信"></div>
 </a>
 
                 
@@ -287,16 +282,16 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/en/posts/10db3eaa.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/10db3eaa.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Brook crontab use</span>
+                <span class="level-item">Brook crontab定时重启</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/en/posts/65f94be0.html">
-                <span class="level-item">v2ray下载安装</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/3ba3d10d.html">
+                <span class="level-item">v2ray TCP原生配置</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -308,7 +303,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <script>
     var disqus_config = function () {
@@ -345,7 +340,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
                 <div>
                     
                     <figure class="image is-200x200 has-mb-6">
-                        <img class="" src="/en/images/avatar.png" alt="ComeBey">
+                        <img class="" src="/images/avatar.png" alt="ComeBey">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -370,11 +365,11 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        文章
                     </p>
-                    <a href="/en/archives">
+                    <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            19
+                            27
                         </p>
                     </a>
                 </div>
@@ -382,11 +377,11 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        分类
                     </p>
-                    <a href="/en/categories">
+                    <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            25
+                            17
                         </p>
                     </a>
                 </div>
@@ -394,11 +389,11 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        标签
                     </p>
-                    <a href="/en/tags">
+                    <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            20
+                            21
                         </p>
                     </a>
                 </div>
@@ -407,7 +402,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
-                Follow</a>
+                关注我</a>
         </div>
         
         
@@ -446,20 +441,20 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    Catalogue
+                    目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#1-Update-server">
+        <a class="is-flex" href="#1-更新服务器">
         <span class="has-mr-6">1</span>
-        <span>1. Update server</span>
+        <span>1.更新服务器</span>
         </a></li><li>
-        <a class="is-flex" href="#Brook-settings-start-with-the-system">
+        <a class="is-flex" href="#Brook设置随系统启动">
         <span class="has-mr-6">2</span>
-        <span>Brook settings start with the system</span>
+        <span>Brook设置随系统启动</span>
         </a></li><li>
-        <a class="is-flex" href="#Check-if-brook-service-is-running-normally">
+        <a class="is-flex" href="#查看brook服务是否正常运行这台">
         <span class="has-mr-6">3</span>
-        <span>Check if brook service is running normally</span>
+        <span>查看brook服务是否正常运行这台</span>
         </a></li></ul>
             </div>
         </div>
@@ -481,9 +476,9 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
     <div class="container">
         <div class="level">
             <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/en/">
+                <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook install" height="28">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/whale.png" alt="Brook centos7官方脚本搭建" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -493,7 +488,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
-                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                共<span id="busuanzi_value_site_uv">0</span>个访客
                 </span>
                 
                 </p>
@@ -526,7 +521,7 @@ wget <a href="https://github.com/txthinking/brook/releases/download/v20190205/br
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
+<script>moment.locale("zh-CN");</script>
 
 
 <script>
@@ -551,13 +546,13 @@ var IcarusThemeSettings = {
 
 
 
-<script src="/en/js/animation.js"></script>
+<script src="/js/animation.js"></script>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/en/js/gallery.js" defer></script>
+<script src="/js/gallery.js" defer></script>
 
 
 
@@ -603,10 +598,10 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
-<script src="/en/js/back-to-top.js" defer></script>
+<script src="/js/back-to-top.js" defer></script>
 
 
 
@@ -621,13 +616,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-<script src="/en/js/main.js" defer></script>
+<script src="/js/main.js" defer></script>
 
     
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -639,20 +634,20 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
-            CONTENT_URL: '/en/content.json',
+            CONTENT_URL: '/content.json',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
 </script>
-<script src="/en/js/insight.js" defer></script>
-<link rel="stylesheet" href="/en/css/search.css">
-<link rel="stylesheet" href="/en/css/insight.css">
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
     
 </body>
 </html>
