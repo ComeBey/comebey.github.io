@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-09-20T14:18:52.776Z</updated>
+  <updated>2020-10-05T09:05:54.896Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>v2ray配置访问TOR浏览器</title>
+    <link href="https://www.rootfw.com/posts/b75d3efe.html"/>
+    <id>https://www.rootfw.com/posts/b75d3efe.html</id>
+    <published>2020-10-05T08:52:23.000Z</published>
+    <updated>2020-10-05T09:05:54.896Z</updated>
+    
+    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="文章已进行加密，需要密码才能继续阅读." data-whm="无效的密码。请检查并重试.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">请输入访问密码.</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="c81c75c4a397fbed6fde01f7099ae7633acd749c84589fa5a6d172739266d25b">cd56cf0ee10ea0a16d7a030409e33a8eb3d90fcd77cb5c34e5e69054b87a0910</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    
+    <summary type="html">
+    
+      无权限访问，需要密码才能继续阅读.
+    
+    </summary>
+    
+    
+      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
+    
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>翻墙之高级玩法</title>
+    <link href="https://www.rootfw.com/posts/c517d4f7.html"/>
+    <id>https://www.rootfw.com/posts/c517d4f7.html</id>
+    <published>2020-09-22T11:02:28.000Z</published>
+    <updated>2020-09-22T11:11:56.259Z</updated>
+    
+    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="文章已进行加密，需要密码才能继续阅读." data-whm="无效的密码。请检查并重试.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">请输入访问密码.</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="c81c75c4a397fbed6fde01f7099ae7633acd749c84589fa5a6d172739266d25b">cd56cf0ee10ea0a16d7a030409e33a8eb3d90fcd77cb5c34e5e69054b87a0910</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    
+    <summary type="html">
+    
+      无权限访问，需要密码才能继续阅读.
+    
+    </summary>
+    
+    
+      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
+    
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+  </entry>
   
   <entry>
     <title>国际化优化</title>
@@ -516,71 +566,6 @@
     
       <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
     
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSR多用户脚本搭建</title>
-    <link href="https://www.rootfw.com/posts/43d67d1c.html"/>
-    <id>https://www.rootfw.com/posts/43d67d1c.html</id>
-    <published>2020-06-16T08:20:33.000Z</published>
-    <updated>2020-06-16T13:17:15.336Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="搭建环境centos7-debian系统"><a href="#搭建环境centos7-debian系统" class="headerlink" title="搭建环境centos7/debian系统"></a>搭建环境centos7/debian系统</h3><p>第一步sudo -i</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure><p>第二步.ubuntu 系统安装 Curl </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update -y &amp;&amp; apt-get install curl -y</span><br></pre></td></tr></table></figure><p>第二步.centos 系统安装 Curl 和 wget</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum update -y &amp;&amp; yum install curl -y       </span><br><span class="line">yum install wget</span><br></pre></td></tr></table></figure><p>第三步.安装一键脚本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ComeBey/more-user-ssr/master/hasan.sh &amp;&amp; chmod +x hasan.sh &amp;&amp; bash hasan.sh</span><br></pre></td></tr></table></figure><p>第四步:调用命令调试</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash hasan.sh</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;搭建环境centos7-debian系统&quot;&gt;&lt;a href=&quot;#搭建环境centos7-debian系统&quot; class=&quot;headerlink&quot; title=&quot;搭建环境centos7/debian系统&quot;&gt;&lt;/a&gt;搭建环境centos7/debian系统&lt;/h3&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="SSR" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/"/>
-    
-    
-      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
-    
-      <category term="SSR" scheme="https://www.rootfw.com/tags/SSR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>V2ray+WS+TCP+TLS配置</title>
-    <link href="https://www.rootfw.com/posts/231b7e32.html"/>
-    <id>https://www.rootfw.com/posts/231b7e32.html</id>
-    <published>2020-06-10T05:48:15.000Z</published>
-    <updated>2020-08-06T11:15:41.752Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>v2ray+WS+TCP+TLS</li><li>安全级别不错</li><li>稳定性不错</li><li>推荐部署</li></ol><p><strong>centos7系统配置和Debian系统配置，acme.sh脚本所有证书将每60天自动更新一次（如果你非要手动更新随意)</strong></p><h3 id="第一步-V2RAY官方脚本搭建"><a href="#第一步-V2RAY官方脚本搭建" class="headerlink" title="第一步.V2RAY官方脚本搭建"></a>第一步.V2RAY官方脚本搭建</h3><p>centos7更新服务器 <strong>yum update -y</strong> (部分系统提示<strong>NO packages marked for update</strong>则无需更新)<br><strong>设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure><a id="more"></a><p>Debian系统同步时间如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">rm -rf /etc/localtime</span><br><span class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure><h3 id="第二步-安装bbr"><a href="#第二步-安装bbr" class="headerlink" title="第二步.安装bbr"></a>第二步.安装bbr</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#centos7 复制这条代码安装bbr加速如下:</span></span><br><span class="line">yum -y install wget</span><br><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#debian9 复制这条代码安装bbr加速如下:</span></span><br><span class="line"><span class="comment">#方法一如下：</span></span><br><span class="line">apt-get install wget</span><br><span class="line">wget -N --no-check-certificate https://bit.ly/2VWUksq &amp;&amp; chmod + hasan.sh &amp;&amp; bash hasan.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#备用代码</span></span><br><span class="line">apt-get install wget</span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ComeBey/bbr/master/hasan.sh &amp;&amp; chmod + hasan.sh &amp;&amp; bash hasan.sh</span><br></pre></td></tr></table></figure><h3 id="第三步-安装v2ray官方代码"><a href="#第三步-安装v2ray官方代码" class="headerlink" title="第三步.安装v2ray官方代码"></a>第三步.安装v2ray官方代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh) </span><br><span class="line">vim /etc/v2ray/config.json              <span class="comment">#v2ray配置文件</span></span><br><span class="line">ervice v2ray start|stop|status|reload|restart|force-reload 控制 V2Ray 的运行</span><br></pre></td></tr></table></figure><h3 id="第四步-安装acme-sh"><a href="#第四步-安装acme-sh" class="headerlink" title="第四步.安装acme.sh"></a>第四步.安装acme.sh</h3><p><a href="https://my.freenom.com/免费注册地址">https://my.freenom.com/免费注册地址</a> 当然我们也可以自行购买付费域名<br>证书生成工具 (温馨提示您还可以启用自动升级acme.sh在root下输入 acme.sh upgrade)<br>以下提供3种方法选其中任意一种方法安装证书工具</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh  </span><br><span class="line"><span class="comment">#如提示安装失败 请先安装curl 输入 yum -y install curl 或者 apt-get install curl</span></span><br><span class="line"></span><br><span class="line">wget -O -  https://get.acme.sh | sh  </span><br><span class="line"><span class="comment">#如提示安装失败请（先安装wget）输入 yum -y install wget 或者 apt-get install wget 已经安装了忽略</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install　　　　　　</span><br><span class="line"><span class="comment">#如提示安装失败 先安装git 已经安装了的忽略 输入 yum install git 或者 apt-get install git</span></span><br></pre></td></tr></table></figure><p>谷歌云直接安装（如果其他品牌vps也提示 install socat firt也请安装socat）centos7系统执行 yum install socat<br>debian系统执行 apt-get install openssl cron socat curl<br>socat为80端口必须用的依赖来申请证书用，如果您使用443端口申请证书则无需安装socat</p><p><strong>执行这条命令source ~/.bashrc</strong></p><p>安装过程中如果报错请查看面板提示信息，尝试安装acme.sh相关依赖项，比如安装 netcat 或 socat 如果提示报错才安装，不提示报错忽略<br>acme.sh 会安装到 ~/.acme.sh 目录下 （可通过root命令下 输入cd ~/.acme.sh查看，不懂的朋友请忽略继续下一步）</p><h3 id="第五步-acme-sh-生成证书"><a href="#第五步-acme-sh-生成证书" class="headerlink" title="第五步.acme.sh 生成证书"></a>第五步.acme.sh 生成证书</h3><p>以下的命令会临时监听 80 端口，请确保执行该命令前 80 端口没有占用 (80是http端口)<br><del>不推荐使用80端口生成证书</del> 推荐使用443端口生成证书<br>centos7系统 执行 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure><p>Debian系统  执行 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure><p><strong>以下的命令会临时监听 443 端口，请确保执行该命令前 443 端口没有被占用且服务器443端口已经打开 （443是https端口）</strong></p><p>centos7系统 执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn -k ec-256</span><br></pre></td></tr></table></figure><p><strong>如果您443在反向代理或负载均衡器后面使用非标准端口，则可以<code>--tlsport</code>用来指定端口</strong></p><p>centos7系统  执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn --tlsport 端口 -k ec-256</span><br></pre></td></tr></table></figure><p>Debian系统   执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn -k ec-256</span><br></pre></td></tr></table></figure><p><strong>如果您443在反向代理或负载均衡器后面使用非标准端口，则可以–tlsport用来指定端口</strong></p><p>Debian系统  执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn --tlsport 端口 -k ec-256</span><br></pre></td></tr></table></figure><p>-k 表示密钥长度，后面的值可以是 ec-256 、ec-384、2048、3072、4096、8192，带有 ec 表示生成的是 ECC 证书，没有则是 RSA 证书。在安全性上 256 位的 ECC 证书等同于 3072 位的 RSA 证书</p><h3 id="第六步-证书和密钥安装到指定目录"><a href="#第六步-证书和密钥安装到指定目录" class="headerlink" title="第六步.证书和密钥安装到指定目录"></a>第六步.证书和密钥安装到指定目录</h3><p><strong>/etc/v2ray目录（路径可以自定义，当然也可以默认)</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d 域名 --fullchainpath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.crt --keypath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key --ecc   # ecc 安装代码 </span><br><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d 域名 --fullchainpath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.crt --keypath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key   #rsa 安装代码</span><br></pre></td></tr></table></figure><h3 id="第七步-配置文件-config-json"><a href="#第七步-配置文件-config-json" class="headerlink" title="第七步.配置文件 config.json"></a>第七步.配置文件 config.json</h3><p><strong>vim /etc/v2ray/config.json</strong></p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">443</span>, <span class="comment">// 服务器端口</span></span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"vmess"</span>,    </span><br><span class="line">      <span class="attr">"settings"</span>: &#123;</span><br><span class="line">        <span class="attr">"clients"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"id"</span>: <span class="string">"23ad6b10-8d1a-40f7-8ad0-e3e35cd38297"</span>,  </span><br><span class="line">            <span class="attr">"alterId"</span>: <span class="number">64</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>: <span class="string">"tcp"</span>,</span><br><span class="line">        <span class="attr">"security"</span>: <span class="string">"tls"</span>, <span class="comment">// security 要设置为 tls 才会启用 TLS</span></span><br><span class="line">        <span class="attr">"tlsSettings"</span>: &#123;</span><br><span class="line">          <span class="attr">"certificates"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="attr">"certificateFile"</span>: <span class="string">"/etc/v2ray/v2ray.crt"</span>, <span class="comment">// 证书文件</span></span><br><span class="line">              <span class="attr">"keyFile"</span>: <span class="string">"/etc/v2ray/v2ray.key"</span> <span class="comment">// 密钥文件</span></span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">      <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>service v2ray start|stop|status|reload|restart|force-reload 控制 V2Ray 的运行</strong></p><h3 id="第八步-验证是否正常开启"><a href="#第八步-验证是否正常开启" class="headerlink" title="第八步.验证是否正常开启"></a>第八步.验证是否正常开启</h3><p>TLS <a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></p><p><strong>手动更新证书密钥生成到 /etc/v2ray （温馨提示：视频中我讲错了acme.sh脚本所有证书将每60天自动更新一次，大家无需担心证书到期无法使用）</strong><br>ecc sudo ~/.acme.sh/acme.sh –renew -d 域名 –force –ecc<br>rsa sudo ~/.acme.sh/acme.sh –renew -d 域名 –force –rsa</p><p> 温馨提示：V2Ray 的 TLS 不是伪装或混淆，这是真正的 TLS。因此才需要域名和证书。 WS(WebSocket) 也不是伪装<br> 注意：使用 Qualys SSL Labs’s SSL Server Test 要求使用 443 端口，意味着你服务器配置的 inbound.port 应当是 443</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;v2ray+WS+TCP+TLS&lt;/li&gt;
-&lt;li&gt;安全级别不错&lt;/li&gt;
-&lt;li&gt;稳定性不错&lt;/li&gt;
-&lt;li&gt;推荐部署&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;centos7系统配置和Debian系统配置，acme.sh脚本所有证书将每60天自动更新一次（如果你非要手动更新随意)&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;第一步-V2RAY官方脚本搭建&quot;&gt;&lt;a href=&quot;#第一步-V2RAY官方脚本搭建&quot; class=&quot;headerlink&quot; title=&quot;第一步.V2RAY官方脚本搭建&quot;&gt;&lt;/a&gt;第一步.V2RAY官方脚本搭建&lt;/h3&gt;&lt;p&gt;centos7更新服务器 &lt;strong&gt;yum update -y&lt;/strong&gt; (部分系统提示&lt;strong&gt;NO packages marked for update&lt;/strong&gt;则无需更新)&lt;br&gt;&lt;strong&gt;设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;date -R&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timedatectl &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;-local-rtc 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timedatectl &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;-timezone Asia/Shanghai&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
-    
-    
-      <category term="翻墙" scheme="https://www.rootfw.com/tags/%E7%BF%BB%E5%A2%99/"/>
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
