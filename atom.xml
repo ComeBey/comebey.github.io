@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2020-10-05T09:05:54.896Z</updated>
+  <updated>2020-10-06T04:12:47.299Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -17,17 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>v2ray配置访问TOR浏览器</title>
+    <title>v2ray访问TOR洋葱浏览器</title>
     <link href="https://www.rootfw.com/posts/b75d3efe.html"/>
     <id>https://www.rootfw.com/posts/b75d3efe.html</id>
     <published>2020-10-05T08:52:23.000Z</published>
-    <updated>2020-10-05T09:05:54.896Z</updated>
+    <updated>2020-10-06T04:12:47.299Z</updated>
     
-    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="文章已进行加密，需要密码才能继续阅读." data-whm="无效的密码。请检查并重试.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">请输入访问密码.</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="c81c75c4a397fbed6fde01f7099ae7633acd749c84589fa5a6d172739266d25b">cd56cf0ee10ea0a16d7a030409e33a8eb3d90fcd77cb5c34e5e69054b87a0910</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content type="html"><![CDATA[<article class="message is-default"><div class="message-body"><p>Tor高匿名浏览器神一样的存在，暗网入口，开启您的学术探索。<br>Tor中文版本 <a href="https://www.torproject.org/zh-CN/download/">官方下载</a>，建议大家使用英文版本，不要问为什么，感兴趣的朋友以后参加我课程就知道了。</p></div></article><a id="more"></a><p>大家都知道通过SS或者SSR或者其他代理简单设置后可以使用tor洋葱浏览器，一直有很多朋友问我如何通过v2ray代理访问tor洋葱浏览器，我认为这是一个常识和对v2ray基本的了解，那有人就会问为什么要使用tor浏览器？洋葱浏览器是什么呢？关于这些问题自己Google下。简单讲就是通过tor浏览器访问暗网，如果把谷歌搜索引擎比喻成为<code>地球</code>那么暗网就是浩瀚的宇宙，里面无所不有…。那么今天我简单写个教程让你们能够使用tor浏览器。</p><p>如下图所示这张图片勾选 <code>使用代理访问互联网</code> 当您自己搭建的代理服务器可以正常访问外网的前提下，在使用v2ray代理连接后，在访问tor浏览器，提示连接不成功或拒绝访问。为什么呢？<code>这是sniffing的问题，关闭sniffing即可</code>v2ray有一个sniffing功能，它可以检测http和tls流量中的域名并把它提取出来交给vps解析，然后把这些流量的数据包的目的地址重写为解析所得的地址。其本意是解决dns污染的问题，但因为tor连接用了一些不寻常的方式(比如域名和ip不匹配等)，所以此功能反而会使连接失败。所以我们只需要把v2ray服务端config.json <code>sniffing</code> 设置为<code>false</code> 和v2rayN关闭<code>流量探测</code>即可正常访问tor浏览器。如果你服务器config.json配置文件中没有sniffing参数则无需更改任何，直接更改v2rayN关闭<code>流量探测</code>即可。</p><p>温馨提示：当我们如果搭建好了自己的代理服务器后，选择<code>使用代理访问互联网</code>因为洋葱浏览器独特性，其实洋葱浏览器自动接入自带多国家节点做跳板，说白了就是多个国家节点中转，这也是为了保证使用者匿名和安全性。所以通常访问暗网速度会比一般浏览器更慢，所以我们推荐使用自己搭建的代理服务器通过洋葱路由连接来正常使用tor浏览器。假设你购买的机场节点访问Google速度非常非常慢，同样通过洋葱浏览器访问会更慢。反之其他任何连接方法都不推荐。</p><div align=center><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/3.png" ></div><div align=center><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/1.png" ></div><p>如下图所示：v2rayN关闭流量探测功能</p><div align=center><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/ton.png" ></div><p>如下图所示：请看清楚自己服务器socks参数 和http参数 在配置tor浏览器选择使用代理访问互联网在地址选项中填写<code>127.0.0.1</code> 端口按实际情况v2rayN显示参数填写，用户名和密码无需填写，点击链接tor浏览器即可。SOCKS其实是一种网络代理协议。SOCKS代理又分为SOCKS4和SOCKS5，二者不同的是SOCKS4代理只支持TCP协议（即传输控制协议），而SOCKS5代理则既支持TCP协议又支持UDP协议（即用户数据包协议），还支持各种身份验证机制、服务器端域名解析等。SOCK4能做到的SOCKS5都可得到，但SOCKS5能够做到的SOCK4则不一定能做到！在实际配置tor过程中SOCKS4和SOCKS5和http/https都可以选择，需要注意v2rayN SOCKS 和http/https 参数端口。</p><div align=center><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/qwe.png" ></div><p><a href="https://t.me/RootInstitute">telegram</a><br>温馨提示：请各位YouTube UP主或博客主站长在拷贝本博客文章全站代码注明出处，请尊重知识尊重文章版权。</p>]]></content>
     
     <summary type="html">
     
-      无权限访问，需要密码才能继续阅读.
+      &lt;article class=&quot;message is-default&quot;&gt;&lt;div class=&quot;message-body&quot;&gt;
+&lt;p&gt;Tor高匿名浏览器神一样的存在，暗网入口，开启您的学术探索。&lt;br&gt;Tor中文版本 &lt;a href=&quot;https://www.torproject.org/zh-CN/download/&quot;&gt;官方下载&lt;/a&gt;，建议大家使用英文版本，不要问为什么，感兴趣的朋友以后参加我课程就知道了。&lt;/p&gt;
+&lt;/div&gt;&lt;/article&gt;
     
     </summary>
     
@@ -36,8 +38,18 @@
     
       <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
     
+      <category term="tor" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/"/>
+    
+      <category term="洋葱" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/%E6%B4%8B%E8%91%B1/"/>
+    
+      <category term="暗网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/%E6%B4%8B%E8%91%B1/%E6%9A%97%E7%BD%91/"/>
+    
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+      <category term="tor" scheme="https://www.rootfw.com/tags/tor/"/>
+    
+      <category term="洋葱" scheme="https://www.rootfw.com/tags/%E6%B4%8B%E8%91%B1/"/>
     
   </entry>
   
