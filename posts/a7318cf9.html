@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/T_4.svg">
 <meta property="article:published_time" content="2020-10-24T16:09:47.000Z">
-<meta property="article:modified_time" content="2020-11-03T10:22:12.201Z">
+<meta property="article:modified_time" content="2020-11-12T03:21:02.032Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="v2ray">
 <meta property="article:tag" content="vless">
@@ -181,7 +181,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-10-24T16:09:47.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-10-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-11-03T10:22:12.201Z"><i class="far fa-calendar-check">&nbsp;</i>2020-11-03</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-11-12T03:21:02.032Z"><i class="far fa-calendar-check">&nbsp;</i>2020-11-12</time>
                 
                 
                 <div class="level-item">
@@ -213,7 +213,7 @@ var _hmt = _hmt || [];
 
 <p>博主搭建环境：1.谷歌云centos7 64系统 2.域名一个</p>
 <h3 id="服务器时间同步"><a href="#服务器时间同步" class="headerlink" title="服务器时间同步"></a>服务器时间同步</h3><p>设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间<br>centos7时间同步</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R00000</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
 <!--more-->
 
 
