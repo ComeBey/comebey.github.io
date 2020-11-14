@@ -10,16 +10,16 @@
 <title>VLESS TCP 和 WS (TLS 回落 &amp; 分流进阶配置) - comebey</title>
 
 
-    <meta name="description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载  YouTube视频本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过">
+    <meta name="description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载  本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过 VLESS ove">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VLESS TCP 和 WS (TLS 回落 &amp; 分流进阶配置)">
 <meta property="og:url" content="https://www.rootfw.com/posts/a7318cf9.html">
 <meta property="og:site_name" content="comebey">
-<meta property="og:description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载  YouTube视频本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过">
+<meta property="og:description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载  本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过 VLESS ove">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/T_4.svg">
 <meta property="article:published_time" content="2020-10-24T16:09:47.000Z">
-<meta property="article:modified_time" content="2020-11-12T03:45:05.086Z">
+<meta property="article:modified_time" content="2020-11-14T12:59:52.660Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="v2ray">
 <meta property="article:tag" content="vless">
@@ -181,7 +181,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-10-24T16:09:47.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-10-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-11-12T03:45:05.086Z"><i class="far fa-calendar-check">&nbsp;</i>2020-11-12</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-11-14T12:59:52.660Z"><i class="far fa-calendar-check">&nbsp;</i>2020-11-14</time>
                 
                 
                 <div class="level-item">
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    15 分钟 读完 (大约 2253 个字)
+                    15 分钟 读完 (大约 2241 个字)
                 </span>
                 
                 
@@ -209,7 +209,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <p><a href="https://www.hostbuf.com/t/988.html">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html">Mobaxterm SSH连接工具下载</a></p>
 <article class="message is-warning"><div class="message-body">
-<p><a href="https://www.youtube.com/watch?v=Zb7qMDCnJfs">YouTube视频</a><br>本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过 VLESS over TCP with TLS 和任意 WebSocket with TLS 方式连接到服务器，其中后者都可以通过 CDN.经实测，VLESS 回落分流 WS 比 Nginx 反代 WS 性能更强，传统的 VMess + WSS 方案完全可以迁移过来，且不失兼容.在这里感谢v2fly团队<a href="https://www.v2fly.org">v2fly官方网站</a></p>
+<p>本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过 VLESS over TCP with TLS 和任意 WebSocket with TLS 方式连接到服务器，其中后者都可以通过 CDN.经实测，VLESS 回落分流 WS 比 Nginx 反代 WS 性能更强，传统的 VMess + WSS 方案完全可以迁移过来，且不失兼容.在这里感谢v2fly团队<a href="https://www.v2fly.org">v2fly官方网站</a></p>
 </div></article>
 
 <a id="more"></a>
@@ -273,8 +273,19 @@ var _hmt = _hmt || [];
 <h3 id="BBr安装"><a href="#BBr安装" class="headerlink" title="BBr安装"></a>BBr安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
 <h3 id="查询tls开启状态"><a href="#查询tls开启状态" class="headerlink" title="查询tls开启状态"></a>查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可<br>关于config.json配置文件可以自己写，当然也包括其他各种负载均衡，反向代理。如果想短时间内提升自己的可以参加我的培训课。 </p>
 <h3 id="如果想卸载V2Ray执行下面代码"><a href="#如果想卸载V2Ray执行下面代码" class="headerlink" title="如果想卸载V2Ray执行下面代码"></a>如果想卸载V2Ray执行下面代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
+ </button>
+  <button class="button is-medium">
+    <span class="icon">
+    <i class="fab fa-youtube"></i>
+    </span>
+    <a href="https://youtu.be/Zb7qMDCnJfs" class="点击下载">YouTube视频</a>
 
-<p><a href="https://t.me/RootInstitute">添加电报群</a></p>
+ </button>
+  <button class="button is-medium">
+    <span class="icon">
+    <i class="fab fa-telegram"></i>
+    </span>
+    <a href="https://t.me/RootInstitute" class="点击下载">电报群添加</a>
 
         </div>
         
