@@ -10,5 +10,5 @@ Allow: /en/tags/
 Disallow: /js/
 Disallow: /css/
 
-Sitemap: https://www.rootfw.com/sitemap.xml
-Sitemap: https://www.rootfw.com/baidusitemap.xml
+Sitemap: https://www.rootfw.com/en/sitemap.xml
+Sitemap: https://www.rootfw.com/en/baidusitemap.xml

@@ -186,6 +186,13 @@
 
   
   <url>
+    <loc>https://www.rootfw.com/tags/brook/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/tags/Brook/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -194,13 +201,6 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/crontab/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/python/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -228,27 +228,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/brook/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/hexo/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/v2ray/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/tags/github/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -270,21 +249,28 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/tags/python/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/hexo/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/v2ray/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/tags/vless/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/linux/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/Server/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -299,6 +285,20 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/Dark-web/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/linux/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/Server/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -335,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Centos7/</loc>
+    <loc>https://www.rootfw.com/categories/github/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -343,6 +343,20 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/vpn/brook/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/Shadowsocks/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/Centos7/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -370,20 +384,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/github/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/categories/vpn/SSR/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -398,21 +398,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Shadowsocks/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/categories/VPN/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/Linux/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -426,6 +412,20 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/categories/Shadowsocks/vpn/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/Linux/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/categories/vip/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
@@ -433,7 +433,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/v2ray/trojan/</loc>
+    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -441,6 +441,13 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/VIP/</loc>
+    <lastmod>2020-11-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/vpn/v2ray/trojan/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -455,13 +462,6 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/</loc>
-    <lastmod>2020-11-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/Shadowsocks/vpn/</loc>
     <lastmod>2020-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
