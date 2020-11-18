@@ -7,8 +7,5 @@ Allow: /en/archives/
 Allow: /en/categories/
 Allow: /en/tags/
 
-Disallow: /js/
-Disallow: /css/
-
 Sitemap: https://www.rootfw.com/sitemap.xml
 Sitemap: https://www.rootfw.com/baidusitemap.xml
