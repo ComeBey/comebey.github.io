@@ -249,13 +249,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/hexo/</loc>
-    <lastmod>2020-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/tags/v2ray/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -264,6 +257,13 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/github/</loc>
+    <lastmod>2020-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/hexo/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -356,7 +356,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Hexo/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/v2ray/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -370,7 +370,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/v2ray/</loc>
+    <loc>https://www.rootfw.com/categories/github/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,14 +391,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Shadowsocks/vpn/</loc>
+    <loc>https://www.rootfw.com/categories/Hexo/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/github/</loc>
+    <loc>https://www.rootfw.com/categories/Shadowsocks/vpn/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -440,14 +440,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/VIP/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/v2ray/trojan/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/v2ray/trojan/</loc>
+    <loc>https://www.rootfw.com/categories/VIP/</loc>
     <lastmod>2020-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
