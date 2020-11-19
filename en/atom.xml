@@ -354,11 +354,11 @@
       <category term="vpn" scheme="https://www.rootfw.com/categories/Shadowsocks/vpn/"/>
     
     
-      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
-    
       <category term="SS" scheme="https://www.rootfw.com/tags/SS/"/>
     
       <category term="Shadowsocks" scheme="https://www.rootfw.com/tags/Shadowsocks/"/>
+    
+      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
     
   </entry>
   
@@ -415,9 +415,9 @@
       <category term="Shadowsocksr" scheme="https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/"/>
     
     
-      <category term="SSR" scheme="https://www.rootfw.com/tags/SSR/"/>
-    
       <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
+    
+      <category term="SSR" scheme="https://www.rootfw.com/tags/SSR/"/>
     
       <category term="Shadowsocksr" scheme="https://www.rootfw.com/tags/Shadowsocksr/"/>
     
