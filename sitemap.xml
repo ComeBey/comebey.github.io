@@ -291,6 +291,13 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/tags/SSR/</loc>
+    <lastmod>2020-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/tags/brook/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
@@ -298,7 +305,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/SSR/</loc>
+    <loc>https://www.rootfw.com/tags/python/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -347,13 +354,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/python/</loc>
-    <lastmod>2020-11-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/tags/vless/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
@@ -375,14 +375,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/hexo/</loc>
+    <loc>https://www.rootfw.com/tags/xtls/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/xtls/</loc>
+    <loc>https://www.rootfw.com/tags/hexo/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/github/</loc>
+    <loc>https://www.rootfw.com/categories/Centos7/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -475,7 +475,21 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/categories/github/</loc>
+    <lastmod>2020-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SS/</loc>
+    <lastmod>2020-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -489,14 +503,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Centos7/</loc>
-    <lastmod>2020-11-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/</loc>
+    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -511,13 +518,6 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/</loc>
-    <lastmod>2020-11-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
     <lastmod>2020-11-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
