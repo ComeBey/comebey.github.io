@@ -207,7 +207,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/brook/</loc>
+    <loc>https://www.rootfw.com/tags/github/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -235,7 +235,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/github/</loc>
+    <loc>https://www.rootfw.com/tags/brook/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -342,6 +342,13 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/categories/github/</loc>
+    <lastmod>2020-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/categories/vpn/SSR/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -356,7 +363,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/github/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/brook/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -384,14 +391,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/brook/</loc>
-    <lastmod>2020-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/Hexo/</loc>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -405,14 +405,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/VPN/</loc>
+    <loc>https://www.rootfw.com/categories/Hexo/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
+    <loc>https://www.rootfw.com/categories/VPN/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -461,14 +461,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/VPN/v2ray/</loc>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/</loc>
+    <loc>https://www.rootfw.com/categories/VPN/v2ray/</loc>
     <lastmod>2020-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
