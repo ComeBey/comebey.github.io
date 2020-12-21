@@ -90,13 +90,9 @@ var _hmt = _hmt || [];
 
 <link rel="stylesheet" href="/css/style.css">
 
-{% if page.keywords %}
-  <meta name="keywords" content="{{ page.keywords }}" />
-{% elif page.tags and page.tags.length %}
-  <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}" />
-{% elif theme.keywords %}
-  <meta name="keywords" content="{{ theme.keywords }}" />
-{% endif %}
+
+
+
 <link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
 </head>
 <body class="is-3-column">
