@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html  lang="zh">
+<html lang="zh">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
-<meta name="generator" content="Hexo 4.2.1" />
+<meta name="generator" content="Hexo 4.2.1">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <title>VLESS TCP 和 WS (TLS 回落 &amp; 分流进阶配置) - comebey</title>
 
@@ -114,20 +114,15 @@ var _hmt = _hmt || [];
             
             <div class="navbar-start">
                 
-                <a class="navbar-item"
-                href="/">首页</a>
+                <a class="navbar-item" href="/">首页</a>
                 
-                <a class="navbar-item"
-                href="/archives">归档</a>
+                <a class="navbar-item" href="/archives">归档</a>
                 
-                <a class="navbar-item"
-                href="/categories">分类</a>
+                <a class="navbar-item" href="/categories">分类</a>
                 
-                <a class="navbar-item"
-                href="/tags">标签</a>
+                <a class="navbar-item" href="/tags">标签</a>
                 
-                <a class="navbar-item"
-                href="https://rootfw.com/en/">English</a>
+                <a class="navbar-item" href="https://rootfw.com/en/" rel="external nofollow noopener noreferrer" target="_blank">English</a>
                 
             </div>
             
@@ -155,7 +150,7 @@ var _hmt = _hmt || [];
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
+        <span class="image is-7by1">
             <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/losvg.svg" alt="VLESS TCP 和 WS (TLS 回落 &amp; 分流进阶配置)">
         </span>
     </div>
@@ -169,7 +164,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-10-24T16:09:47.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-10-25</time>
+                <time class="level-item has-text-grey" datetime="2020-10-24T16:09:47.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg" style="height: 17px;width: 17px;">&nbsp;2020-10-25</time>
                 
                 <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-15T06:54:05.603Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-15</time>-->
                 
@@ -190,9 +185,9 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p><a href="https://www.hostbuf.com/t/988.html">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html">Mobaxterm SSH连接工具下载</a></p>
+            <p><a href="https://www.hostbuf.com/t/988.html" rel="external nofollow noopener noreferrer" target="_blank">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html" rel="external nofollow noopener noreferrer" target="_blank">Mobaxterm SSH连接工具下载</a></p>
 <article class="message is-warning"><div class="message-body">
-<p>本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过 VLESS over TCP with TLS 和任意 WebSocket with TLS 方式连接到服务器，其中后者都可以通过 CDN.经实测，VLESS 回落分流 WS 比 Nginx 反代 WS 性能更强，传统的 VMess + WSS 方案完全可以迁移过来，且不失兼容.在这里感谢v2fly团队<a href="https://www.v2fly.org">v2fly官方网站</a></p>
+<p>本章主要讲解利用 VLESS 强大的回落分流特性，实现了 443 端口 VLESS over TCP with TLS 和任意 WSS 的完美共存.该配置供参考，你可以将 WS 上的 VLESS 换成 VMess 等其它任何协议，以及设置更多 PATH、协议共存，都可以做到.部署后，你可以同时通过 VLESS over TCP with TLS 和任意 WebSocket with TLS 方式连接到服务器，其中后者都可以通过 CDN.经实测，VLESS 回落分流 WS 比 Nginx 反代 WS 性能更强，传统的 VMess + WSS 方案完全可以迁移过来，且不失兼容.在这里感谢v2fly团队<a href="https://www.v2fly.org" rel="external nofollow noopener noreferrer" target="_blank">v2fly官方网站</a></p>
 </div></article>
 
 <a id="more"></a>
@@ -235,7 +230,7 @@ var _hmt = _hmt || [];
 
 
 <p><strong>2.生成证书 路径为/root/.acme.sh文件下 安装好后可自行查看</strong><br><strong>温馨提示：通过acme.sh生成证书有多种方法：</strong><br>例如—自动DNS API集成 如：cloudflare DNS API 令牌 和 使用全局API密钥 acme.sh支持大多数dns生成证书<br>例如—使用DNS手动模式，等多种其他安装方法，如果你是个好学的人可Google </p>
-<p>生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用 <a href="http://www.baidu.com">www.baidu.com</a> 因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级 <a href="http://www.baidu.com">www.baidu.com</a> 可以备用你懂的 ）</p>
+<p>生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用 <a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a> 因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级 <a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a> 可以备用你懂的 ）</p>
 <p><strong>通过侦听80端口申请证书，如果80端口被占用,请使用443端口,请确保这些端口都打开了</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure>
 <p><strong>如果您80在反向代理或负载均衡器后面使用非标准端口，则可以–httpport用来指定端口</strong></p>
@@ -254,22 +249,22 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
 
 <h3 id="BBr安装"><a href="#BBr安装" class="headerlink" title="BBr安装"></a>BBr安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-<h3 id="查询tls开启状态"><a href="#查询tls开启状态" class="headerlink" title="查询tls开启状态"></a>查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可<br>关于config.json配置文件可以自己写，当然也包括其他各种负载均衡，反向代理。如果想短时间内提升自己的可以参加我的培训课。 </p>
+<h3 id="查询tls开启状态"><a href="#查询tls开启状态" class="headerlink" title="查询tls开启状态"></a>查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可<br>关于config.json配置文件可以自己写，当然也包括其他各种负载均衡，反向代理。如果想短时间内提升自己的可以参加我的培训课。 </p>
 <h3 id="如果想卸载V2Ray执行下面代码"><a href="#如果想卸载V2Ray执行下面代码" class="headerlink" title="如果想卸载V2Ray执行下面代码"></a>如果想卸载V2Ray执行下面代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
- </button>
+ 
   <button class="button is-medium">
     <span class="icon">
     <i class="fab fa-youtube"></i>
     </span>
-    <a href="https://youtu.be/Zb7qMDCnJfs" class="点击下载">YouTube视频</a>
+    <a href="https://youtu.be/Zb7qMDCnJfs" class="点击下载" rel="external nofollow noopener noreferrer" target="_blank">YouTube视频</a>
 
  </button>
   <button class="button is-medium">
     <span class="icon">
     <i class="fab fa-telegram"></i>
     </span>
-    <a href="https://t.me/RootInstitute" class="点击下载">电报群添加</a>
-
+    <a href="https://t.me/RootInstitute" class="点击下载" rel="external nofollow noopener noreferrer" target="_blank">电报群添加</a>
+</button>
         </div>
         
             <ul class="post-copyright">
@@ -277,12 +272,12 @@ var _hmt = _hmt || [];
             <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/a7318cf9.html">https://www.rootfw.com/posts/a7318cf9.html</a></li>
             <li><strong>发布时间：</strong>2020-10-25</li>
-            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
         
         
-        <hr style="height:1px;margin:1rem 0"/>
+        <hr style="height:1px;margin:1rem 0">
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
@@ -296,7 +291,7 @@ var _hmt = _hmt || [];
         
         
 <div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop" async="async"></script>
 
         
     </div>
@@ -364,7 +359,7 @@ var _hmt = _hmt || [];
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#valine-thread' ,
@@ -394,7 +389,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                     <figure class="image is-200x200 has-mb-6">
-                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
+                        <img class src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -455,7 +450,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
         </div>
         
@@ -463,25 +458,22 @@ var _hmt = _hmt || [];
         
         <div class="level is-mobile">
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ComeBey">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;"></img>
+            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;">
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg"></i>
                 
             </a>
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;"></img>
+            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;">
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg"></i>
                 
             </a>
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
+            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;">
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
                 
@@ -584,8 +576,7 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
-                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="external nofollow noopener noreferrer">comebey</a> & <a href="https://github.com/ComeBey" target="_blank" rel="external nofollow noopener noreferrer">Hasan</a>
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
@@ -599,7 +590,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -607,7 +598,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -659,7 +650,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -721,7 +712,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">

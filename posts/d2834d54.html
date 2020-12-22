@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html  lang="zh">
+<html lang="zh">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
-<meta name="generator" content="Hexo 4.2.1" />
+<meta name="generator" content="Hexo 4.2.1">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <title>新版V2ray+WS+TLS+Nginx - comebey</title>
 
@@ -113,20 +113,15 @@ var _hmt = _hmt || [];
             
             <div class="navbar-start">
                 
-                <a class="navbar-item"
-                href="/">首页</a>
+                <a class="navbar-item" href="/">首页</a>
                 
-                <a class="navbar-item"
-                href="/archives">归档</a>
+                <a class="navbar-item" href="/archives">归档</a>
                 
-                <a class="navbar-item"
-                href="/categories">分类</a>
+                <a class="navbar-item" href="/categories">分类</a>
                 
-                <a class="navbar-item"
-                href="/tags">标签</a>
+                <a class="navbar-item" href="/tags">标签</a>
                 
-                <a class="navbar-item"
-                href="https://rootfw.com/en/">English</a>
+                <a class="navbar-item" href="https://rootfw.com/en/" rel="external nofollow noopener noreferrer" target="_blank">English</a>
                 
             </div>
             
@@ -154,7 +149,7 @@ var _hmt = _hmt || [];
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
+        <span class="image is-7by1">
             <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg" alt="新版V2ray+WS+TLS+Nginx">
         </span>
     </div>
@@ -168,7 +163,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-07-28T14:18:07.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-07-28</time>
+                <time class="level-item has-text-grey" datetime="2020-07-28T14:18:07.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg" style="height: 17px;width: 17px;">&nbsp;2020-07-28</time>
                 
                 <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-07T09:47:43.056Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-07</time>-->
                 
@@ -221,13 +216,13 @@ var _hmt = _hmt || [];
 <p>通过以上方式安装的 Nginx，所有相关的配置文件都在 /etc/nginx/ 目录中<br><strong>Nginx 的主配置文件是 /etc/nginx/nginx.conf</strong><br><strong>Nginx 日志文件（access.log 和 error.log ）位于 /var/log/nginx/ 目录中。</strong></p>
 <p>如果在设置完成之后不能成功使用，可能是由于 SElinux 机制(如果你是 <code>CentOS 7</code> 的用户请特别留意SElinux 这一机制)阻止了 Nginx 转发向内网的数据<br>如果是这样的话，在V2Ray的日志里不会有访问信息，在 Nginx 的日志里会出现大量的 “Permission Denied” 字段<br>要解决这一问题需要在终端下键入以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_can_network_connect 1    &#x2F;&#x2F;非常重要debian忽略</span><br></pre></td></tr></table></figure>
-<p>验证 Nginx 是否成功启动，可以在浏览器中打开 <a href="http://YOUR_IP">http://YOUR_IP</a>   注意：打开则显示centos网页 但是提示不安全网站没开启ssl加密https</p>
+<p>验证 Nginx 是否成功启动，可以在浏览器中打开 <a href="http://YOUR_IP" rel="external nofollow noopener noreferrer" target="_blank">http://YOUR_IP</a>   注意：打开则显示centos网页 但是提示不安全网站没开启ssl加密https</p>
 <h3 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h3><p><strong>如果你已经有其他证书可忽略，把证书和密钥放到服务器指定目录下，只需在Nginx 中指定 证书和密钥路径。申请证书方法太多可通过安装acme.sh工具生成证书或其他方法生成证书，可Google搜索。</strong></p>
 <p><strong>1.安装acem.sh证书生成工具，以下提供3种方法安装，选其中任意一种方法安装证书工具 (温馨提示：自动升级acme.sh在root下输入 acme.sh upgrade)</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh   // 如提示安装失败 请先安装curl 输入 yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O -  https://get.acme.sh | sh     //如提示安装失败请（先安装wget）输入 yum -y install wget 已经安装了忽略</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git   // 如提示安装失败 先安装git 已经安装了的忽略 输入 yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
 <p>通过以上代码安装acme.sh提示红色抱错 你可以按实际相关情况而定安装依赖 比如安装socat 或者 netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install socat  <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line">centos7  yum install netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">安装成功后执行 <span class="built_in">source</span> ~/.bashrc  以确保脚本所设置的命令别名生效</span><br></pre></td></tr></table></figure></p>
 <p><strong>2.生成证书 路径为/root/.acme.sh文件下 安装好后可自行查看</strong><br>  <strong>温馨提示：通过acme.sh生成证书有多种方法：</strong><br>  例如—自动DNS API集成 如：cloudflare DNS API 令牌 和 使用全局API密钥 acme.sh支持大多数dns生成证书<br>  例如—使用DNS手动模式，等多种其他安装方法，如果你是个好学的人可Google </p>
-<p>  生成证书如下：本期视频只用指定端口 生成证书 <code>**推荐使用443端口生成证书**</code>（一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用<a href="http://www.baidu.com,因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请控制三个字符，主域baidu.com和二级www.baidu.com可以备用你懂的）">www.baidu.com,因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请控制三个字符，主域baidu.com和二级www.baidu.com可以备用你懂的）</a></p>
+<p>  生成证书如下：本期视频只用指定端口 生成证书 <code>**推荐使用443端口生成证书**</code>（一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用<a href="http://www.baidu.com,因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请控制三个字符，主域baidu.com和二级www.baidu.com可以备用你懂的）" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com,因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请控制三个字符，主域baidu.com和二级www.baidu.com可以备用你懂的）</a></p>
 <p><strong>1.通过侦听80端口申请证书，如果80端口被占用,请使用443端口,请确保这些端口都打开了</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure>
 <p><strong>2.如果您80在反向代理或负载均衡器后面使用非标准端口，则可以–httpport用来指定端口</strong></p>
@@ -254,14 +249,14 @@ var _hmt = _hmt || [];
 <p>最后请输入<code>reboot</code>重启服务器<code>（记得执行）</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<p>查询是否开启ssl 打开网站<a href="https://myssl.com/ssl.html输入自己域名，端口输入443">https://myssl.com/ssl.html输入自己域名，端口输入443</a> 或者 打开<a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> 查询 ，也可以google搜索关键字ssl查询，很多网站可以查询，评分是否到达A级别</p>
+<p>查询是否开启ssl 打开网站<a href="https://myssl.com/ssl.html输入自己域名，端口输入443" rel="external nofollow noopener noreferrer" target="_blank">https://myssl.com/ssl.html输入自己域名，端口输入443</a> 或者 打开<a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.ssllabs.com/ssltest/index.html</a> 查询 ，也可以google搜索关键字ssl查询，很多网站可以查询，评分是否到达A级别</p>
 <p><strong>温馨提示：通过acme.sh工具生成证书请使用443端口 代码如下：sudo ~/.acme.sh/acme.sh –issue -d 域名 –alpn -k ec-256 （侦听443端口以颁发证书，请确保443端口开启 按文章流程操作80端口生成证书时会提示端口占用，当然如果你想简单点可以通过已有购买的证书或者通过宝塔申请的或者其他证书，把密钥和证书直接复制拷贝到服务器指定路径下，在配置nginx指向证书和路径。部分免费证书会缺少CA证书那么在网站ssl评分就会大打折扣，解决办法是重新把CA证书添加下就可以了</strong></p>
 <p><strong>通过在浏览器输入自己域名查询是否发现网站加了一把锁🔒开启了https， 且网站域名ssl评分到达A 如果是，恭喜你搭建成功.如果你已经学会了那么接下来的课程会越来越有意思.</strong></p>
 <h3 id="BBr安装"><a href="#BBr安装" class="headerlink" title="BBr安装"></a>BBr安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget &quot;https:&#x2F;&#x2F;github.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;raw&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br></pre></td></tr></table></figure>
 
 <h3 id="如果想卸载V2Ray执行下面代码"><a href="#如果想卸载V2Ray执行下面代码" class="headerlink" title="如果想卸载V2Ray执行下面代码"></a>如果想卸载V2Ray执行下面代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
-<h3 id="查询tls开启状态"><a href="#查询tls开启状态" class="headerlink" title="查询tls开启状态"></a>查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可</p>
-<p><code>温馨提示：如果想短时间内提升自己的可以参加我的培训，多年实战沉淀精品课程，vIP课程基本上所有平台找不到，一阵见血帮你打通任督二脉，人人都可以是专家</code>。<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">点击课程详情</a><br><a href="https://t.me/RootInstitute">添加公开电报群</a><br><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip">Nginx前端模板下载</a></p>
+<h3 id="查询tls开启状态"><a href="#查询tls开启状态" class="headerlink" title="查询tls开启状态"></a>查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可</p>
+<p><code>温馨提示：如果想短时间内提升自己的可以参加我的培训，多年实战沉淀精品课程，vIP课程基本上所有平台找不到，一阵见血帮你打通任督二脉，人人都可以是专家</code>。<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">点击课程详情</a><br><a href="https://t.me/RootInstitute" rel="external nofollow noopener noreferrer" target="_blank">添加公开电报群</a><br><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noopener noreferrer" target="_blank">Nginx前端模板下载</a></p>
 
         </div>
         
@@ -270,12 +265,12 @@ var _hmt = _hmt || [];
             <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/d2834d54.html">https://www.rootfw.com/posts/d2834d54.html</a></li>
             <li><strong>发布时间：</strong>2020-07-28</li>
-            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
         
         
-        <hr style="height:1px;margin:1rem 0"/>
+        <hr style="height:1px;margin:1rem 0">
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
@@ -289,7 +284,7 @@ var _hmt = _hmt || [];
         
         
 <div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop" async="async"></script>
 
         
     </div>
@@ -357,7 +352,7 @@ var _hmt = _hmt || [];
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#valine-thread' ,
@@ -387,7 +382,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                     <figure class="image is-200x200 has-mb-6">
-                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
+                        <img class src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -448,7 +443,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
         </div>
         
@@ -456,25 +451,22 @@ var _hmt = _hmt || [];
         
         <div class="level is-mobile">
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ComeBey">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;"></img>
+            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;">
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg"></i>
                 
             </a>
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;"></img>
+            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;">
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg"></i>
                 
             </a>
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
+            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;">
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
                 
@@ -593,8 +585,7 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
-                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="external nofollow noopener noreferrer">comebey</a> & <a href="https://github.com/ComeBey" target="_blank" rel="external nofollow noopener noreferrer">Hasan</a>
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
@@ -608,7 +599,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -616,7 +607,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -668,7 +659,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -730,7 +721,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
