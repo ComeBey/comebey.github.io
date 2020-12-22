@@ -136,7 +136,7 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ComeBey">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>
                         
@@ -144,12 +144,12 @@ var _hmt = _hmt || [];
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -216,11 +216,11 @@ var _hmt = _hmt || [];
 </div></article>
 
 
-<p>First of all! The visited link cannot have / at the end. For example, <a href="https://api.github.com/users/solomonxie">https://api.github.com/users/solomonxie</a> can access my personal information, but <a href="https://api.github.com/users/solomonxie/">https://api.github.com/users/solomonxie/</a> does not work. The only difference is that there is one more/.<br>Second! Unlike general URL access, Github’s API access links are case sensitive!<br>Personal main information. <a href="https://api.github.com/users/">https://api.github.com/users/</a> username, the data obtained is as follows:<br>image</p>
-<p>Personally owned repo. <a href="https://api.github.com/users/username/repos">https://api.github.com/users/username/repos</a>. Will get a list of repo in JSON format.<br>Repo details. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name. The path of the repo began to be different from the personal information.<br>Get the content list of a repo. <a href="https://api.github.com/repos/solomonxie/gists/contents">https://api.github.com/repos/solomonxie/gists/contents</a>, note that this will only return the contents of the root directory.<br>Get the content list of subdirectories in the repo. <a href="https://api.github.com/repos/solomonxie/gists/contents/">https://api.github.com/repos/solomonxie/gists/contents/</a> directory name. It must be noted that the capitalization of the original file name must be completely followed here, otherwise the information cannot be obtained. If it is a deeper content, write the name of the directory in the link column in order.<br>Get information about a file in the repo (not including content). <a href="https://api.github.com/repos/solomonxie/gists/contents/">https://api.github.com/repos/solomonxie/gists/contents/</a> file path. The file path is the full path of the file and is case sensitive. Only basic file information will be returned.<br>Get the original content (Raw) of a file. 1. Extract the download_url link from the above file information, and then you can get its original content. 2. Or visit directly: <a href="https://raw.githubusercontent.com/username/warehouse">https://raw.githubusercontent.com/username/warehouse</a> name/branch name/file path<br>A list of all commits in the repo. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/commits.<br>Details of a certain commit. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/commits/SHA of a certain commit<br>List of issues. <a href="https://api.github.com/repos/username/repository">https://api.github.com/repos/username/repository</a> name/issues.<br>Details of an issue. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/issues/ serial number. Issues are listed in the order of 1, 2, and 3.<br>A list of comments in an issue. <a href="https://api.github.com/repos/username/warehouse">https://api.github.com/repos/username/warehouse</a> name/issues/serial number/comments.<br>Details of a comment. <a href="https://api.github.com/repos/Username/Repository">https://api.github.com/repos/Username/Repository</a> Name/issues/comments/ ID of comment details. The comment ID is obtained from the issues list.</p>
+<p>First of all! The visited link cannot have / at the end. For example, <a href="https://api.github.com/users/solomonxie" rel="external nofollow noreferrer">https://api.github.com/users/solomonxie</a> can access my personal information, but <a href="https://api.github.com/users/solomonxie/" rel="external nofollow noreferrer">https://api.github.com/users/solomonxie/</a> does not work. The only difference is that there is one more/.<br>Second! Unlike general URL access, Github’s API access links are case sensitive!<br>Personal main information. <a href="https://api.github.com/users/" rel="external nofollow noreferrer">https://api.github.com/users/</a> username, the data obtained is as follows:<br>image</p>
+<p>Personally owned repo. <a href="https://api.github.com/users/username/repos" rel="external nofollow noreferrer">https://api.github.com/users/username/repos</a>. Will get a list of repo in JSON format.<br>Repo details. <a href="https://api.github.com/repos/username/warehouse" rel="external nofollow noreferrer">https://api.github.com/repos/username/warehouse</a> name. The path of the repo began to be different from the personal information.<br>Get the content list of a repo. <a href="https://api.github.com/repos/solomonxie/gists/contents" rel="external nofollow noreferrer">https://api.github.com/repos/solomonxie/gists/contents</a>, note that this will only return the contents of the root directory.<br>Get the content list of subdirectories in the repo. <a href="https://api.github.com/repos/solomonxie/gists/contents/" rel="external nofollow noreferrer">https://api.github.com/repos/solomonxie/gists/contents/</a> directory name. It must be noted that the capitalization of the original file name must be completely followed here, otherwise the information cannot be obtained. If it is a deeper content, write the name of the directory in the link column in order.<br>Get information about a file in the repo (not including content). <a href="https://api.github.com/repos/solomonxie/gists/contents/" rel="external nofollow noreferrer">https://api.github.com/repos/solomonxie/gists/contents/</a> file path. The file path is the full path of the file and is case sensitive. Only basic file information will be returned.<br>Get the original content (Raw) of a file. 1. Extract the download_url link from the above file information, and then you can get its original content. 2. Or visit directly: <a href="https://raw.githubusercontent.com/username/warehouse" rel="external nofollow noreferrer">https://raw.githubusercontent.com/username/warehouse</a> name/branch name/file path<br>A list of all commits in the repo. <a href="https://api.github.com/repos/username/warehouse" rel="external nofollow noreferrer">https://api.github.com/repos/username/warehouse</a> name/commits.<br>Details of a certain commit. <a href="https://api.github.com/repos/username/warehouse" rel="external nofollow noreferrer">https://api.github.com/repos/username/warehouse</a> name/commits/SHA of a certain commit<br>List of issues. <a href="https://api.github.com/repos/username/repository" rel="external nofollow noreferrer">https://api.github.com/repos/username/repository</a> name/issues.<br>Details of an issue. <a href="https://api.github.com/repos/username/warehouse" rel="external nofollow noreferrer">https://api.github.com/repos/username/warehouse</a> name/issues/ serial number. Issues are listed in the order of 1, 2, and 3.<br>A list of comments in an issue. <a href="https://api.github.com/repos/username/warehouse" rel="external nofollow noreferrer">https://api.github.com/repos/username/warehouse</a> name/issues/serial number/comments.<br>Details of a comment. <a href="https://api.github.com/repos/Username/Repository" rel="external nofollow noreferrer">https://api.github.com/repos/Username/Repository</a> Name/issues/comments/ ID of comment details. The comment ID is obtained from the issues list.</p>
 <h3 id="Query-parameters-Parameters"><a href="#Query-parameters-Parameters" class="headerlink" title="Query parameters (Parameters)"></a>Query parameters (Parameters)</h3><p>If you add query conditions to the basic link above, then the returned data is filtered. For example, it is required to return only the open issues, or to display the list data in pages. Commonly used as follows:</p>
-<p>Paging function. The format is?page=page number&amp;per_page=each page contains number.<br>Such as <a href="https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3">https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3</a></p>
-<p>Issue status. The format is?state=state.<br>Such as <a href="https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed">https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed</a></p>
+<p>Paging function. The format is?page=page number&amp;per_page=each page contains number.<br>Such as <a href="https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3" rel="external nofollow noreferrer">https://api.github.com/users/solomonxie/repos?page=2&amp;per_page=3</a></p>
+<p>Issue status. The format is?state=state.<br>Such as <a href="https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed" rel="external nofollow noreferrer">https://api.github.com/repos/solomonxie/solomonxie.github.io/issues?state=closed</a></p>
 
         </div>
         
@@ -410,7 +410,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
                 Follow</a>
         </div>
         
@@ -488,7 +488,7 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
                         href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
                 
                 <br>
@@ -503,7 +503,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -511,7 +511,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -563,7 +563,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/en/js/back-to-top.js" defer></script>

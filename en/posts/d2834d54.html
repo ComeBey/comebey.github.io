@@ -136,7 +136,7 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ComeBey">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>
                         
@@ -144,12 +144,12 @@ var _hmt = _hmt || [];
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -238,12 +238,12 @@ var _hmt = _hmt || [];
 <p>Nginx installed by the above method, all related configuration files are in the /etc/nginx/ directory<br><strong>The main configuration file of Nginx is /etc/nginx/nginx.conf</strong><br><strong>Nginx log files (access.log and error.log) are located in the /var/log/nginx/ directory</strong></p>
 <p>If you can’t use it successfully after the setup is complete, it may be due to the SElinux mechanism (if you are a user of <code>CentOS 7</code>, please pay special attention to the SElinux mechanism) that prevents Nginx from forwarding data to the intranet<br>If this is the case, there will be no access information in the V2Ray log, and a large number of “Permission Denied” fields will appear in the Nginx log<br>To solve this problem, you need to type the following command in the terminal:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_can_network_connect 1    &#x2F;&#x2F;Only centos7 use</span><br></pre></td></tr></table></figure>
-<p>To verify whether Nginx is successfully started, you can open <a href="http://YOUR_IP">http://YOUR_IP</a> in the browser. Note: Open it and display the centos webpage, but it prompts insecure websites that SSL encryption is not turned on https</p>
+<p>To verify whether Nginx is successfully started, you can open <a href="http://YOUR_IP" rel="external nofollow noreferrer">http://YOUR_IP</a> in the browser. Note: Open it and display the centos webpage, but it prompts insecure websites that SSL encryption is not turned on https</p>
 <h3 id="Generate-tls-certificate"><a href="#Generate-tls-certificate" class="headerlink" title="Generate tls certificate"></a>Generate tls certificate</h3><p><strong>1.Install the acem.sh certificate generation tool. The following 3 methods are provided. Choose any one of the methods to install the certificate tool (Reminder: automatically upgrade acme.sh and enter acme.sh upgrade under root)</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh   // please install curl first yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O -  https://get.acme.sh | sh     //please install wget first enter yum -y install wget has been installed ignore</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git   // please install git first enter yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
 
 <pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install socat  <span class="comment">#Generate tls certificate through port 80</span></span><br><span class="line">centos7  yum install netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></code></pre><p><strong>2. Generate the certificate path under the /root/.acme.sh file, you can check it yourself after installation</strong><br>   <strong>Reminder: There are many ways to generate a certificate through acme.sh:</strong><br>   For example — automatic DNS API integration such as: cloudflare DNS API token and use of global API key acme.sh supports most dns to generate certificates<br>   For example — use DNS manual mode, and many other installation methods, if you are a good learner, you can Google</p>
-<p>The generated certificate is as follows: This video only uses the designated port to generate the certificate. <code>**It is recommended to use the 443 port to generate the certificate**</code> (usually a single domain name is sufficient, after all, it is used to overcome the wall and do not need to do so many fancy multi-domains, such as: main domain baidu.com is not recommended to use <a href="http://www.baidu.com">www.baidu.com</a>, because it is the front-end web that overturns the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please control three characters, the main domain baidu.com and the secondary www .baidu.com can spare you understand)</p>
+<p>The generated certificate is as follows: This video only uses the designated port to generate the certificate. <code>**It is recommended to use the 443 port to generate the certificate**</code> (usually a single domain name is sufficient, after all, it is used to overcome the wall and do not need to do so many fancy multi-domains, such as: main domain baidu.com is not recommended to use <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a>, because it is the front-end web that overturns the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please control three characters, the main domain baidu.com and the secondary www .baidu.com can spare you understand)</p>
 <p><strong>Apply for a certificate by listening on port 80, if port 80 is occupied, please use port 443, please make sure these ports are open</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --standalone -k ec-256</span><br></pre></td></tr></table></figure>
 <p><strong>Listen to port 443 to issue certificates, please make sure port 443 is open</strong></p>
@@ -268,14 +268,14 @@ var _hmt = _hmt || [];
 <p>Finally, please enter <code>reboot</code> to restart the server<code>(remember to execute)</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<p>Check whether ssl is enabled. Open the website <a href="https://myssl.com/ssl.html">https://myssl.com/ssl.html</a> and enter your own domain name and port 443 or open <a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> to query, you can also search for the keyword ssl on Google Query, many websites can query, whether the score has reached A level</p>
+<p>Check whether ssl is enabled. Open the website <a href="https://myssl.com/ssl.html" rel="external nofollow noreferrer">https://myssl.com/ssl.html</a> and enter your own domain name and port 443 or open <a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> to query, you can also search for the keyword ssl on Google Query, many websites can query, whether the score has reached A level</p>
 <p><strong>Reminder: To generate a certificate through the acme.sh tool, please use the 443 port code as follows: sudo ~/.acme.sh/acme.sh –issue -d domain name –alpn -k ec-256 (listen to port 443 To issue a certificate, please make sure that port 443 is turned on. Follow the procedure of the article to operate port 80. When generating a certificate, you will be prompted that the port is occupied. Of course, if you want to be simpler, you can pass the certificate you have purchased or apply for the pagoda or other certificates, and put the key and certificate directly Copy the copy to the specified path of the server, and configure nginx to point to the certificate and path. Some free certificates will lack the CA certificate, so the website ssl score will be greatly reduced. The solution is to re-add the CA certificate.</strong></p>
 <p><strong>Check if you find that the website has a lock by entering your domain name in the browser🔒 https is turned on, and the ssl score of the website domain name has reached A. If yes, congratulations on the successful construction. If you have learned it, then the next course will be better The more interesting it gets.</strong></p>
 <h3 id="BBr-installation"><a href="#BBr-installation" class="headerlink" title="BBr installation"></a>BBr installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget &quot;https:&#x2F;&#x2F;github.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;raw&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br></pre></td></tr></table></figure>
 
 <h3 id="uninstall-V2Ray"><a href="#uninstall-V2Ray" class="headerlink" title="uninstall V2Ray"></a>uninstall V2Ray</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
-<h3 id="Query-tls-status"><a href="#Query-tls-status" class="headerlink" title="Query tls status"></a>Query tls status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query</p>
-<p><code>Reminder: If you want to improve yourself in a short period of time, you can participate in my training. For many years of practical experience, you can participate in my training. Basically, you can&#39;t find the VIP courses on all platforms. If you see blood, you can get through the second line of Ren and Du. Everyone can be Expert</code>.<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">course details</a><br><a href="https://t.me/RootInstitute">telegram</a><br><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip">template download</a></p>
+<h3 id="Query-tls-status"><a href="#Query-tls-status" class="headerlink" title="Query tls status"></a>Query tls status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query</p>
+<p><code>Reminder: If you want to improve yourself in a short period of time, you can participate in my training. For many years of practical experience, you can participate in my training. Basically, you can&#39;t find the VIP courses on all platforms. If you see blood, you can get through the second line of Ren and Du. Everyone can be Expert</code>.<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">course details</a><br><a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">telegram</a><br><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer">template download</a></p>
 
         </div>
         
@@ -465,7 +465,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
                 Follow</a>
         </div>
         
@@ -607,7 +607,7 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
                         href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
                 
                 <br>
@@ -622,7 +622,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -630,7 +630,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -682,7 +682,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -722,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/en/js/back-to-top.js" defer></script>

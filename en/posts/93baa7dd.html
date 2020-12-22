@@ -137,7 +137,7 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ComeBey">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>
                         
@@ -145,12 +145,12 @@ var _hmt = _hmt || [];
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -203,11 +203,11 @@ var _hmt = _hmt || [];
         
         <div class="content">
             <article class="message is-default"><div class="message-body">
-<p>Currently VLESS does not have its own encryption, please use it for reliable channels, such as TLS.<br>VLESS is in the public beta. During the test, please ensure that both the client and server v2ray-core are the latest version.<br>The internal test warehouse of VLESS is <a href="https://github.com/rprx/v2ray-vless">rprx/v2ray-vless</a>, and the new version of the PREVIEW series will be merged into [v2fly/v2ray-core] after a period of release (<a href="https://github.com/v2fly/v2ray-core">https://github.com/v2fly/v2ray-core</a>). Please upgrade the <code>v2ray core</code> client to the latest version by yourself</p>
+<p>Currently VLESS does not have its own encryption, please use it for reliable channels, such as TLS.<br>VLESS is in the public beta. During the test, please ensure that both the client and server v2ray-core are the latest version.<br>The internal test warehouse of VLESS is <a href="https://github.com/rprx/v2ray-vless" rel="external nofollow noreferrer">rprx/v2ray-vless</a>, and the new version of the PREVIEW series will be merged into [v2fly/v2ray-core] after a period of release (<a href="https://github.com/v2fly/v2ray-core" rel="external nofollow noreferrer">https://github.com/v2fly/v2ray-core</a>). Please upgrade the <code>v2ray core</code> client to the latest version by yourself</p>
 </div></article>
 
 <a id="more"></a>
-<h3 id="Straightforward"><a href="#Straightforward" class="headerlink" title="Straightforward"></a>Straightforward</h3><p>No matter what vps you build, please test the server to your local delay, including the line, including vps uplink and downlink. Regarding the choice of vps, I don’t recommend any brand, because the region is different, choose the one that suits you. I have tested the code of each article. Some friends who build V2ray or other FQ services say that the card is slow. Install BBR first. Of course, if you don’t even know the basic performance of your own server, is it a bullshit? Knowledge needs to be accumulated, come on! Please also fight for yourself and respect knowledge! If you encounter any problems during the operation, welcome <a href="https://t.me/RootInstitute">add public telegram group</a> <code>Please indicate the source of the site-wide script for some youtube UPs, please respect the fruits of labor</code></p>
+<h3 id="Straightforward"><a href="#Straightforward" class="headerlink" title="Straightforward"></a>Straightforward</h3><p>No matter what vps you build, please test the server to your local delay, including the line, including vps uplink and downlink. Regarding the choice of vps, I don’t recommend any brand, because the region is different, choose the one that suits you. I have tested the code of each article. Some friends who build V2ray or other FQ services say that the card is slow. Install BBR first. Of course, if you don’t even know the basic performance of your own server, is it a bullshit? Knowledge needs to be accumulated, come on! Please also fight for yourself and respect knowledge! If you encounter any problems during the operation, welcome <a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">add public telegram group</a> <code>Please indicate the source of the site-wide script for some youtube UPs, please respect the fruits of labor</code></p>
 <h3 id="Install-dependencies"><a href="#Install-dependencies" class="headerlink" title="Install dependencies"></a>Install dependencies</h3><h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><p>Installation dependencies</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install curl</span><br></pre></td></tr></table></figure>
 <h4 id="Centos7"><a href="#Centos7" class="headerlink" title="Centos7"></a>Centos7</h4><p>Installation dependencies</p>
@@ -236,12 +236,12 @@ var _hmt = _hmt || [];
 <p>Nginx installed by the above method, all related configuration files are in the /etc/nginx/ directory<br><strong>The main configuration file of Nginx is /etc/nginx/nginx.conf</strong><br>*<em>Nginx log files (access.log and error.log) are located in the /var/log/nginx/ directory. *</em></p>
 <p>If you can’t use it successfully after the setup is complete, it may be due to the SElinux mechanism (if you are a user of <code>CentOS 7</code>, please pay special attention to the SElinux mechanism) preventing Nginx from forwarding data to the intranet<br>If this is the case, there will be no access information in the V2Ray log, and a large number of “Permission Denied” fields will appear in the Nginx log<br>To solve this problem, you need to type the following command in the terminal:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_can_network_connect 1 &#x2F;&#x2F;Very important debian ignore</span><br></pre></td></tr></table></figure>
-<p>To verify whether Nginx is successfully started, you can open <a href="http://YOUR_IP">http://YOUR_IP</a> in your browser. Note: Open it will display the centos webpage, but it prompts insecure websites that SSL encryption is not turned on https</p>
+<p>To verify whether Nginx is successfully started, you can open <a href="http://YOUR_IP" rel="external nofollow noreferrer">http://YOUR_IP</a> in your browser. Note: Open it will display the centos webpage, but it prompts insecure websites that SSL encryption is not turned on https</p>
 <h3 id="Generate-Certificate"><a href="#Generate-Certificate" class="headerlink" title="Generate Certificate"></a>Generate Certificate</h3><p>*<em>If you already have other certificates, you can ignore them, put the certificate and key in the specified directory of the server, just specify the certificate and key path in Nginx. There are too many ways to apply for a certificate. You can generate a certificate by installing the acme.sh tool or other methods to generate a certificate. You can search on Google. *</em></p>
 <p><strong>1. Install the acem.sh certificate generation tool. The following provides 3 methods to install, choose any one of them to install the certificate tool (Reminder: automatically upgrade acme.sh and enter acme.sh upgrade under root)</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh // If the installation fails, please install curl first and enter yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O-https://get.acme.sh | sh //If it prompts that the installation fails, please (install wget first) enter yum -y install wget already installed ignore</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git // If the installation fails, install git first. Ignore those already installed. Enter yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
 <p>Install acme.sh through the above code and prompt red hold error. You can install dependencies according to the actual situation, such as installing socat or netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7 yum install socat <span class="comment">#Dependency of generating certificate through port 80</span></span><br><span class="line">centos7 yum install netcat</span><br><span class="line"></span><br><span class="line">debian apt-get install openssl cron socat curl</span><br><span class="line">debian apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">After the installation is successful, execute <span class="built_in">source</span> ~/.bashrc to ensure that the <span class="built_in">command</span> <span class="built_in">alias</span> <span class="built_in">set</span> by the script takes effect</span><br></pre></td></tr></table></figure><br><strong>2. Generate the certificate path under the /root/.acme.sh file, you can check it yourself after installation</strong><br>  <strong>Reminder: There are many ways to generate a certificate through acme.sh:</strong><br>  For example — automatic DNS API integration such as: cloudflare DNS API token and use of global API key acme.sh supports most dns to generate certificates<br>  For example — use DNS manual mode, and many other installation methods, if you are a good learner, you can Google</p>
-<p>  The generated certificate is as follows: This video only uses the designated port to generate the certificate. <code>**It is recommended to use the 443 port to generate the certificate**</code> (Generally, a single domain name is sufficient, after all, it is used for overcoming the wall without having to do so many bells and whistles. For baidu.com, it is not recommended to use <a href="http://www.baidu.com">www.baidu.com</a>, because it is the front-end web over the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please control three characters, the primary domain baidu.com and the secondary www .baidu.com can spare you understand)</p>
+<p>  The generated certificate is as follows: This video only uses the designated port to generate the certificate. <code>**It is recommended to use the 443 port to generate the certificate**</code> (Generally, a single domain name is sufficient, after all, it is used for overcoming the wall without having to do so many bells and whistles. For baidu.com, it is not recommended to use <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a>, because it is the front-end web over the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please control three characters, the primary domain baidu.com and the secondary www .baidu.com can spare you understand)</p>
 <p><strong>1. Apply for a certificate by listening on port 80, if port 80 is occupied, please use port 443, please make sure these ports are open</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --standalone -k ec-256</span><br></pre></td></tr></table></figure>
 <p><strong>2. If you use a non-standard port 80 behind the reverse proxy or load balancer, you can use –httpport to specify the port</strong></p>
@@ -268,27 +268,27 @@ var _hmt = _hmt || [];
 <p>Finally, please enter <code>reboot</code> to restart the server<code>(remember to execute)</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<p>Query whether to enable ssl Open the website <a href="https://myssl.com/ssl.html">https://myssl.com/ssl.html</a> and enter your own domain name, port 443 or open <a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> to query, you can also search for the keyword ssl on Google Query, many websites can query, whether the score has reached A level</p>
+<p>Query whether to enable ssl Open the website <a href="https://myssl.com/ssl.html" rel="external nofollow noreferrer">https://myssl.com/ssl.html</a> and enter your own domain name, port 443 or open <a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> to query, you can also search for the keyword ssl on Google Query, many websites can query, whether the score has reached A level</p>
 <p><strong>Reminder: Please use the 443 port code to generate the certificate through the acme.sh tool as follows: sudo ~/.acme.sh/acme.sh –issue -d domain name –alpn -k ec-256 (listening to port 443 To issue a certificate, please make sure that port 443 is turned on. When you operate port 80 to generate a certificate according to the procedure of the article, you will be prompted that the port is occupied. Of course, if you want to be simpler, you can pass the certificate you have purchased or apply for the pagoda or other certificates, and put the key and certificate directly Copy the copy to the specified path of the server, and configure nginx to point to the certificate and path. Some free certificates will lack the CA certificate, so the website ssl score will be greatly reduced. The solution is to re-add the CA certificate.</strong></p>
 <p><strong>Check whether the website has a lock by entering your domain name in the browser🔒 https is turned on, and the ssl score of the website domain name has reached A. If yes, congratulations on the successful construction. If you have learned it, then the next course will be better The more interesting it gets.</strong></p>
 <h3 id="10-BBr-installation"><a href="#10-BBr-installation" class="headerlink" title="10. BBr installation"></a>10. BBr installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget &quot;https:&#x2F;&#x2F;github.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;raw&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br></pre></td></tr></table></figure>
 <h3 id="v2ray-client"><a href="#v2ray-client" class="headerlink" title="v2ray client"></a>v2ray client</h3><p>Please upgrade the client <code>v2ray core</code> to the latest version, add a custom configuration server, copy the following code and save it as <code>**.json</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;port&quot;: 1080,</span><br><span class="line">      &quot;listen&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;socks&quot;,</span><br><span class="line">      &quot;sniffing&quot;: &#123;</span><br><span class="line">        &quot;enabled&quot;: true,</span><br><span class="line">        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">        &quot;udp&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;protocol&quot;: &quot;vless&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;</span><br><span class="line">                &quot;vnext&quot;: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        &quot;address&quot;: &quot;Domain Name&quot;,</span><br><span class="line">                        &quot;port&quot;: 443,</span><br><span class="line">                        &quot;users&quot;: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                &quot;encryption&quot;: &quot;none&quot;,</span><br><span class="line">                                &quot;id&quot;: &quot;UUID replace yourself&quot;,</span><br><span class="line">                                &quot;level&quot;: 0</span><br><span class="line">                            &#125;</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;streamSettings&quot;: &#123;</span><br><span class="line">                &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">                &quot;security&quot;: &quot;tls&quot;,</span><br><span class="line">                &quot;wsSettings&quot;: &#123;</span><br><span class="line">                    &quot;path&quot;: &quot;&#x2F;abcde&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Query-tls-on-status"><a href="#Query-tls-on-status" class="headerlink" title="Query tls on status"></a>Query tls on status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query</p>
+<h3 id="Query-tls-on-status"><a href="#Query-tls-on-status" class="headerlink" title="Query tls on status"></a>Query tls on status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query</p>
 <h3 id="If-you-want-to-uninstall-V2Ray-execute-the-following-code"><a href="#If-you-want-to-uninstall-V2Ray-execute-the-following-code" class="headerlink" title="If you want to uninstall V2Ray, execute the following code"></a>If you want to uninstall V2Ray, execute the following code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
 
-<p><code>Reminder: If you want to improve yourself in a short period of time, you can participate in my training. For many years of practical experience, you can participate in the excellent courses. Basically, you can&#39;t find the VIP courses on all platforms. Seeing blood for a while helps you get through the second line of the governor, everyone can be an expert</code>。<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">Click on course details</a><br><a href="https://t.me/RootInstitute">chat telegram group</a></p>
+<p><code>Reminder: If you want to improve yourself in a short period of time, you can participate in my training. For many years of practical experience, you can participate in the excellent courses. Basically, you can&#39;t find the VIP courses on all platforms. Seeing blood for a while helps you get through the second line of the governor, everyone can be an expert</code>。<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">Click on course details</a><br><a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">chat telegram group</a></p>
 <!--[Nginx前端模板下载-1](https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip)
 [Nginx前端模板下载-2](https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Html%20Template.zip)
 [Nginx前端模板下载-3](https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/3DCEList.zip)
 
-<button class="button is-active"><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" class="点击下载">Nginx前端模板下载-1</a></button>
+<button class="button is-active"><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer" class="点击下载">Nginx前端模板下载-1</a></button>
 
   <button class="button">
     <span class="icon">
     <i class="fas fa-cloud-download-alt"></i>
     </span>
-    <a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" class="download">Nginx Theme template download-1</a>
+    <a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer" class="download">Nginx Theme template download-1</a>
   </button>
 </p> -->
   </button>
@@ -296,7 +296,7 @@ var _hmt = _hmt || [];
     <span class="icon">
     <i class="fas fa-cloud-download-alt"></i>
     </span>
-    <a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" class="download now">Nginx Theme template download</a>
+    <a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer" class="download now">Nginx Theme template download</a>
 
         </div>
         
@@ -486,7 +486,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
                 Follow</a>
         </div>
         
@@ -624,7 +624,7 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
                         href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
                 
                 <br>
@@ -639,7 +639,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -647,7 +647,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -699,7 +699,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -739,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/en/js/back-to-top.js" defer></script>

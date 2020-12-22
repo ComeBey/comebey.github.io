@@ -136,7 +136,7 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ComeBey">
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>
                         
@@ -144,12 +144,12 @@ var _hmt = _hmt || [];
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p><a href="https://www.hostbuf.com/t/988.html">Finalshell SSH connection tool download</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html">Mobaxterm SSH connection tool download</a></p>
+            <p><a href="https://www.hostbuf.com/t/988.html" rel="external nofollow noreferrer">Finalshell SSH connection tool download</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html" rel="external nofollow noreferrer">Mobaxterm SSH connection tool download</a></p>
 <a id="more"></a>
 <h3 id="1-Server-time-synchronization"><a href="#1-Server-time-synchronization" class="headerlink" title="1. Server time synchronization"></a>1. Server time synchronization</h3><p>Set the hardware clock to be consistent with the local clock, set the time zone to Shanghai date -R is to view the current time of the server<br>centos7 time synchronization</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
@@ -238,7 +238,7 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><figcaption><span>/root/.acme.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh // If the installation fails, please install curl first and enter yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O-https://get.acme.sh | sh //If it prompts that the installation fails, please (install wget first) enter yum -y install wget already installed ignore</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git // If the installation fails, install git first. Ignore those already installed. Enter yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
 <p>Install acme.sh through the above code and prompt <code>red</code> to hold wrong. You can install dependencies according to the actual situation, such as installing socat or netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7 yum install socat <span class="comment">#Dependency of generating certificate through port 80</span></span><br><span class="line">centos7 yum isntall netcat</span><br><span class="line"></span><br><span class="line">debian apt-get install openssl cron socat curl</span><br><span class="line">debian apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">After the installation is successful, execute <span class="built_in">source</span> ~/.bashrc <span class="comment"># to ensure that the command alias set by the script takes effect</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>2. Generate the certificate path under the /root/.acme.sh file, you can check it yourself after installation</strong><br>  <strong>Reminder: There are many ways to generate a certificate through acme.sh:</strong><br>  For example — automatic DNS API integration such as: cloudflare DNS API token and use of global API key acme.sh supports most dns to generate certificates<br>  For example — use DNS manual mode, and many other installation methods, if you are a good learner, you can Google</p>
-<p>  The generated certificate is as follows: This video only uses the specified port to generate the certificate <strong>It is recommended to use the 443 port to generate the certificate</strong> (Generally, a single domain name is sufficient, after all, it is used to overcome the wall and do not need to do so many bells and whistles, such as the main domain baidu. com is not recommended to use <a href="http://www.baidu.com">www.baidu.com</a> because it is the front-end web over the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please do not write too long, the main domain baidu.com and secondary <a href="http://www.baidu">www.baidu</a>. com can spare you understand)</p>
+<p>  The generated certificate is as follows: This video only uses the specified port to generate the certificate <strong>It is recommended to use the 443 port to generate the certificate</strong> (Generally, a single domain name is sufficient, after all, it is used to overcome the wall and do not need to do so many bells and whistles, such as the main domain baidu. com is not recommended to use <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a> because it is the front-end web over the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please do not write too long, the main domain baidu.com and secondary <a href="http://www.baidu" rel="external nofollow noreferrer">www.baidu</a>. com can spare you understand)</p>
 <p><strong>1. Apply for a certificate by listening on port 80, if port 80 is occupied, please use port 443, please make sure these ports are open</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --standalone -k ec-256</span><br></pre></td></tr></table></figure>
 <p><strong>2. If you use a non-standard port 80 behind the reverse proxy or load balancer, you can use –httpport to specify the port</strong></p>
@@ -258,10 +258,10 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
 
 <h3 id="8-BBr-installation"><a href="#8-BBr-installation" class="headerlink" title="8. BBr installation"></a>8. BBr installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-<h3 id="9-Query-tls-on-status"><a href="#9-Query-tls-on-status" class="headerlink" title="9. Query tls on status"></a>9. Query tls on status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query<br>About config.json configuration file can be written by yourself, of course, it also includes various other load balancing, reverse proxy. If you want to improve yourself in a short time, you can participate in my training class.</p>
+<h3 id="9-Query-tls-on-status"><a href="#9-Query-tls-on-status" class="headerlink" title="9. Query tls on status"></a>9. Query tls on status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query<br>About config.json configuration file can be written by yourself, of course, it also includes various other load balancing, reverse proxy. If you want to improve yourself in a short time, you can participate in my training class.</p>
 <h3 id="10-If-you-want-to-uninstall-V2Ray-execute-the-following-code"><a href="#10-If-you-want-to-uninstall-V2Ray-execute-the-following-code" class="headerlink" title="10. If you want to uninstall V2Ray, execute the following code"></a>10. If you want to uninstall V2Ray, execute the following code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://t.me/RootInstitute">chat telegram group</a></p>
+<p><a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">chat telegram group</a></p>
 
         </div>
         
@@ -451,7 +451,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
                 Follow</a>
         </div>
         
@@ -573,7 +573,7 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener">comebey</a> & <a
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
                         href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
                 
                 <br>
@@ -588,7 +588,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -596,7 +596,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -648,7 +648,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/en/js/back-to-top.js" defer></script>
