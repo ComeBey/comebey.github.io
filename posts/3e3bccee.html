@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html  lang="zh">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 4.2.1" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 <title>v2ray新版本配置TLS - comebey</title>
 
@@ -113,27 +113,32 @@ var _hmt = _hmt || [];
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/">首页</a>
+                <a class="navbar-item"
+                href="/">首页</a>
                 
-                <a class="navbar-item" href="/archives">归档</a>
+                <a class="navbar-item"
+                href="/archives">归档</a>
                 
-                <a class="navbar-item" href="/categories">分类</a>
+                <a class="navbar-item"
+                href="/categories">分类</a>
                 
-                <a class="navbar-item" href="/tags">标签</a>
+                <a class="navbar-item"
+                href="/tags">标签</a>
                 
-                <a class="navbar-item" href="https://rootfw.com/en/">English</a>
+                <a class="navbar-item"
+                href="https://rootfw.com/en/">English</a>
                 
             </div>
             
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
                     <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/搜索框中的放大镜.svg" style="height: 25px;width: 25px;">
                 </a>
                 
@@ -149,7 +154,7 @@ var _hmt = _hmt || [];
 <div class="card">
     
     <div class="card-image">
-        <span class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/M_05.svg" alt="v2ray新版本配置TLS">
         </span>
     </div>
@@ -163,7 +168,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-07-28T06:54:23.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg" style="height: 17px;width: 17px;">&nbsp;2020-07-28</time>
+                <time class="level-item has-text-grey" datetime="2020-07-28T06:54:23.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-07-28</time>
                 
                 <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-07T09:34:48.327Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-07</time>-->
                 
@@ -184,7 +189,7 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <p><a href="https://www.hostbuf.com/t/988.html" rel="external nofollow noopener noreferrer" target="_blank">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html" rel="external nofollow noopener noreferrer" target="_blank">Mobaxterm SSH连接工具下载</a> </p>
+            <p><a href="https://www.hostbuf.com/t/988.html" rel="external nofollow noreferrer">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html" rel="external nofollow noreferrer">Mobaxterm SSH连接工具下载</a> </p>
 <h3 id="1-服务器时间同步"><a href="#1-服务器时间同步" class="headerlink" title="1.服务器时间同步"></a>1.服务器时间同步</h3><p>设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间<br>centos7时间同步</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -215,7 +220,7 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><figcaption><span>/root/.acme.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh   // 如提示安装失败 请先安装curl 输入 yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O -  https://get.acme.sh | sh     //如提示安装失败请（先安装wget）输入 yum -y install wget 已经安装了忽略</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git   // 如提示安装失败 先安装git 已经安装了的忽略 输入 yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
 <p>通过以上代码安装acme.sh提示<code>红色</code>抱错 你可以按实际相关情况而定安装依赖 比如安装socat 或者 netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install socat     <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line">centos7  yum isntall netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">安装成功后执行 <span class="built_in">source</span> ~/.bashrc   <span class="comment">#以确保脚本所设置的命令别名生效</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>2.生成证书 路径为/root/.acme.sh文件下 安装好后可自行查看</strong><br>  <strong>温馨提示：通过acme.sh生成证书有多种方法：</strong><br>  例如—自动DNS API集成 如：cloudflare DNS API 令牌 和 使用全局API密钥 acme.sh支持大多数dns生成证书<br>  例如—使用DNS手动模式，等多种其他安装方法，如果你是个好学的人可Google </p>
-<p>  生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用 <a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a> 因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级 <a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a> 可以备用你懂的 ）</p>
+<p>  生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用 <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a> 因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级 <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a> 可以备用你懂的 ）</p>
 <p><strong>1.通过侦听80端口申请证书，如果80端口被占用,请使用443端口,请确保这些端口都打开了</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure>
 <p><strong>2.如果您80在反向代理或负载均衡器后面使用非标准端口，则可以–httpport用来指定端口</strong></p>
@@ -235,10 +240,10 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
 
 <h3 id="8-BBr安装"><a href="#8-BBr安装" class="headerlink" title="8.BBr安装"></a>8.BBr安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
-<h3 id="9-查询tls开启状态"><a href="#9-查询tls开启状态" class="headerlink" title="9.查询tls开启状态"></a>9.查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可<br>关于config.json配置文件可以自己写，当然也包括其他各种负载均衡，反向代理。如果想短时间内提升自己的可以参加我的培训课。 </p>
+<h3 id="9-查询tls开启状态"><a href="#9-查询tls开启状态" class="headerlink" title="9.查询tls开启状态"></a>9.查询tls开启状态</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> 输入自己域名查询即可<br>关于config.json配置文件可以自己写，当然也包括其他各种负载均衡，反向代理。如果想短时间内提升自己的可以参加我的培训课。 </p>
 <h3 id="10-如果想卸载V2Ray执行下面代码"><a href="#10-如果想卸载V2Ray执行下面代码" class="headerlink" title="10.如果想卸载V2Ray执行下面代码"></a>10.如果想卸载V2Ray执行下面代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://t.me/RootInstitute" rel="external nofollow noopener noreferrer" target="_blank">添加电报群</a></p>
+<p><a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">添加电报群</a></p>
 
         </div>
         
@@ -247,12 +252,12 @@ var _hmt = _hmt || [];
             <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/3e3bccee.html">https://www.rootfw.com/posts/3e3bccee.html</a></li>
             <li><strong>发布时间：</strong>2020-07-28</li>
-            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
         
         
-        <hr style="height:1px;margin:1rem 0">
+        <hr style="height:1px;margin:1rem 0"/>
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
@@ -266,7 +271,7 @@ var _hmt = _hmt || [];
         
         
 <div class="sharethis-inline-share-buttons"></div>
-<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop" async="async"></script>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
 
         
     </div>
@@ -334,7 +339,7 @@ var _hmt = _hmt || [];
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
     new Valine({
         el: '#valine-thread' ,
@@ -364,7 +369,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                     <figure class="image is-200x200 has-mb-6">
-                        <img class src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
+                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -425,7 +430,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="external nofollow noopener noreferrer">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
                 关注我</a>
         </div>
         
@@ -433,22 +438,25 @@ var _hmt = _hmt || [];
         
         <div class="level is-mobile">
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Github" href="https://github.com/ComeBey">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;"></img>
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg"></i>
                 
             </a>
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;"></img>
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg"></i>
                 
             </a>
              
-            <a class="level-item button is-white is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;">
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
                 
                 <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
                 
@@ -547,7 +555,8 @@ var _hmt = _hmt || [];
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 comebey&nbsp;
-                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="external nofollow noopener noreferrer">comebey</a> & <a href="https://github.com/ComeBey" target="_blank" rel="external nofollow noopener noreferrer">Hasan</a>
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
@@ -561,7 +570,7 @@ var _hmt = _hmt || [];
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                         
                         <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
                         
@@ -569,7 +578,7 @@ var _hmt = _hmt || [];
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
                         
                         <i class="fab fa-github"></i>&nbsp;
                         
@@ -621,7 +630,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -661,7 +670,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/back-to-top.js" defer></script>
@@ -683,7 +692,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
