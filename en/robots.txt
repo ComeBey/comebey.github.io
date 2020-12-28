@@ -1,0 +1,19 @@
+User-agent: *
+Allow: .htm$
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /en/archives/
+Allow: /en/categories/
+Allow: /en/tags/
+Allow: /
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+
+Sitemap: https://www.rootfw.com/sitemap.xml
+Sitemap: https://www.rootfw.com/baidusitemap.xml
+Sitemap: /sitemap.html
+Sitemap: /baidusitemap.xml
