@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
 <meta property="article:published_time" content="2020-06-27T11:17:37.000Z">
-<meta property="article:modified_time" content="2020-09-20T13:14:23.674Z">
+<meta property="article:modified_time" content="2020-12-28T10:10:32.081Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="vpn">
 <meta property="article:tag" content="SS">
@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-06-27T11:17:37.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-27</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T13:14:23.674Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-28T10:10:32.081Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-28</time>-->
                 
                 
                 <div class="level-item">
@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    2 minutes read (About 306 words)
+                    2 minutes read (About 330 words)
                 </span>
                 
                 
@@ -225,6 +225,8 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.18-RELEASE/libsodium-1.0.18.tar.gz</span><br><span class="line"></span><br><span class="line">tar xf libsodium-1.0.18.tar.gz &amp;&amp; <span class="built_in">cd</span> libsodium-1.0.18</span><br></pre></td></tr></table></figure>
 
 <h2 id="5-Debugging-service"><a href="#5-Debugging-service" class="headerlink" title="5. Debugging service"></a>5. Debugging service</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> shadowsocks <span class="comment">#Make the service ss service effective and start up</span></span><br><span class="line"></span><br><span class="line">systemctl start shadowsocks <span class="comment">#start ss</span></span><br><span class="line"></span><br><span class="line">systemctl status shadowsocks -l <span class="comment">#View status</span></span><br></pre></td></tr></table></figure>
+<h2 id="install-BBR"><a href="#install-BBR" class="headerlink" title="install BBR"></a>install BBR</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget <span class="string">"https://raw.githubusercontent.com/ComeBey/rootfw-bbr/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
 <p>Then install BBR acceleration by yourself<br>Reminder: Do you really understand? It is easy to use for friends who know how to use ss, and for friends who do not know how to use ss, even if you are using v2ray or trojan GFW, it is easy to wall your IP. No matter you use any circumvention software, most of the situations are People, in whose hands it is used, shadowsocks can also be used with services such as NGINX, and CDN can also be added. Don’t be broken by some UP main belts. Any problem will be a bullshit if it can’t stand the verification.</p>
 
         </div>
@@ -477,6 +479,10 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#5-Debugging-service">
         <span class="has-mr-6">5</span>
         <span>5. Debugging service</span>
+        </a></li><li>
+        <a class="is-flex" href="#install-BBR">
+        <span class="has-mr-6">6</span>
+        <span>install BBR</span>
         </a></li></ul>
             </div>
         </div>

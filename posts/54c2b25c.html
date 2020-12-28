@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
 <meta property="article:published_time" content="2020-06-16T13:34:25.000Z">
-<meta property="article:modified_time" content="2020-12-26T06:25:28.410Z">
+<meta property="article:modified_time" content="2020-12-28T10:06:09.896Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="v2ray">
 <meta name="twitter:card" content="summary">
@@ -164,7 +164,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-06-16T13:34:25.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-06-16</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-26T06:25:28.410Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-26</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-28T10:06:09.896Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-28</time>-->
                 
                 
                 <div class="level-item">
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
 <h3 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h3><h4 id="更新服务器"><a href="#更新服务器" class="headerlink" title="更新服务器"></a><strong>更新服务器</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
 
 <h4 id="更改root密码"><a href="#更改root密码" class="headerlink" title="更改root密码"></a>更改root密码</h4><p><a href="https://www.rootfw.com/posts/3828c730.html">centos debian服务器root密码更改</a></p>
-<h4 id="安装bbr"><a href="#安装bbr" class="headerlink" title="安装bbr"></a>安装bbr</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">centos7系统</span><br><span class="line">yum -y install wget</span><br><span class="line">wget <span class="string">"https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh </span><br><span class="line"></span><br><span class="line">debian系统  请确定服务器已经安装了wget 如没有按照请先执行这条代码 apt-get install wget</span><br><span class="line">wget --no-check-certificate -O tcp.sh https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+<h4 id="安装bbr"><a href="#安装bbr" class="headerlink" title="安装bbr"></a>安装bbr</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">centos7系统</span><br><span class="line">yum -y install wget</span><br><span class="line">wget <span class="string">"https://raw.githubusercontent.com/ComeBey/rootfw-bbr/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh  </span><br><span class="line"></span><br><span class="line">debian系统  请确定服务器已经安装了wget 如没有按照请先执行这条代码 apt-get install wget</span><br><span class="line">wget --no-check-certificate -O tcp.sh https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装v2ray代码"><a href="#安装v2ray代码" class="headerlink" title="安装v2ray代码"></a>安装v2ray代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh) <span class="comment">#老版本的失效</span></span><br></pre></td></tr></table></figure>
 <h4 id="安裝和更新V2Ray"><a href="#安裝和更新V2Ray" class="headerlink" title="安裝和更新V2Ray"></a>安裝和更新V2Ray</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)</span><br></pre></td></tr></table></figure>

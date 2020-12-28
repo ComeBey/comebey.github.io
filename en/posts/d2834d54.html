@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Phishing.svg">
 <meta property="article:published_time" content="2020-07-28T14:18:07.000Z">
-<meta property="article:modified_time" content="2020-09-20T14:19:49.187Z">
+<meta property="article:modified_time" content="2020-12-28T10:07:43.103Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="v2ray">
 <meta name="twitter:card" content="summary">
@@ -181,7 +181,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-07-28T14:18:07.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-07-28</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T14:19:49.187Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-28T10:07:43.103Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-28</time>-->
                 
                 
                 <div class="level-item">
@@ -194,7 +194,7 @@ var _hmt = _hmt || [];
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    14 minutes read (About 2025 words)
+                    14 minutes read (About 2029 words)
                 </span>
                 
                 
@@ -271,7 +271,7 @@ var _hmt = _hmt || [];
 <p>Check whether ssl is enabled. Open the website <a href="https://myssl.com/ssl.html" rel="external nofollow noreferrer">https://myssl.com/ssl.html</a> and enter your own domain name and port 443 or open <a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> to query, you can also search for the keyword ssl on Google Query, many websites can query, whether the score has reached A level</p>
 <p><strong>Reminder: To generate a certificate through the acme.sh tool, please use the 443 port code as follows: sudo ~/.acme.sh/acme.sh –issue -d domain name –alpn -k ec-256 (listen to port 443 To issue a certificate, please make sure that port 443 is turned on. Follow the procedure of the article to operate port 80. When generating a certificate, you will be prompted that the port is occupied. Of course, if you want to be simpler, you can pass the certificate you have purchased or apply for the pagoda or other certificates, and put the key and certificate directly Copy the copy to the specified path of the server, and configure nginx to point to the certificate and path. Some free certificates will lack the CA certificate, so the website ssl score will be greatly reduced. The solution is to re-add the CA certificate.</strong></p>
 <p><strong>Check if you find that the website has a lock by entering your domain name in the browser🔒 https is turned on, and the ssl score of the website domain name has reached A. If yes, congratulations on the successful construction. If you have learned it, then the next course will be better The more interesting it gets.</strong></p>
-<h3 id="BBr-installation"><a href="#BBr-installation" class="headerlink" title="BBr installation"></a>BBr installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget &quot;https:&#x2F;&#x2F;github.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;raw&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br></pre></td></tr></table></figure>
+<h3 id="BBr-installation"><a href="#BBr-installation" class="headerlink" title="BBr installation"></a>BBr installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ComeBey&#x2F;rootfw-bbr&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br></pre></td></tr></table></figure>
 
 <h3 id="uninstall-V2Ray"><a href="#uninstall-V2Ray" class="headerlink" title="uninstall V2Ray"></a>uninstall V2Ray</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
 <h3 id="Query-tls-status"><a href="#Query-tls-status" class="headerlink" title="Query tls status"></a>Query tls status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query</p>
