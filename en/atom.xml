@@ -295,9 +295,9 @@
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
-      <category term="vip" scheme="https://www.rootfw.com/tags/vip/"/>
-    
       <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
+    
+      <category term="vip" scheme="https://www.rootfw.com/tags/vip/"/>
     
   </entry>
   
@@ -323,9 +323,9 @@
       <category term="centos7" scheme="https://www.rootfw.com/categories/Linux/centos7/"/>
     
     
-      <category term="firewall" scheme="https://www.rootfw.com/tags/firewall/"/>
-    
       <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
+    
+      <category term="firewall" scheme="https://www.rootfw.com/tags/firewall/"/>
     
   </entry>
   
@@ -354,11 +354,11 @@
       <category term="vpn" scheme="https://www.rootfw.com/categories/Shadowsocks/vpn/"/>
     
     
+      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
+    
       <category term="SS" scheme="https://www.rootfw.com/tags/SS/"/>
     
       <category term="Shadowsocks" scheme="https://www.rootfw.com/tags/Shadowsocks/"/>
-    
-      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
     
   </entry>
   
@@ -415,9 +415,9 @@
       <category term="Shadowsocksr" scheme="https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/"/>
     
     
-      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
-    
       <category term="SSR" scheme="https://www.rootfw.com/tags/SSR/"/>
+    
+      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
     
       <category term="Shadowsocksr" scheme="https://www.rootfw.com/tags/Shadowsocksr/"/>
     

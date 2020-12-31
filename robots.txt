@@ -1,5 +1,4 @@
 User-agent: *
-Allow: .html$
 ALLow: /posts/*.html
 Allow: /archives/
 Allow: /categories/
