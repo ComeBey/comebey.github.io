@@ -1,5 +1,5 @@
 User-agent: *
-Allow: .htm$
+Allow: .html$
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
@@ -15,5 +15,3 @@ Disallow: /vendors/
 
 Sitemap: https://www.rootfw.com/sitemap.xml
 Sitemap: https://www.rootfw.com/baidusitemap.xml
-Sitemap: /sitemap.html
-Sitemap: /baidusitemap.xml

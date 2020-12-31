@@ -67,9 +67,9 @@
       <category term="trojan" scheme="https://www.rootfw.com/categories/vpn/v2ray/trojan/"/>
     
     
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
-    
       <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
   </entry>
   
@@ -415,9 +415,9 @@
       <category term="Shadowsocksr" scheme="https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/"/>
     
     
-      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
-    
       <category term="SSR" scheme="https://www.rootfw.com/tags/SSR/"/>
+    
+      <category term="vpn" scheme="https://www.rootfw.com/tags/vpn/"/>
     
       <category term="Shadowsocksr" scheme="https://www.rootfw.com/tags/Shadowsocksr/"/>
     
