@@ -126,11 +126,11 @@
       <category term="vless" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/vless/"/>
     
     
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
       <category term="vless" scheme="https://www.rootfw.com/tags/vless/"/>
     
       <category term="xtls" scheme="https://www.rootfw.com/tags/xtls/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
     
   </entry>
   
@@ -160,9 +160,9 @@
       <category term="vless" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/vless/"/>
     
     
-      <category term="vless" scheme="https://www.rootfw.com/tags/vless/"/>
-    
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+      <category term="vless" scheme="https://www.rootfw.com/tags/vless/"/>
     
   </entry>
   
@@ -304,9 +304,9 @@
       <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
     
     
-      <category term="vless" scheme="https://www.rootfw.com/tags/vless/"/>
-    
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+      <category term="vless" scheme="https://www.rootfw.com/tags/vless/"/>
     
   </entry>
   
