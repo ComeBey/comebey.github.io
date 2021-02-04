@@ -154,29 +154,23 @@ var _hmt = _hmt || [];
     
 <div class="card">
     
-    <div class="card-image">
-        <a href="/posts/3828c730.html" class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/12315l.svg" alt="设置服务器登陆密码">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/posts/3828c730.html"><i class="fas fa-angle-double-right"></i>设置服务器登陆密码</a>
+                <a class="has-link-black-ter" href="/posts/a8ffa798.html"><i class="fas fa-angle-double-right"></i>v2ray定时重启服务crontab</a>
             
         </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-07-26T07:18:33.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-07-26</time>
+                <time class="level-item has-text-grey" datetime="2020-06-16T09:40:18.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-06-16</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-12T08:05:11.302Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-12</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-08T08:18:27.353Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-08</time>-->
                 
                 
                 <div class="level-item">
                     <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
-                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Linux/centos7/">centos7</a>
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
                 </div>
                 
                 
@@ -185,13 +179,8 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            <h3 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h3><p>拿到root权限后，修改SSH配置文件<code>/etc/ssh/sshd_config</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PasswordAuthentication no 改成 yes</span><br><span class="line">PermitRootLogin no 改成 yes</span><br></pre></td></tr></table></figure>
-<p>设置密码,输入两次，输入<code>不提示任何字符</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
-<p>重启SSH服务，最后通过账号为root，密码为自己刚设置的通过第三方ssh登陆连接</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<h3 id="Debian-9和10"><a href="#Debian-9和10" class="headerlink" title="Debian 9和10"></a>Debian 9和10</h3>
+            <h3 id="1-服务器同步本地时间"><a href="#1-服务器同步本地时间" class="headerlink" title="1.服务器同步本地时间"></a>1.服务器同步本地时间</h3><p><strong>以下centos7同步时间选择其中一种</strong><br>方法一.校准时间同步本地时间  date -R 查看vps时间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -i   <span class="comment">#root权限</span></span><br><span class="line">yum -y install ntp ntpdate   <span class="comment">#安装ntpdate工具</span></span><br><span class="line">ntpdate cn.pool.ntp.org     <span class="comment">#设置系统时间与本地网络时间同步</span></span><br><span class="line">hwclock --systohc      <span class="comment">#将系统时间写入硬件时间</span></span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -202,13 +191,13 @@ var _hmt = _hmt || [];
                 
                 <div class="level-item is-size-7 is-uppercase">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/linux/" rel="tag">linux</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>
+                    <a class="has-link-grey -link" href="/tags/v2ray/" rel="tag">v2ray</a>
                 </div>
                 
             </div>
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/3828c730.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
+                <a class="button is-size-7 is-light" href="/posts/a8ffa798.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
                 </div>
             </div>
         </div>
@@ -227,29 +216,23 @@ var _hmt = _hmt || [];
     
 <div class="card">
     
-    <div class="card-image">
-        <a href="/posts/20b4bacc.html" class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/referral.svg" alt="速率换算">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/posts/20b4bacc.html"><i class="fas fa-angle-double-right"></i>速率换算</a>
+                <a class="has-link-black-ter" href="/posts/43d67d1c.html"><i class="fas fa-angle-double-right"></i>SSR多用户脚本搭建</a>
             
         </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-07-24T03:02:19.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-07-24</time>
+                <time class="level-item has-text-grey" datetime="2020-06-16T08:20:33.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-06-16</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-07T10:16:20.826Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-07</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-06-16T13:17:15.336Z"><i class="far fa-calendar-check">&nbsp;</i>2020-06-16</time>-->
                 
                 
                 <div class="level-item">
                     <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
-                <a class="has-link-grey -link" href="/categories/VIP%E5%9F%B9%E8%AE%AD/">VIP培训</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/VIP%E5%9F%B9%E8%AE%AD/%E6%96%87%E7%AB%A0/">文章</a>
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/">SSR</a>
                 </div>
                 
                 
@@ -258,7 +241,70 @@ var _hmt = _hmt || [];
         </div>
         
         <div class="content">
-            无权限访问，仅提供VIP用户学习阅读.
+            <h3 id="搭建环境centos7-debian系统"><a href="#搭建环境centos7-debian系统" class="headerlink" title="搭建环境centos7/debian系统"></a>搭建环境centos7/debian系统</h3><p>第一步sudo -i</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+<p>第二步.ubuntu 系统安装 Curl </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update -y &amp;&amp; apt-get install curl -y</span><br></pre></td></tr></table></figure>
+<p>第二步.centos 系统安装 Curl 和 wget</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum update -y &amp;&amp; yum install curl -y       </span><br><span class="line">yum install wget</span><br></pre></td></tr></table></figure>
+<p>第三步.安装一键脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ComeBey/more-user-ssr/master/hasan.sh &amp;&amp; chmod +x hasan.sh &amp;&amp; bash hasan.sh</span><br></pre></td></tr></table></figure>
+
+<p>第四步:调用命令调试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash hasan.sh</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/231b7e32.html"><i class="fas fa-angle-double-right"></i>V2ray+WS+TCP+TLS配置</a>
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-10T05:48:15.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-06-10</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-28T10:04:09.576Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-28</time>-->
+                
+                
+                <div class="level-item">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <ol>
+<li>v2ray+WS+TCP+TLS</li>
+<li>安全级别不错</li>
+<li>稳定性不错</li>
+<li>推荐部署</li>
+</ol>
+<p><strong>centos7系统配置和Debian系统配置，acme.sh脚本所有证书将每60天自动更新一次（如果你非要手动更新随意)</strong></p>
+<h3 id="第一步-V2RAY官方脚本搭建"><a href="#第一步-V2RAY官方脚本搭建" class="headerlink" title="第一步.V2RAY官方脚本搭建"></a>第一步.V2RAY官方脚本搭建</h3><p>centos7更新服务器 <strong>yum update -y</strong> (部分系统提示<strong>NO packages marked for update</strong>则无需更新)<br><strong>设置硬件时钟调整为与本地时钟一致, 设置时区为上海 date -R 是查看服务器当前时间</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -269,13 +315,13 @@ var _hmt = _hmt || [];
                 
                 <div class="level-item is-size-7 is-uppercase">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/v2ray/" rel="tag">v2ray</a>,&nbsp;<a class="has-link-grey -link" href="/tags/vip/" rel="tag">vip</a>
+                    <a class="has-link-grey -link" href="/tags/v2ray/" rel="tag">v2ray</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a>
                 </div>
                 
             </div>
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/posts/20b4bacc.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
+                <a class="button is-size-7 is-light" href="/posts/231b7e32.html#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
                 </div>
             </div>
         </div>
@@ -313,9 +359,9 @@ var _hmt = _hmt || [];
             
             <li><a class="pagination-link has-text-black-ter" href="/page/10/">10</a></li>
             
-            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/11/">11</a></li>
             
-            <li><a class="pagination-link has-text-black-ter" href="/page/17/">17</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/12/">12</a></li>
             
         </ul>
     </nav>
