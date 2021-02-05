@@ -436,12 +436,11 @@ img.thumbnail {
 }
 .content code {
   padding: 0;
-  background: transparent;
 }
 .content > code,
 .content :not(pre) > code {
   font-size: 0.95em;
-  color: #ff3860;
+  color: #000;
 }
 .content blockquote footer strong + cite {
   margin-left: 0.5em;
