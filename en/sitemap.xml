@@ -221,6 +221,27 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/tags/SSR/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/vpn/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/Shadowsocksr/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/tags/SS/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -235,21 +256,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/vpn/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/SSR/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/Shadowsocksr/</loc>
+    <loc>https://www.rootfw.com/tags/hexo/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -257,13 +264,6 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/v2ray/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/hexo/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -356,14 +356,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Shadowsocks/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/SSR/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/SSR/</loc>
+    <loc>https://www.rootfw.com/categories/Shadowsocks/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -377,14 +377,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/v2ray/</loc>
+    <loc>https://www.rootfw.com/categories/Hexo/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Hexo/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/v2ray/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -419,7 +419,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Shadowsocks/vpn/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -440,7 +440,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/</loc>
+    <loc>https://www.rootfw.com/categories/Shadowsocks/vpn/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
