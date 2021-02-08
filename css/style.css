@@ -440,7 +440,7 @@ img.thumbnail {
 .content > code,
 .content :not(pre) > code {
   font-size: 0.95em;
-  color: #000;
+  color: rgba(0,0,0,0.702);
 }
 .content blockquote footer strong + cite {
   margin-left: 0.5em;
