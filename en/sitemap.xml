@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.rootfw.com/posts/d2834d54.html</loc>
+    
+    <lastmod>2021-02-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/posts/c695a206.html</loc>
     
     <lastmod>2020-12-28</lastmod>
@@ -45,13 +52,6 @@
   
   <url>
     <loc>https://www.rootfw.com/posts/93baa7dd.html</loc>
-    
-    <lastmod>2020-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/posts/d2834d54.html</loc>
     
     <lastmod>2020-12-28</lastmod>
     
@@ -186,13 +186,6 @@
 
   
   <url>
-    <loc>https://www.rootfw.com/tags/brook/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/tags/Brook/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -207,14 +200,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/python/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/github/</loc>
+    <loc>https://www.rootfw.com/tags/brook/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -236,6 +222,20 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/Shadowsocksr/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/python/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/github/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -342,21 +342,14 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/categories/vpn/Brook/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/categories/github/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/vpn/brook/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/vpn/SSR/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -370,7 +363,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/vpn/Brook/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/brook/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,7 +384,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
+    <loc>https://www.rootfw.com/categories/vpn/SSR/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -399,6 +392,13 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -413,13 +413,6 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/Dark-Web/</loc>
-    <lastmod>2021-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -455,6 +448,13 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/vpn/v2ray/trojan/</loc>
+    <lastmod>2021-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/vpn/SSR/Shadowsocksr/</loc>
     <lastmod>2021-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
