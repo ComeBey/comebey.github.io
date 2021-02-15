@@ -574,7 +574,7 @@ figure.highlight .section {
 .gist .file {
   all: initial;
 }
-. {
+.post-copyright {
   font-size: 1rem;
   letter-spacing: 0.02rem;
   word-break: break-all;
