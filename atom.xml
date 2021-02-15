@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2021-02-15T13:39:24.854Z</updated>
+  <updated>2021-02-15T13:39:24.883Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Linode 服务器网速延迟评测</title>
-    <link href="https://www.rootfw.com/posts/f661b4c.html"/>
-    <id>https://www.rootfw.com/posts/f661b4c.html</id>
-    <published>2021-02-15T12:44:00.000Z</published>
-    <updated>2021-02-15T13:39:24.854Z</updated>
-    
-    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="文章已进行加密，需要密码才能继续阅读." data-whm="无效的密码。请检查并重试.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">请输入访问密码.</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="c987d3ac91745229f98d85e71f0717369bfc58470f3d6f554d864a3946947164">13e6549e48ff14c1cf2807edbbbef0ecb8a01e3d3295f94fb7bd4a863e408624891ab3e71833e11214246803e1ae15f5</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-    
-    <summary type="html">
-    
-      无权限访问，需要密码才能继续阅读.
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
-    
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
-    
-  </entry>
   
   <entry>
     <title>linode服务器评测</title>
@@ -592,6 +567,39 @@
     
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置服务器登陆密码</title>
+    <link href="https://www.rootfw.com/posts/3828c730.html"/>
+    <id>https://www.rootfw.com/posts/3828c730.html</id>
+    <published>2020-07-26T07:18:33.000Z</published>
+    <updated>2020-12-12T08:05:11.302Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h3><p>拿到root权限后，修改SSH配置文件<code>/etc/ssh/sshd_config</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">PasswordAuthentication no 改成 yes</span><br><span class="line">PermitRootLogin no 改成 yes</span><br></pre></td></tr></table></figure><p>设置密码,输入两次，输入<code>不提示任何字符</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure><p>重启SSH服务，最后通过账号为root，密码为自己刚设置的通过第三方ssh登陆连接</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure><h3 id="Debian-9和10"><a href="#Debian-9和10" class="headerlink" title="Debian 9和10"></a>Debian 9和10</h3><a id="more"></a><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ssh <span class="comment">#选择安装</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment">#PermitRootLogin prohibit-password 改为 PermitRootLogin yes</span></span><br><span class="line"><span class="comment">#PasswordAuthentication no 改为 PasswordAuthentication yes</span></span><br></pre></td></tr></table></figure><p>设置密码,输入两次，输入<code>不提示任何字符</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure><p>重启SSH服务，最后通过账号为root，密码为自己刚设置的通过第三方ssh登陆连接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;ssh restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;centos7&quot;&gt;&lt;a href=&quot;#centos7&quot; class=&quot;headerlink&quot; title=&quot;centos7&quot;&gt;&lt;/a&gt;centos7&lt;/h3&gt;&lt;p&gt;拿到root权限后，修改SSH配置文件&lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vim /etc/ssh/sshd_config&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PasswordAuthentication no 改成 yes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PermitRootLogin no 改成 yes&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;设置密码,输入两次，输入&lt;code&gt;不提示任何字符&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;passwd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;重启SSH服务，最后通过账号为root，密码为自己刚设置的通过第三方ssh登陆连接&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service sshd restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Debian-9和10&quot;&gt;&lt;a href=&quot;#Debian-9和10&quot; class=&quot;headerlink&quot; title=&quot;Debian 9和10&quot;&gt;&lt;/a&gt;Debian 9和10&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://www.rootfw.com/categories/Linux/"/>
+    
+      <category term="centos7" scheme="https://www.rootfw.com/categories/Linux/centos7/"/>
+    
+    
+      <category term="linux" scheme="https://www.rootfw.com/tags/linux/"/>
+    
+      <category term="服务器" scheme="https://www.rootfw.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
