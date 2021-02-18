@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en">
+<html  lang="zh">
 <head>
     <meta charset="utf-8" />
 
@@ -7,24 +7,25 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Brook crontab use - comebey</title>
+<title>Brook crontab定时重启 - comebey</title>
 
 
-    <meta name="description" content="Choose one of the following synchronization time. If you cannot synchronize the local time, please google the next one (keywords such as centos7 or centos6 or debian time synchronization local time)">
+    <meta name="description" content="以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入 123yum -y install ntp ntpdate   &#x2F;&#x2F;安装ntpdate工具ntpdate cn.pool.ntp.org     &#x2F;&#x2F;设置系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Brook crontab use">
+<meta property="og:title" content="Brook crontab定时重启">
 <meta property="og:url" content="https://www.rootfw.com/posts/10db3eaa.html">
 <meta property="og:site_name" content="comebey">
-<meta property="og:description" content="Choose one of the following synchronization time. If you cannot synchronize the local time, please google the next one (keywords such as centos7 or centos6 or debian time synchronization local time)">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
+<meta property="og:description" content="以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入 123yum -y install ntp ntpdate   &#x2F;&#x2F;安装ntpdate工具ntpdate cn.pool.ntp.org     &#x2F;&#x2F;设置系统">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
 <meta property="article:published_time" content="2020-06-10T04:45:36.000Z">
-<meta property="article:modified_time" content="2020-09-20T13:11:37.972Z">
+<meta property="article:modified_time" content="2020-08-06T11:06:42.318Z">
 <meta property="article:author" content="comebey">
+<meta property="article:tag" content="翻墙">
 <meta property="article:tag" content="Brook">
-<meta property="article:tag" content="crontab">
+<meta property="article:tag" content="定时重启">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.rootfw.com/en/images/og_image.png">
+<meta name="twitter:image" content="https://www.rootfw.com/images/og_image.png">
 
 
 
@@ -32,12 +33,12 @@
 
 
 
-<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.4.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
 
 
@@ -58,7 +59,7 @@
     
     
     
-<link rel="stylesheet" href="/en/css/back-to-top.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/back-to-top.css">
 
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
@@ -81,35 +82,32 @@ var _hmt = _hmt || [];
 })();
 </script>
     
-    <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1986829,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-    
-    <link rel="stylesheet" href="/en/css/progressbar.css">
+    <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
-<link rel="stylesheet" href="/en/css/style.css">
-<link rel="alternate" href="/en/atom.xml" title="comebey" type="application/atom+xml">
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+    <meta name="keywords" content="v2ray,xtls,comebey,v2ray搭建,vless,hasan W,xray,rootfw">
+    
+
+ 
+<link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
 </head>
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/en/">
+            <a class="navbar-item navbar-logo" href="/">
             
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="Brook crontab use" height="50">
-                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span> <!--导航栏logo-->
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="Brook crontab定时重启" height="36">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span>
             
             </a>
         </div>
@@ -118,40 +116,32 @@ var _hmt = _hmt || [];
             <div class="navbar-start">
                 
                 <a class="navbar-item"
-                href="/en/">Home</a>
+                href="/">首页</a>
                 
                 <a class="navbar-item"
-                href="/en/archives">Archives</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
-                href="/en/categories">Categories</a>
+                href="/categories">分类</a>
                 
                 <a class="navbar-item"
-                href="/en/tags">Tags</a>
+                href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="https://rootfw.com">中文</a>
+                href="https://rootfw.com/en/">English</a>
                 
             </div>
             
             <div class="navbar-end">
                 
-                    
-                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                    
                 
-                
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
-                    <i class="fas fa-search"></i>
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/搜索框中的放大镜.svg" style="height: 25px;width: 25px;">
                 </a>
                 
             </div>
@@ -168,60 +158,51 @@ var _hmt = _hmt || [];
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Brook crontab use
+                <i class="fas fa-angle-double-right"></i>Brook crontab定时重启
             
         </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-06-10T04:45:36.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
+                <time class="level-item has-text-grey" datetime="2020-06-10T04:45:36.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-06-10</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T13:11:37.972Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-06T11:06:42.318Z"><i class="far fa-calendar-check">&nbsp;</i>2020-08-06</time>-->
                 
                 
                 <div class="level-item">
-                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/vpn/Brook/">Brook</a>
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/">Brook</a>
                 </div>
                 
-                
-                <span class="level-item has-text-grey"></span> <!-- 2020-06-10 <span class="level-item has-text-grey"> -->
-                    <i class="far fa-clock"></i>&nbsp;
-                    
-                    
-                    4 minutes read (About 582 words)
-                </span>
                 
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span> visits
+                    <span id="busuanzi_value_page_pv">0</span>次访问
                 </span>
                 
             </div>
         </div>
         
         <div class="content">
-            <p>Choose one of the following synchronization time. If you cannot synchronize the local time, please google the next one (keywords such as centos7 or centos6 or debian time synchronization local time)</p>
+            <p>以下同步时间选择其中一种,如果无法同步本地时间请google下(关键字centos7或者centos6或者debian时间同步本地时间等关键字)<br><strong>方法1.校准时间同步本地时间  date -R 查看vps时间 sudo -i root权限进入</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install ntp ntpdate   //安装ntpdate工具</span><br><span class="line">ntpdate cn.pool.ntp.org     //设置系统时间与本地网络时间同步</span><br><span class="line">hwclock --systohc          //将系统时间写入硬件时间</span><br></pre></td></tr></table></figure>
+<p><strong>方法2.校准时间同步本地时间  date -R 查看vps时间</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install ntp                //安装ntp服务</span><br><span class="line">systemctl <span class="built_in">enable</span> ntpd              //开机启动服务</span><br><span class="line">systemctl start ntpd              //启动服务</span><br><span class="line">timedatectl <span class="built_in">set</span>-timezone Asia/Shanghai           //更改时区</span><br><span class="line">timedatectl <span class="built_in">set</span>-ntp yes           //启用ntp同步</span><br><span class="line">ntpq -p          //同步时间</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
-<p><strong>Method 1. Calibrate time and synchronize local time date -R view vps time sudo -i root permission to enter</strong><br>``<br>yum -y install ntp ntpdate //install ntpdate tool<br>ntpdate cn.pool.ntp.org //Set the system time to synchronize with the local network time<br>hwclock –systohc //write system time into hardware time</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">**Method 2. Calibrate time to synchronize local time date -R to view vps time**</span><br><span class="line">&#96;&#96;</span><br><span class="line">yum install ntp &#x2F;&#x2F;install ntp service</span><br><span class="line">systemctl enable ntpd &#x2F;&#x2F;Start the service</span><br><span class="line">systemctl start ntpd &#x2F;&#x2F;Start the service</span><br><span class="line">timedatectl set-timezone Asia&#x2F;Shanghai&#x2F;&#x2F;Change time zone</span><br><span class="line">timedatectl set-ntp yes &#x2F;&#x2F;Enable ntp synchronization</span><br><span class="line">ntpq -p &#x2F;&#x2F;Sync time</span><br></pre></td></tr></table></figure>
-
-<p>** crontab service **<br>``<br>/ sbin / service crond start (open crontab without any prompt indicating it has been opened)<br>/sbin/service crond status (view status)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Install crontab: (Some systems do not have crontab installed, you need to install it, if the system itself is already installed, please skip this step)</span><br><span class="line"></span><br><span class="line">** yum install crontabs ** (install crontab)</span><br><span class="line"></span><br><span class="line">##Service operation instructions:</span><br><span class="line">&#96;&#96;</span><br><span class="line">&#x2F; sbin &#x2F; service crond start (start service)</span><br><span class="line"></span><br><span class="line">&#x2F; sbin &#x2F; service crond stop (turn off the service)</span><br><span class="line"></span><br><span class="line">&#x2F;sbin&#x2F;service crond restart (restart service)</span><br><span class="line"></span><br><span class="line">&#x2F; sbin &#x2F; service crond reload (reload configuration&#x2F;&#x2F;reload configuration)</span><br><span class="line"></span><br><span class="line">&#x2F;sbin&#x2F;service crond status (check whether crond is running normally)</span><br></pre></td></tr></table></figure>
-<p>crontab -e (Enter the i key, copy the following code ctrl + c, paste ctrl + v to join the scheduled task, you can customize and add the required functions)</p>
-<p>``</p>
-<ul>
-<li>/ 1 * * * *Date&gt;&gt;~/a.log 2&gt;&amp;1</li>
-<li>/ 1 * * * * sudo journalctl -b -u brook &gt;&gt;~/ a.log 2&gt;&amp;1</li>
-<li>/ 1 * * * * /bin/systemctl restart brook.service &gt;&gt;~/a.log 2&gt;&amp;1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;</span><br><span class="line">crontab -l (view the crontab tasks that have been added)</span><br><span class="line">tail~&#x2F;a.log View the last 10 logs</span><br><span class="line">More&#x2F;root&#x2F;a.log View all logs</span><br><span class="line">tail -f &#x2F;var&#x2F;log&#x2F;cron to view normal running crontab scheduled tasks</span><br><span class="line">Verify the running status of crontab scheduled task brook</span><br><span class="line">The output can be filtered according to specific segments</span><br><span class="line">journalctl -b displays all logs after this startup:</span><br><span class="line"></span><br><span class="line">journalctl -f view the progress being output</span><br><span class="line"></span><br><span class="line">sudo journalctl -b -u Brook view Brooke status</span><br><span class="line"></span><br><span class="line">man 1 journalctl view all the usage of journalctl</span><br><span class="line"></span><br><span class="line">rm -rf~&#x2F;a.log log clearing method</span><br><span class="line"></span><br><span class="line">Example 1: execute a command every 1 minute</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">* * * * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 2: Execute at the 3rd and 15th minutes of every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 * * * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 3: Execute at the 3rd and 15th minutes from 8 am to 11 am</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 4: Execute at the 3rd and 15th minutes from 8 am to 11 am every two days</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 8-11 * &#x2F; 2 * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 5: Execute on the 3rd and 15th minutes from 8 am to 11 am every Monday</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * 1 command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 6: Restart at 21:30 every night</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">30 21 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 7: Restart at 4:45 on the 1, 10, and 22 of each month</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">45 4 1,10,22 * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 8: Restart at 1:10 every Saturday and Sunday</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">10 1 * * 6,0 &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 9: Restart smb every 30 minutes from 18:00 to 23:00 every day</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0,30 18-23 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 10: restart every Saturday at 11:00 pm</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0 23 * * 6 &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 11: Restart smb every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">* * &#x2F; 1 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 12: Between 11 pm and 7 am, restart smb every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">* 23-7 &#x2F; 1 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 13: Restart smb on the 4th of every month and 11 o’clock every Monday to Wednesday</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0 11 4 * mon-wed &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 14: restart smb at 4 o&#39;clock on January 1st</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0 4 1 jan * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 15: Execute the script in the &#x2F;etc&#x2F;cron.hourly directory every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">01 * * * *Root running component &#x2F;etc&#x2F;cron.hourly</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+<p><strong>crontab服务</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service crond start     (开启crontab无任何提示表示已经开启)</span><br><span class="line">/sbin/service crond status    (查看状态)</span><br></pre></td></tr></table></figure>
+<p>安装crontab：(有些系统没有安装crontab则需要安装,如果系统本身已经安装了请跳过这一步骤)</p>
+<p><strong>yum install crontabs</strong> (安装crontab)</p>
+<h2 id="服务操作说明："><a href="#服务操作说明：" class="headerlink" title="服务操作说明："></a>服务操作说明：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service crond start  (启动服务)</span><br><span class="line"></span><br><span class="line">/sbin/service crond stop  (关闭服务)</span><br><span class="line"></span><br><span class="line">/sbin/service crond restart  (重启服务)</span><br><span class="line"></span><br><span class="line">/sbin/service crond reload  (重新载入配置 //重新载入配置)</span><br><span class="line"></span><br><span class="line">/sbin/service crond status  (查看crond是否正常运行)</span><br></pre></td></tr></table></figure>
+<p>crontab -e (输入i键,复制以下代码ctrl+c,黏贴ctrl+v到加入计划任务,可自定义添加需要的功能)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * date &gt;&gt; ~/a.log 2&gt;&amp;1 </span><br><span class="line">*/1 * * * * sudo journalctl -b -u brook &gt;&gt; ~/a.log 2&gt;&amp;1</span><br><span class="line">*/1 * * * * /bin/systemctl restart brook.service &gt;&gt; ~/a.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line">crontab -l (查看已经添加的crontab任务)</span><br><span class="line">tail ~/a.log 查看最近10条日志</span><br><span class="line">more /root/a.log 查看所有日志</span><br><span class="line">tail -f /var/<span class="built_in">log</span>/cron 查看正常运行的crontab计划任务</span><br><span class="line">验证crontab计划任务brook运行状态</span><br><span class="line">可以根据特定字段过滤输出</span><br><span class="line">journalctl -b   显示本次启动后的所有日志：</span><br><span class="line"></span><br><span class="line">journalctl -f 查看正在输出的进程</span><br><span class="line"></span><br><span class="line">sudo journalctl -b -u brook 查看brook状态</span><br><span class="line"></span><br><span class="line">man 1 journalctl 查看所有 journalctl使用方法</span><br><span class="line"></span><br><span class="line">rm -rf ~/a.log 日志清除方法</span><br><span class="line"></span><br><span class="line">实例1：每1分钟执行一次<span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* * * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例2：每小时的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 * * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例3：在上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例4：每隔两天的上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 */2 * * <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例5：每个星期一的上午8点到11点的第3和第15分钟执行</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * 1 <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例6：每晚的21:30重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">30 21 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例7：每月1、10、22日的4 : 45重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">45 4 1,10,22 * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例8：每周六、周日的1 : 10重启smb</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">10 1 * * 6,0 /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0,30 18-23 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例10：每星期六的晚上11 : 00 pm重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 23 * * 6 /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例11：每一小时重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* */1 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例12：晚上11点到早上7点之间，每隔一小时重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">* 23-7/1 * * * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例13：每月的4号与每周一到周三的11点重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 11 4 * mon-wed /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例14：一月一号的4点重启smb </span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">0 4 1 jan * /etc/init.d/smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">实例15：每小时执行/etc/cron.hourly目录内的脚本</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line"></span><br><span class="line">01   *   *   *   *     root run-parts /etc/cron.hourly</span><br></pre></td></tr></table></figure>
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">Brook crontab use</a></li>
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">Brook crontab定时重启</a></li>
             <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">https://www.rootfw.com/posts/10db3eaa.html</a></li>
             <li><strong>发布时间：</strong>2020-06-10</li>
@@ -235,7 +216,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/en/tags/Brook/" rel="tag">Brook</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/crontab/" rel="tag">crontab</a>
+                    <a class="has-link-grey -link" href="/tags/Brook/" rel="tag">Brook</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF/" rel="tag">定时重启</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BF%BB%E5%A2%99/" rel="tag">翻墙</a>
                 </div>
             </div>
         </div>
@@ -254,7 +235,7 @@ var _hmt = _hmt || [];
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
                 
@@ -262,8 +243,8 @@ var _hmt = _hmt || [];
     <span class="icon is-small">
         <i class="fab fa-alipay"></i>
     </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="Alipay"></div>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="支付宝"></div>
 </a>
 
                 
@@ -272,8 +253,8 @@ var _hmt = _hmt || [];
     <span class="icon is-small">
         <i class="fab fa-weixin"></i>
     </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="Wechat"></div>
+    <span>微信</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="微信"></div>
 </a>
 
                 
@@ -287,16 +268,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/en/posts/43d67d1c.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/231b7e32.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">SSR multi-user script construction</span>
+                <span class="level-item">V2ray+WS+TCP+TLS配置</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/en/posts/c695a206.html">
-                <span class="level-item">Brook install</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/c695a206.html">
+                <span class="level-item">Brook centos7官方脚本搭建</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -308,25 +289,22 @@ var _hmt = _hmt || [];
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-    var disqus_config = function () {
-        this.page.url = 'https://www.rootfw.com/posts/10db3eaa.html';
-        this.page.identifier = 'posts/10db3eaa.html';
-    };
-    (function() {
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hasan-blog' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'Ipp1FU7Rr7KCIYgNnv1mrOvj-gzGzoHsz',
+        app_key: '1pOvMu9iiGMSqeykFKQ5xcNM',
+        placeholder: 'Say something...'
+    });
 </script>
 
-<div id="disqus_thread">
-    
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
     </div>
 </div>
 </div>
@@ -345,7 +323,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                     <figure class="image is-200x200 has-mb-6">
-                        <img class="" src="/en/images/avatar.png" alt="ComeBey">
+                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -370,11 +348,11 @@ var _hmt = _hmt || [];
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        文章
                     </p>
-                    <a href="/en/archives">
+                    <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            19
+                            38
                         </p>
                     </a>
                 </div>
@@ -382,11 +360,11 @@ var _hmt = _hmt || [];
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        分类
                     </p>
-                    <a href="/en/categories">
+                    <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            25
+                            32
                         </p>
                     </a>
                 </div>
@@ -394,11 +372,11 @@ var _hmt = _hmt || [];
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        标签
                     </p>
-                    <a href="/en/tags">
+                    <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            20
+                            30
                         </p>
                     </a>
                 </div>
@@ -407,31 +385,34 @@ var _hmt = _hmt || [];
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
-                Follow</a>
+                关注我</a>
         </div>
         
         
         
         <div class="level is-mobile">
-            
+             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
                 title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;"></img>
                 
-                <i class="fab fa-github"></i>
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg"></i>
                 
             </a>
-            
+             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
                 title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;"></img>
                 
-                <i class="fab fa-facebook"></i>
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg"></i>
                 
             </a>
-            
+             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com/WangTao_Im">
+                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
                 
-                <i class="fab fa-twitter"></i>
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
                 
             </a>
             
@@ -441,6 +422,21 @@ var _hmt = _hmt || [];
 </div>
         
             
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#服务操作说明：">
+        <span class="has-mr-6">1</span>
+        <span>服务操作说明：</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
 
         
         
@@ -458,9 +454,9 @@ var _hmt = _hmt || [];
     <div class="container">
         <div class="level">
             <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/en/">
+                <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="Brook crontab use" height="28">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="Brook crontab定时重启" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -470,7 +466,7 @@ var _hmt = _hmt || [];
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
-                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                共<span id="busuanzi_value_site_uv">0</span>个访客
                 </span>
                 
                 </p>
@@ -501,9 +497,9 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
+<script>moment.locale("zh-CN");</script>
 
 
 <script>
@@ -528,13 +524,13 @@ var IcarusThemeSettings = {
 
 
 
-<script src="/en/js/animation.js"></script>
+<script src="/js/animation.js"></script>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/en/js/gallery.js" defer></script>
+<script src="/js/gallery.js" defer></script>
 
 
 
@@ -580,10 +576,10 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
     <i class="fas fa-chevron-up"></i>
 </a>
-<script src="/en/js/back-to-top.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/back-to-top.js" defer></script>
 
 
 
@@ -596,15 +592,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-<script src="/en/js/main.js" defer></script>
+<script src="/js/main.js" defer></script>
 
     
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -616,20 +610,20 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
-            CONTENT_URL: '/en/content.json',
+            CONTENT_URL: 'https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/content.json',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
 </script>
-<script src="/en/js/insight.js" defer></script>
-<link rel="stylesheet" href="/en/css/search.css">
-<link rel="stylesheet" href="/en/css/insight.css">
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/search.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/insight.css">
     
 </body>
 </html>

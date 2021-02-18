@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>V2ray+WebSocket+TLS+Nginx - comebey</title>
+
+
+    <meta name="description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载 centos7系统环境搭建，温馨提示：请使用centos7系统搭建，如果学习能力强可以Google搜索Debian或其他系统搭建方法，只是部分代码不一样而已，V2Ray+WebSocket+TLS+Nginx 前几期视频分别提到过 TLS 和 WebSocket 的配置方法，而本文搭配 Web 服务并同时实现 TLS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="V2ray+WebSocket+TLS+Nginx">
+<meta property="og:url" content="https://www.rootfw.com/posts/54c2b25c.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="Finalshell SSH连接工具下载Mobaxterm SSH连接工具下载 centos7系统环境搭建，温馨提示：请使用centos7系统搭建，如果学习能力强可以Google搜索Debian或其他系统搭建方法，只是部分代码不一样而已，V2Ray+WebSocket+TLS+Nginx 前几期视频分别提到过 TLS 和 WebSocket 的配置方法，而本文搭配 Web 服务并同时实现 TLS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
+<meta property="article:published_time" content="2020-06-16T13:34:25.000Z">
+<meta property="article:modified_time" content="2021-02-04T05:49:22.443Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="v2ray">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.rootfw.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.4.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?eb7ec9441757d71902ddc95dbe898eb4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+    <meta name="keywords" content="v2ray,xtls,comebey,v2ray搭建,vless,hasan W,xray,rootfw">
+    
+
+ 
+<link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="V2ray+WebSocket+TLS+Nginx" height="36">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com/en/">English</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/搜索框中的放大镜.svg" style="height: 25px;width: 25px;">
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>V2ray+WebSocket+TLS+Nginx
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-16T13:34:25.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-06-16</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-02-04T05:49:22.443Z"><i class="far fa-calendar-check">&nbsp;</i>2021-02-04</time>-->
+                
+                
+                <div class="level-item">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>
+                </div>
+                
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p><a href="https://www.hostbuf.com/t/988.html" rel="external nofollow noreferrer">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html" rel="external nofollow noreferrer">Mobaxterm SSH连接工具下载</a></p>
+<p><strong>centos7系统环境搭建，温馨提示：请使用centos7系统搭建，如果学习能力强可以Google搜索Debian或其他系统搭建方法，只是部分代码不一样而已，V2Ray+WebSocket+TLS+Nginx 前几期视频分别提到过 TLS 和 WebSocket 的配置方法，而本文搭配 Web 服务并同时实现 TLS 和 WebSocket浏览器域名访问自动跳转https有简单前端网页。关于 Web 的软件官方给出Nginx，Caddy 和 Apache 三个例子，三选一即可</strong></p>
+<a id="more"></a>
+<h3 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h3><h4 id="更新服务器"><a href="#更新服务器" class="headerlink" title="更新服务器"></a><strong>更新服务器</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="更改root密码"><a href="#更改root密码" class="headerlink" title="更改root密码"></a>更改root密码</h4><p><a href="https://www.rootfw.com/posts/3828c730.html">centos debian服务器root密码更改</a></p>
+<h4 id="安装bbr"><a href="#安装bbr" class="headerlink" title="安装bbr"></a>安装bbr</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">centos7系统</span><br><span class="line">yum -y install wget</span><br><span class="line">wget <span class="string">"https://raw.githubusercontent.com/ComeBey/rootfw-bbr/master/tcp.sh"</span> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh  </span><br><span class="line"></span><br><span class="line">debian系统  请确定服务器已经安装了wget 如没有按照请先执行这条代码 apt-get install wget</span><br><span class="line">wget --no-check-certificate -O tcp.sh https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装v2ray代码"><a href="#安装v2ray代码" class="headerlink" title="安装v2ray代码"></a>安装v2ray代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh) <span class="comment">#老版本的失效</span></span><br></pre></td></tr></table></figure>
+<h4 id="安裝和更新V2Ray"><a href="#安裝和更新V2Ray" class="headerlink" title="安裝和更新V2Ray"></a>安裝和更新V2Ray</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装geoip和geosite"><a href="#安装geoip和geosite" class="headerlink" title="安装geoip和geosite"></a>安装geoip和geosite</h4><figure class="highlight"><figcaption><span>install update geoip.dat and geosite.date</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)</span><br></pre></td></tr></table></figure>
+<h4 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h4><figure class="highlight"><figcaption><span>卸载v2ray</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后执行 <strong>vi /etc/v2ray/config.json</strong> 长按键盘D键删所有代码，在输入键盘Ins键进入可编辑状态，复制以下代码后 黏贴到配置中按键盘Esc键，在同时按键盘<strong>shift+：输入wq保存退出</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">//复制以下代码</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"log"</span> : &#123;</span><br><span class="line">    <span class="string">"access"</span>: <span class="string">"/var/log/v2ray/access.log"</span>,</span><br><span class="line">    <span class="string">"error"</span>: <span class="string">"/var/log/v2ray/error.log"</span>,</span><br><span class="line">    <span class="string">"loglevel"</span>: <span class="string">"warning"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"inbound"</span>: &#123;</span><br><span class="line">    <span class="string">"port"</span>: 9000, //重点(此端口与nginx配置保持一致)</span><br><span class="line">    <span class="string">"listen"</span>: <span class="string">"127.0.0.1"</span>, //重点(此端口与nginx配置保持一致)</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"clients"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"id"</span>: <span class="string">"eb950add-608e-409d-937f-e797324387093z"</span>, //你的UUID，可更改需与客户端保持一致 </span><br><span class="line">          <span class="string">"level"</span>: 1,</span><br><span class="line">          <span class="string">"alterId"</span>: 64 //此ID也需与客户端保持一致（不要设置超过100以上可自定义）</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">   <span class="string">"streamSettings"</span>:&#123;</span><br><span class="line">      <span class="string">"network"</span>: <span class="string">"ws"</span>, //可设置tcp等</span><br><span class="line">      <span class="string">"wsSettings"</span>: &#123;</span><br><span class="line">           <span class="string">"path"</span>: <span class="string">"/v2ray"</span> //与nginx配置相关（可自定义）</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"outbound"</span>: &#123;</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">    <span class="string">"settings"</span>: &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"outboundDetour"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"protocol"</span>: <span class="string">"blackhole"</span>,</span><br><span class="line">      <span class="string">"settings"</span>: &#123;&#125;,</span><br><span class="line">      <span class="string">"tag"</span>: <span class="string">"blocked"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"routing"</span>: &#123;</span><br><span class="line">    <span class="string">"strategy"</span>: <span class="string">"rules"</span>,</span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"rules"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"type"</span>: <span class="string">"field"</span>,</span><br><span class="line">          <span class="string">"ip"</span>: [</span><br><span class="line">            <span class="string">"0.0.0.0/8"</span>,</span><br><span class="line">            <span class="string">"10.0.0.0/8"</span>,</span><br><span class="line">            <span class="string">"100.64.0.0/10"</span>,</span><br><span class="line">            <span class="string">"127.0.0.0/8"</span>,</span><br><span class="line">            <span class="string">"169.254.0.0/16"</span>,</span><br><span class="line">            <span class="string">"172.16.0.0/12"</span>,</span><br><span class="line">            <span class="string">"192.0.0.0/24"</span>,</span><br><span class="line">            <span class="string">"192.0.2.0/24"</span>,</span><br><span class="line">            <span class="string">"192.168.0.0/16"</span>,</span><br><span class="line">            <span class="string">"198.18.0.0/15"</span>,</span><br><span class="line">            <span class="string">"198.51.100.0/24"</span>,</span><br><span class="line">            <span class="string">"203.0.113.0/24"</span>,</span><br><span class="line">            <span class="string">"::1/128"</span>,</span><br><span class="line">            <span class="string">"fc00::/7"</span>,</span><br><span class="line">            <span class="string">"fe80::/10"</span></span><br><span class="line">          ],</span><br><span class="line">          <span class="string">"outboundTag"</span>: <span class="string">"blocked"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">你可以输入  service v2ray restart  在输入  service v2ray status -l <span class="comment">#看看是否运行成功</span></span><br><span class="line">service v2ray start|stop|status|reload|restart|force-reload    <span class="comment">#调试 V2Ray 的运行代码</span></span><br></pre></td></tr></table></figure>
+<p>打开 80（HTTP）和 443（HTTPS）端口(如果看过我前几期视频，确定防火墙规则设置好了，谷歌云可以忽略。其他品牌服务器请确认已经开启了80和443端口如果没有可尝试下面代码操作或者服务器网页端<br>开启<code>http80端口</code>和<code>https 443端口</code>)</p>
+<p>也可以通过下面的命令来打开这两个端口:请自行开启防火墙开机启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="安装NGINX"><a href="#安装NGINX" class="headerlink" title="安装NGINX"></a>安装NGINX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装 EPEL 仓库（谷歌云忽略此步骤，如果你是使用其他品牌vps服务器如果没有安装EPEL请先安装）</span></span><br><span class="line">sudo yum install epel-release</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装 Nginx  【 yum remove nginx 如果想删除nginx卸载命令 】</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx.service         <span class="comment">#设置开机启动Nginx</span></span><br><span class="line"></span><br><span class="line">sudo systemctl start nginx.service          <span class="comment">#启动Nginx服务</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">调试代码如下：</span><br><span class="line">sudo systemctl start nginx.service                //开启 Nginx</span><br><span class="line">sudo systemctl stop nginx.service                //停止 Nginx</span><br><span class="line">sudo systemctl status -l nginx.service          //查看 Nginx运行状态</span><br><span class="line">sudo systemctl restart nginx.service            //重新启动 Nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx.service           //取消开机启动 Nginx</span><br><span class="line">sudo systemctl reload nginx.service           //重载Nginx (如更改Nginx配置需要重新载入数据)</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx.service            //开机启动</span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">调试代码如下： Nginx调试也可以不需要代码后面添加 **.service** 请先**sudo systemctl start nginx.service**</span><br><span class="line">和**sudo systemctl <span class="built_in">enable</span> nginx.service** 然后在通过下面代码也可以调试.</span><br><span class="line"></span><br><span class="line">sudo systemctl start nginx              //开启 Nginx</span><br><span class="line">sudo systemctl stop nginx              //停止 Nginx</span><br><span class="line">sudo systemctl status -l nginx        //查看 Nginx运行状态</span><br><span class="line">sudo systemctl restart nginx             //重新启动 Nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx           //取消开机启动 Nginx</span><br><span class="line">sudo systemctl reload nginx          //重载Nginx (如更改Nginx配置需要重新载入数据)</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx          //开机启动</span><br></pre></td></tr></table></figure>
+
+<p>通过以上方式安装的 Nginx，所有相关的配置文件都在 /etc/nginx/ 目录中<br><strong>Nginx 的主配置文件是 /etc/nginx/nginx.conf</strong><br><strong>Nginx 日志文件（access.log 和 error.log ）位于 /var/log/nginx/ 目录中。</strong></p>
+<p>如果在设置完成之后不能成功使用，可能是由于 SElinux 机制(如果你是 CentOS 7 的用户请特别留意SElinux 这一机制)阻止了 Nginx 转发向内网的数据<br>如果是这样的话，在V2Ray的日志里不会有访问信息，在 Nginx 的日志里会出现大量的 “Permission Denied” 字段<br>要解决这一问题需要在终端下键入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_can_network_connect 1    &#x2F;&#x2F;debian忽略</span><br></pre></td></tr></table></figure>
+<p>验证 Nginx 是否成功启动，可以在浏览器中打开 <a href="http://YOUR_IP" rel="external nofollow noreferrer">http://YOUR_IP</a>   注意：打开则显示centos网页 但是提示不安全网站没开启ssl加密https</p>
+<h3 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h3><p><strong>如果你已经有其他证书可忽略，把证书和密钥放到服务器指定目录下，只需在Nginx 中指定 证书和密钥路径。申请证书方法太多可通过安装acme.sh工具生成证书或其他方法生成证书，可Google搜索。</strong></p>
+<p><strong>1.安装acem.sh证书生成工具，以下提供3种方法安装，选其中任意一种方法安装证书工具 (温馨提示：自动升级acme.sh在root下输入 acme.sh upgrade)</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh   // 如提示安装失败 请先安装curl 输入 yum -y install curl</span><br><span class="line">wget -O -  https://get.acme.sh | sh     //如提示安装失败请（先安装wget）输入 yum -y install wget 已经安装了忽略</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git   // 如提示安装失败 先安装git 已经安装了的忽略 输入 yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
+<p>通过以上代码安装acme.sh提示红色抱错 你可以按实际相关情况而定安装依赖 比如安装socat 或者 netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install openssl</span><br><span class="line">centos7  yum install socat  <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line">centos7  yum isntall netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line">debian  apt-get -y install socat <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line"></span><br><span class="line">安装成功后执行 <span class="built_in">source</span> ~/.bashrc  以确保脚本所设置的命令别名生效</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.生成证书 路径为/root/.acme.sh文件下 安装好后可自行查看</strong><br>  <strong>温馨提示：通过acme.sh生成证书有多种方法：</strong><br>  例如—自动DNS API集成 如：cloudflare DNS API 令牌 和 使用全局API密钥 acme.sh支持大多数dns生成证书<br>  例如—使用DNS手动模式，等多种其他安装方法，如果你是个好学的人可Google </p>
+<p>  生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用<a href="http://www.baidu.com,因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级www.baidu.com可以备用你懂的）" rel="external nofollow noreferrer">www.baidu.com,因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级www.baidu.com可以备用你懂的）</a></p>
+<p><strong>1.通过侦听80端口申请证书，如果80端口被占用,请使用443端口,请确保这些端口都打开了</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone -k ec-256</span><br></pre></td></tr></table></figure>
+<p><strong>2.如果您80在反向代理或负载均衡器后面使用非标准端口，则可以–httpport用来指定端口</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --standalone --httpport 端口</span><br></pre></td></tr></table></figure>
+<p><strong>3.侦听443端口以颁发证书，请确保443端口开启</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn -k ec-256</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.如果您443在反向代理或负载均衡器后面使用非标准端口，则可以–tlsport用来指定端口</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d 域名 --alpn --tlsport 端口</span><br></pre></td></tr></table></figure>
+<p>  <strong>-k 表示密钥长度，后面的值可以是 ec-256 、ec-384、2048、3072、4096、8192，带有 ec 表示生成的是 ECC 证书，没有则是 RSA 证书。在安全性上 256 位的 ECC 证书等同于 3072 位的 RSA 证书</strong></p>
+<p><strong>把证书和密钥安装移到指定路径 /etc/v2ray （路径可自定义）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ecc 安装代码 sudo ~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d 域名 --fullchainpath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.crt --keypath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key --ecc</span><br><span class="line"></span><br><span class="line">rsa 安装代码 sudo ~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d 域名 --fullchainpath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.crt --keypath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h3><p><strong>vi /etc/nginx/nginx.conf  #进入编辑配置文件：长按键盘上D键删除所有配置信息，再按键盘Ins键进入编辑模式复制如下代码黏贴到配置中编辑，填写对应自己的配置信息后。最后同时按键盘上 shift+: 键，在输入wq保存退出</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log /var/<span class="built_in">log</span>/nginx/error.log;</span><br><span class="line">pid /run/nginx.pid;</span><br><span class="line"></span><br><span class="line">include /usr/share/nginx/modules/*.conf;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    log_format  main  <span class="string">'$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line">                      <span class="string">'$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">                      <span class="string">'"$http_user_agent" "$http_x_forwarded_for"'</span>;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">    access_log  /var/<span class="built_in">log</span>/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   65;</span><br><span class="line">    types_hash_max_size 2048;</span><br><span class="line"></span><br><span class="line">    include  /etc/nginx/mime.types;</span><br><span class="line">    default_type application/octet-stream;</span><br><span class="line">    include /etc/nginx/conf.d/*.conf;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name 域名;</span><br><span class="line">    rewrite ^/(.*) https://域名<span class="variable">$1</span> permanent; <span class="comment">#填写自己域名</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    server <span class="comment">#关键代码</span></span><br><span class="line">	&#123; </span><br><span class="line">    <span class="comment"># SSL configuration</span></span><br><span class="line">    listen 443 ssl http2 default_server;</span><br><span class="line">    listen [::]:443 ssl http2 default_server;</span><br><span class="line">    ssl_certificate /路径/*.pem; <span class="comment">#你的ssl证书*.crt 或者 *.pem都可以</span></span><br><span class="line">    ssl_certificate_key /路径/*.key; <span class="comment">#你的ssl key</span></span><br><span class="line">    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH+aRSA+3DES:RSA+3DES:!MD5;  <span class="comment">#套件RSA和ecc不一样在下面我会分别给出</span></span><br><span class="line">    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span><br><span class="line">    root /usr/share/nginx/html; <span class="comment">#网页路径，这里也可以放你们自己的html网站替换下就可以了</span></span><br><span class="line">    server_name 域名; <span class="comment">#你的服务器域名</span></span><br><span class="line"> </span><br><span class="line">    location /ray &#123; <span class="comment">#/ray 切记路径需要和v2ray服务器端和客户端保持一致 可自定义名字</span></span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:端口; <span class="comment">#此IP地址和端口需要和v2ray服务器端配置保持一致，</span></span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">    proxy_set_header Connection <span class="string">"upgrade"</span>;</span><br><span class="line">    proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>套件如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;   #RSA套件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH+aRSA+3DES:RSA+3DES:!MD5;  <span class="comment">#Ecc套件</span></span><br></pre></td></tr></table></figure>
+<p><strong>修改 Nginx 配置后，请务必重新加载配置  输入 sudo systemctl reload nginx.service   #必须这样操作</strong></p>
+<p>查询是否开启ssl 打开网站<a href="https://myssl.com/ssl.html输入自己域名，端口输入443" rel="external nofollow noreferrer">https://myssl.com/ssl.html输入自己域名，端口输入443</a> 或者 打开<a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> 查询 ，也可以google搜索关键字ssl查询，很多网站可以查询，评分是否到达A级别</p>
+<p><strong>温馨提示：通过acme.sh工具生成证书请使用443端口 代码如下：sudo ~/.acme.sh/acme.sh –issue -d 域名 –alpn -k ec-256 （侦听443端口以颁发证书，请确保443端口开启 按文章流程操作80端口生成证书时会提示端口占用，当然如果你想简单点可以通过已有购买的证书或者通过宝塔申请的或者其他证书，把密钥和证书直接复制拷贝到服务器指定路径下，在配置nginx指向证书和路径。部分免费证书会缺少CA证书那么在网站ssl评分就会大打折扣，解决办法是重新把CA证书添加下就可以了</strong></p>
+<p><strong>通过在浏览器输入自己域名查询是否发现网站加了一把锁🔒开启了https， 且网站域名ssl评分到达A 如果是，恭喜你搭建成功.如果你已经学会了那么接下来的课程会越来越有意思.</strong></p>
+<h3 id="电报群讨论"><a href="#电报群讨论" class="headerlink" title="电报群讨论"></a>电报群讨论</h3> </button>
+  <button class="button is-medium">
+    <span class="icon">
+    <i class="fab fa-telegram"></i>
+    </span>
+    <a href="https://t.me/RootInstitute" rel="external nofollow noreferrer" class="点击下载">电报群添加</a>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/54c2b25c.html">V2ray+WebSocket+TLS+Nginx</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/54c2b25c.html">https://www.rootfw.com/posts/54c2b25c.html</a></li>
+            <li><strong>发布时间：</strong>2020-06-16</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/v2ray/" rel="tag">v2ray</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/80f65055.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">shadowsocks原生部署</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/a8ffa798.html">
+                <span class="level-item">v2ray定时重启服务crontab</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'Ipp1FU7Rr7KCIYgNnv1mrOvj-gzGzoHsz',
+        app_key: '1pOvMu9iiGMSqeykFKQ5xcNM',
+        placeholder: 'Say something...'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            38
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            32
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            30
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg"></i>
+                
+            </a>
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg"></i>
+                
+            </a>
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#安装前准备">
+        <span class="has-mr-6">1</span>
+        <span>安装前准备</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#更新服务器">
+        <span class="has-mr-6">1.1</span>
+        <span>更新服务器</span>
+        </a></li><li>
+        <a class="is-flex" href="#更改root密码">
+        <span class="has-mr-6">1.2</span>
+        <span>更改root密码</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装bbr">
+        <span class="has-mr-6">1.3</span>
+        <span>安装bbr</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#安装v2ray代码">
+        <span class="has-mr-6">2</span>
+        <span>安装v2ray代码</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安裝和更新V2Ray">
+        <span class="has-mr-6">2.1</span>
+        <span>安裝和更新V2Ray</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装geoip和geosite">
+        <span class="has-mr-6">2.2</span>
+        <span>安装geoip和geosite</span>
+        </a></li><li>
+        <a class="is-flex" href="#温馨提示">
+        <span class="has-mr-6">2.3</span>
+        <span>温馨提示</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#安装NGINX">
+        <span class="has-mr-6">3</span>
+        <span>安装NGINX</span>
+        </a></li><li>
+        <a class="is-flex" href="#生成证书">
+        <span class="has-mr-6">4</span>
+        <span>生成证书</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置nginx-conf">
+        <span class="has-mr-6">5</span>
+        <span>配置nginx.conf</span>
+        </a></li><li>
+        <a class="is-flex" href="#电报群讨论">
+        <span class="has-mr-6">6</span>
+        <span>电报群讨论</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="V2ray+WebSocket+TLS+Nginx" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: 'https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/search.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/insight.css">
+    
+</body>
+</html>

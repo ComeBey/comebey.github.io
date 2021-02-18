@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>JSON配置超集收录 - comebey</title>
+
+
+    <meta name="description" content="无权限访问，仅提供VIP会员阅读.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON配置超集收录">
+<meta property="og:url" content="https://www.rootfw.com/posts/bec9b908.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="无权限访问，仅提供VIP会员阅读.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/eezy.svg">
+<meta property="article:published_time" content="2021-02-05T06:30:57.000Z">
+<meta property="article:modified_time" content="2021-02-05T11:22:57.803Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="v2ray">
+<meta property="article:tag" content="VIP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/eezy.svg">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.4.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?eb7ec9441757d71902ddc95dbe898eb4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+    <meta name="keywords" content="v2ray,xtls,comebey,v2ray搭建,vless,hasan W,xray,rootfw">
+    
+
+ 
+<link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="JSON配置超集收录" height="36">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com/en/">English</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/搜索框中的放大镜.svg" style="height: 25px;width: 25px;">
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/eezy.svg" alt="JSON配置超集收录">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>JSON配置超集收录
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2021-02-05T06:30:57.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2021-02-05</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-02-05T11:22:57.803Z"><i class="far fa-calendar-check">&nbsp;</i>2021-02-05</time>-->
+                
+                
+                <div class="level-item">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/">v2ray</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/VIp/">VIp</a>
+                </div>
+                
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <div id="hexo-blog-encrypt" data-wpm="文章已进行加密，仅提供VIP会员阅读." data-whm="无效的密码。请联系站长.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">请输入访问密码.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="f902947d0a6ca939f2f482999a141bfeb0a39851961f7670e3e4cce7a89cacf1">c83ebd392b2ac8b39d81378f270c7fc4c1f5cdcd8c65908558f06b1db96c24ffe3815268cd78dc45ae40f23bc8a8067c94dc2fee4cf342198de429ab9839d596465ff694fdba546dca825ced3878b2d94317d973c2f3540da082e6d5c4e911461abe28114431cd42b40cae58c0c49e3162d21ab7ec009acbb29fadee5f74f2f0930a5ea4ba17327868ecd4e1a20be146b98575283c7b07727b05f76afd629993c15df03ba570c33e0e2f003ba755fec3f8a8da344550dda8e98e341b90eda017f9ffe6b226269890067a7cbed17cb9ce7d7f9951fae2410ed296e40af935963a96c4921cdfb1d0d505a886de84e6225efc6b3473adb98752ab8edc29477bc8b571368acc75859da892d9e432b7a9f1ad9a11220f3ec09a817544efc8746d9a3da8c6c85f8c4d3c8bf9ca22c69d7bafff33058033a6bb149a1405101699bcaf745170cc80d776554a167bc7f666af53e322678d085f0936812d115946ed1adfa8b6613ed3e47c10ad5ba62c8b8e68c7e2ded2fa49795b1d4c28c5b1ad43743628e18e2ace5b66d0139ef9657bdf592966c0a2623abe831b3c42a54a8da47f6c543d6801aa6a927d1bffd363a768b553d314f2b4192cb2fe3b65ccccc7d48edc7e8c7c34e618fe37106a4aeac7cc6e673999b2057178e9ab6dda0f984f1f0e80d77bf25a27dfbaa408f04b8f50c526858c54229a4545ac2369e56b1932b8a9d16c</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/bec9b908.html">JSON配置超集收录</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/bec9b908.html">https://www.rootfw.com/posts/bec9b908.html</a></li>
+            <li><strong>发布时间：</strong>2021-02-05</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/VIP/" rel="tag">VIP</a>,&nbsp;<a class="has-link-grey -link" href="/tags/v2ray/" rel="tag">v2ray</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/a555f893.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">一台电脑配置两个hexo</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/333e5d3b.html">
+                <span class="level-item">vless xray搭建最新配置方法</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'Ipp1FU7Rr7KCIYgNnv1mrOvj-gzGzoHsz',
+        app_key: '1pOvMu9iiGMSqeykFKQ5xcNM',
+        placeholder: 'Say something...'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            38
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            32
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            30
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/github1.svg"></i>
+                
+            </a>
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Facebook.svg"></i>
+                
+            </a>
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="JSON配置超集收录" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: 'https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/search.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/insight.css">
+    
+</body>
+</html>
