@@ -1,5 +1,5 @@
 User-agent: *
-Allow: /posts/*.html
+Allow: /en/posts/*.html
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/

@@ -436,11 +436,12 @@ img.thumbnail {
 }
 .content code {
   padding: 0;
+  background: transparent;
 }
 .content > code,
 .content :not(pre) > code {
   font-size: 0.95em;
-  color: rgba(0,0,0,0.702);
+  color: #ff3860;
 }
 .content blockquote footer strong + cite {
   margin-left: 0.5em;
@@ -580,7 +581,7 @@ figure.highlight .section {
   word-break: break-all;
   margin: 2.5rem 0 0;
   padding: 1rem 1rem;
-  border-left: 3px solid #3273dc;
+  border-left: 3px solid #ff1700;
   background-color: #f9f9f9;
 }
 +.article {
