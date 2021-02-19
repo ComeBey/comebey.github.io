@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>V2ray vless+WS+TLS+Nginx - comebey</title>
+
+
+    <meta name="description" content="Currently VLESS does not have its own encryption, please use it for reliable channels, such as TLS.VLESS is in the public beta. During the test, please ensure that both the client and server v2ray-co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="V2ray vless+WS+TLS+Nginx">
+<meta property="og:url" content="https://www.rootfw.com/posts/93baa7dd.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="Currently VLESS does not have its own encryption, please use it for reliable channels, such as TLS.VLESS is in the public beta. During the test, please ensure that both the client and server v2ray-co">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/T_16.svg">
+<meta property="article:published_time" content="2020-08-23T05:56:29.000Z">
+<meta property="article:modified_time" content="2020-12-28T10:08:31.706Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="v2ray">
+<meta property="article:tag" content="vless">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/T_16.svg">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/en/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?eb7ec9441757d71902ddc95dbe898eb4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1986829,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    
+    <link rel="stylesheet" href="/en/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/en/css/style.css">
+<link rel="alternate" href="/en/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/en/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="V2ray vless+WS+TLS+Nginx" height="50">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span> <!--导航栏logo-->
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/en/">Home</a>
+                
+                <a class="navbar-item"
+                href="/en/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/en/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/en/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com">中文</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>V2ray vless+WS+TLS+Nginx
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-08-23T05:56:29.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-08-23</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-28T10:08:31.706Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-28</time>-->
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/en/categories/VPN/">VPN</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/VPN/v2ray/">v2ray</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/VPN/v2ray/vless/">vless</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey"></span> <!-- 2020-08-23 <span class="level-item has-text-grey"> -->
+                    <i class="far fa-clock"></i>&nbsp;
+                    
+                    
+                    19 minutes read (About 2844 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <article class="message is-default"><div class="message-body">
+<p>Currently VLESS does not have its own encryption, please use it for reliable channels, such as TLS.<br>VLESS is in the public beta. During the test, please ensure that both the client and server v2ray-core are the latest version.<br>The internal test warehouse of VLESS is <a href="https://github.com/rprx/v2ray-vless" rel="external nofollow noreferrer">rprx/v2ray-vless</a>, and the new version of the PREVIEW series will be merged into [v2fly/v2ray-core] after a period of release (<a href="https://github.com/v2fly/v2ray-core" rel="external nofollow noreferrer">https://github.com/v2fly/v2ray-core</a>). Please upgrade the <code>v2ray core</code> client to the latest version by yourself</p>
+</div></article>
+
+<a id="more"></a>
+<h3 id="Straightforward"><a href="#Straightforward" class="headerlink" title="Straightforward"></a>Straightforward</h3><p>No matter what vps you build, please test the server to your local delay, including the line, including vps uplink and downlink. Regarding the choice of vps, I don’t recommend any brand, because the region is different, choose the one that suits you. I have tested the code of each article. Some friends who build V2ray or other FQ services say that the card is slow. Install BBR first. Of course, if you don’t even know the basic performance of your own server, is it a bullshit? Knowledge needs to be accumulated, come on! Please also fight for yourself and respect knowledge! If you encounter any problems during the operation, welcome <a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">add public telegram group</a> <code>Please indicate the source of the site-wide script for some youtube UPs, please respect the fruits of labor</code></p>
+<h3 id="Install-dependencies"><a href="#Install-dependencies" class="headerlink" title="Install dependencies"></a>Install dependencies</h3><h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><p>Installation dependencies</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install curl</span><br></pre></td></tr></table></figure>
+<h4 id="Centos7"><a href="#Centos7" class="headerlink" title="Centos7"></a>Centos7</h4><p>Installation dependencies</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br><span class="line">yum install curl</span><br></pre></td></tr></table></figure>
+<h3 id="Execute-the-following-code-after-installation"><a href="#Execute-the-following-code-after-installation" class="headerlink" title="Execute the following code after installation"></a>Execute the following code after installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -O https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;v2fly&#x2F;fhs-install-v2ray&#x2F;master&#x2F;install-release.sh</span><br><span class="line">curl -O https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;v2fly&#x2F;fhs-install-v2ray&#x2F;master&#x2F;install-dat-release.sh</span><br></pre></td></tr></table></figure>
+<!--more-->
+<h3 id="Install-and-update-V2Ray"><a href="#Install-and-update-V2Ray" class="headerlink" title="Install and update V2Ray"></a>Install and update V2Ray</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="Code-output"><a href="#Code-output" class="headerlink" title="Code output"></a>Code output</h4><p><code>The latest maintenance version of v2fly pulls the latest data and outputs the following content &quot;+&quot; represents the current output content, &quot;-&quot; represents the information deleted on the basis of the old version</code></p>
+<figure class="highlight diff"><figcaption><span>each line of code "+", "-" is ignored</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+info: unzip is installed.</span></span><br><span class="line"><span class="addition">+info: Extract the V2Ray package to /tmp/tmp.RS0y2YR2ZS/ and prepare it for installation.</span></span><br><span class="line"><span class="addition">+installed: /usr/local/bin/v2ray</span></span><br><span class="line"><span class="addition">+installed: /usr/local/bin/v2ctl</span></span><br><span class="line"><span class="addition">+installed: /usr/local/lib/v2ray/geoip.dat</span></span><br><span class="line"><span class="addition">+installed: /usr/local/lib/v2ray/geosite.dat</span></span><br><span class="line"><span class="addition">+installed: /usr/local/etc/v2ray/config.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/00_log.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/01_api.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/02_dns.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/03_routing.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/04_policy.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/05_inbounds.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/06_outbounds.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/07_transport.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/08_stats.json</span></span><br><span class="line"><span class="deletion">-installed: /usr/local/etc/v2ray/09_reverse.json</span></span><br><span class="line"><span class="deletion">-installed: /var/log/v2ray/</span></span><br><span class="line"><span class="addition">+installed: /var/log/v2ray/access.log</span></span><br><span class="line"><span class="addition">+installed: /var/log/v2ray/error.log</span></span><br><span class="line"><span class="addition">+installed: /etc/systemd/system/v2ray.service</span></span><br><span class="line"><span class="addition">+installed: /etc/systemd/system/v2ray@.service</span></span><br><span class="line"><span class="addition">+removed: /tmp/tmp.KojGXm19Pa/</span></span><br><span class="line"><span class="addition">+info: V2Ray v4.27.0 is installed.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-the-latest-geoip-dat-and-geosite-dat"><a href="#Install-the-latest-geoip-dat-and-geosite-dat" class="headerlink" title="Install the latest geoip.dat and geosite.dat"></a>Install the latest geoip.dat and geosite.dat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-dat-release.sh</span><br></pre></td></tr></table></figure>
+<h3 id="Create-and-edit-configuration-files"><a href="#Create-and-edit-configuration-files" class="headerlink" title="Create and edit configuration files"></a>Create and edit configuration files</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;etc&#x2F;v2ray</span><br></pre></td></tr></table></figure>
+<p>Create a configuration file named config.json under /usr/local/etc/v2ray<br>Copy the following code to config.json</p>
+<figure class="highlight json"><figcaption><span>/usr/local/etc/v2ray/config.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"port"</span>: <span class="number">36240</span>,</span><br><span class="line">      <span class="attr">"listen"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"vless"</span>,</span><br><span class="line">      <span class="attr">"settings"</span>: &#123;</span><br><span class="line">        <span class="attr">"decryption"</span>: <span class="string">"none"</span>,</span><br><span class="line">        <span class="attr">"clients"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"id"</span>: <span class="string">"*&amp;*&amp;***&amp;*&amp;*^*&amp;*&amp;*&amp;*&amp;*&amp;*"</span>,</span><br><span class="line">            <span class="attr">"level"</span>: <span class="number">0</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"network"</span>: <span class="string">"ws"</span>,</span><br><span class="line">        <span class="attr">"wsSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"path"</span>: <span class="string">"/abcde"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"outbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>,</span><br><span class="line">      <span class="attr">"settings"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>v2ray debugging</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart v2ray</span><br><span class="line">sudo systemctl status -l v2ray</span><br></pre></td></tr></table></figure>
+<p>Set v2ray to boot up</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable v2ray</span><br></pre></td></tr></table></figure>
+<p>Open port 80 (HTTP) and 443 (HTTPS) (If you have watched my previous videos, make sure the firewall rules are set, Google Cloud can ignore it. For other brand servers, please make sure that ports 80 and 443 have been opened. If not, try the following Code operation or server web side<br>Open <code>http80 port</code> and <code>https 443 port</code>)</p>
+<p>You can also use the following commands to open these two ports: Please turn on the firewall yourself</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h3 id="Install-NGINX"><a href="#Install-NGINX" class="headerlink" title="Install NGINX"></a>Install NGINX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Install EPEL warehouse (Google Cloud ignores this step, if you are using another brand of vps server, please install it first if EPEL is not installed)</span></span><br><span class="line">sudo yum install epel-release</span><br><span class="line"></span><br><span class="line"><span class="comment">#Install Nginx [yum remove nginx If you want to delete nginx uninstall command]</span></span><br><span class="line">sudo yum install nginx</span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx.service <span class="comment">#Set the boot to start Nginx</span></span><br><span class="line"></span><br><span class="line">sudo systemctl start nginx.service <span class="comment">#Start Nginx service</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">The debugging code is as follows:</span><br><span class="line">sudo systemctl start nginx.service //Open Nginx</span><br><span class="line">sudo systemctl stop nginx.service //Stop Nginx</span><br><span class="line">sudo systemctl status -l nginx.service //View Nginx running status</span><br><span class="line">sudo systemctl restart nginx.service //Restart Nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx.service //Cancel the boot to start Nginx</span><br><span class="line">sudo systemctl reload nginx.service //Reload Nginx (such as changing Nginx configuration requires reloading data)</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx.service //start on boot</span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">The debugging code is as follows: Nginx debugging also does not need to add **.service** after the code, please **sudo systemctl start nginx.service**</span><br><span class="line">And **sudo systemctl <span class="built_in">enable</span> nginx.service** Then you can debug through the following code.</span><br><span class="line"></span><br><span class="line">sudo systemctl start nginx //Open Nginx</span><br><span class="line">sudo systemctl stop nginx //Stop Nginx</span><br><span class="line">sudo systemctl status -l nginx //View Nginx running status</span><br><span class="line">sudo systemctl restart nginx //Restart Nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx //cancel Nginx startup</span><br><span class="line">sudo systemctl reload nginx //Reload Nginx (such as changing Nginx configuration requires reloading data)</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx //start up</span><br></pre></td></tr></table></figure>
+
+<p>Nginx installed by the above method, all related configuration files are in the /etc/nginx/ directory<br><strong>The main configuration file of Nginx is /etc/nginx/nginx.conf</strong><br>*<em>Nginx log files (access.log and error.log) are located in the /var/log/nginx/ directory. *</em></p>
+<p>If you can’t use it successfully after the setup is complete, it may be due to the SElinux mechanism (if you are a user of <code>CentOS 7</code>, please pay special attention to the SElinux mechanism) preventing Nginx from forwarding data to the intranet<br>If this is the case, there will be no access information in the V2Ray log, and a large number of “Permission Denied” fields will appear in the Nginx log<br>To solve this problem, you need to type the following command in the terminal:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_can_network_connect 1 &#x2F;&#x2F;Very important debian ignore</span><br></pre></td></tr></table></figure>
+<p>To verify whether Nginx is successfully started, you can open <a href="http://YOUR_IP" rel="external nofollow noreferrer">http://YOUR_IP</a> in your browser. Note: Open it will display the centos webpage, but it prompts insecure websites that SSL encryption is not turned on https</p>
+<h3 id="Generate-Certificate"><a href="#Generate-Certificate" class="headerlink" title="Generate Certificate"></a>Generate Certificate</h3><p>*<em>If you already have other certificates, you can ignore them, put the certificate and key in the specified directory of the server, just specify the certificate and key path in Nginx. There are too many ways to apply for a certificate. You can generate a certificate by installing the acme.sh tool or other methods to generate a certificate. You can search on Google. *</em></p>
+<p><strong>1. Install the acem.sh certificate generation tool. The following provides 3 methods to install, choose any one of them to install the certificate tool (Reminder: automatically upgrade acme.sh and enter acme.sh upgrade under root)</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh // If the installation fails, please install curl first and enter yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O-https://get.acme.sh | sh //If it prompts that the installation fails, please (install wget first) enter yum -y install wget already installed ignore</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git // If the installation fails, install git first. Ignore those already installed. Enter yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
+<p>Install acme.sh through the above code and prompt red hold error. You can install dependencies according to the actual situation, such as installing socat or netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7 yum install socat <span class="comment">#Dependency of generating certificate through port 80</span></span><br><span class="line">centos7 yum install netcat</span><br><span class="line"></span><br><span class="line">debian apt-get install openssl cron socat curl</span><br><span class="line">debian apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">After the installation is successful, execute <span class="built_in">source</span> ~/.bashrc to ensure that the <span class="built_in">command</span> <span class="built_in">alias</span> <span class="built_in">set</span> by the script takes effect</span><br></pre></td></tr></table></figure><br><strong>2. Generate the certificate path under the /root/.acme.sh file, you can check it yourself after installation</strong><br>  <strong>Reminder: There are many ways to generate a certificate through acme.sh:</strong><br>  For example — automatic DNS API integration such as: cloudflare DNS API token and use of global API key acme.sh supports most dns to generate certificates<br>  For example — use DNS manual mode, and many other installation methods, if you are a good learner, you can Google</p>
+<p>  The generated certificate is as follows: This video only uses the designated port to generate the certificate. <code>**It is recommended to use the 443 port to generate the certificate**</code> (Generally, a single domain name is sufficient, after all, it is used for overcoming the wall without having to do so many bells and whistles. For baidu.com, it is not recommended to use <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a>, because it is the front-end web over the wall, please customize such as tw.baidu.com, the prefix tw can be customized, please control three characters, the primary domain baidu.com and the secondary www .baidu.com can spare you understand)</p>
+<p><strong>1. Apply for a certificate by listening on port 80, if port 80 is occupied, please use port 443, please make sure these ports are open</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --standalone -k ec-256</span><br></pre></td></tr></table></figure>
+<p><strong>2. If you use a non-standard port 80 behind the reverse proxy or load balancer, you can use –httpport to specify the port</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --standalone --httpport port</span><br></pre></td></tr></table></figure>
+<p><strong>3. Listen on port 443 to issue certificates, please make sure port 443 is open</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --alpn -k ec-256</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. If you use non-standard port 443 behind the reverse proxy or load balancer, you can use –tlsport to specify the port</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ~&#x2F;.acme.sh&#x2F;acme.sh --issue -d domain name --alpn --tlsport port</span><br></pre></td></tr></table></figure>
+<p>  <strong>-k means the length of the key, the following values ​​can be ec-256, ec-384, 2048, 3072, 4096, 8192, with ec means that the generated ECC certificate is, and if it is not, it is the RSA certificate. In terms of security, a 256-bit ECC certificate is equivalent to a 3072-bit RSA certificate</strong></p>
+<h3 id="8-Install-the-certificate-and-key-to-the-specified-path"><a href="#8-Install-the-certificate-and-key-to-the-specified-path" class="headerlink" title="8. Install the certificate and key to the specified path"></a>8. Install the certificate and key to the specified path</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;v2ray (path can be customized)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ecc installation code sudo ~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d domain name --fullchainpath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.crt --keypath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key --ecc</span><br><span class="line"></span><br><span class="line">rsa installation code sudo ~&#x2F;.acme.sh&#x2F;acme.sh --installcert -d domain name --fullchainpath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.crt --keypath &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="9-Configure-NGINX-conf"><a href="#9-Configure-NGINX-conf" class="headerlink" title="9. Configure NGINX *.conf"></a>9. Configure NGINX *.conf</h3><p>Reminder: <code>Code</code> comments do not need to be deleted and will not affect the operation, I just make it easier to understand<br><strong>vi /etc/nginx/nginx.conf #Enter the edit configuration file: long press the D key on the keyboard to delete all configuration information, and then press the keyboard Ins key to enter the editing mode. Copy the following code and paste it into the configuration for editing, and fill in the corresponding one After configuring the information. Finally, press the shift+: key on the keyboard at the same time, enter wq to save and exit</strong></p>
+<figure class="highlight bash"><figcaption><span>/etc/nginx/nginx.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log /var/<span class="built_in">log</span>/nginx/error.log;</span><br><span class="line">pid /run/nginx.pid;</span><br><span class="line"></span><br><span class="line">include /usr/share/nginx/modules/*.conf;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    log_format main<span class="string">'$remote_addr-$remote_user [$time_local] "$request" '</span></span><br><span class="line">                      <span class="string">'$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">                      <span class="string">'"$http_user_agent" "$http_x_forwarded_for"'</span>;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">    access_log /var/<span class="built_in">log</span>/nginx/access.log main;</span><br><span class="line"></span><br><span class="line">    sendfile on;</span><br><span class="line">    tcp_nopush on;</span><br><span class="line">    tcp_nodelay on;</span><br><span class="line">    keepalive_timeout 65;</span><br><span class="line">    types_hash_max_size 2048;</span><br><span class="line"></span><br><span class="line">    include /etc/nginx/mime.types;</span><br><span class="line">    default_type application/octet-stream;</span><br><span class="line">    include /etc/nginx/conf.d/*.conf;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name domain name;</span><br><span class="line">    rewrite ^/(.*) https://domain name<span class="variable">$1</span> permanent; <span class="comment">#fill in your own domain name</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    server <span class="comment">#key code</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"># SSL configuration</span></span><br><span class="line">    listen 443 ssl http2 default_server;</span><br><span class="line">    listen [::]:443 ssl http2 default_server;</span><br><span class="line">    ssl_certificate /path/*.pem; <span class="comment">#Your ssl certificate *.crt or *.pem can be</span></span><br><span class="line">    ssl_certificate_key /path/*.key; <span class="comment">#your ssl key</span></span><br><span class="line">    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH +aRSA+3DES:RSA+3DES:!MD5; <span class="comment">#The suite RSA and ecc are not the same, I will give them separately below</span></span><br><span class="line">    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span><br><span class="line">    root /usr/share/nginx/html; <span class="comment">#webpage path, here you can also put your own html website to replace it</span></span><br><span class="line">    server_name domain name; <span class="comment">#your server domain name</span></span><br><span class="line"> </span><br><span class="line">    location /ray &#123;<span class="comment">#/ray Remember that the path needs to be consistent with the v2ray server and client. The name can be customized</span></span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:port; <span class="comment">#This IP address and port need to be consistent with the v2ray server configuration,</span></span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">    proxy_set_header Connection <span class="string">"upgrade"</span>;</span><br><span class="line">    proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>The kit is as follows:</strong><br>RSA</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;</span><br></pre></td></tr></table></figure>
+<p>ECC</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH+ aRSA+3DES:RSA+3DES:!MD5;</span><br></pre></td></tr></table></figure>
+<p><strong>After modifying the Nginx configuration, be sure to reload the configuration. Enter sudo systemctl reload nginx.service #This must be done</strong></p>
+<p>Finally, please enter <code>reboot</code> to restart the server<code>(remember to execute)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<p>Query whether to enable ssl Open the website <a href="https://myssl.com/ssl.html" rel="external nofollow noreferrer">https://myssl.com/ssl.html</a> and enter your own domain name, port 443 or open <a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> to query, you can also search for the keyword ssl on Google Query, many websites can query, whether the score has reached A level</p>
+<p><strong>Reminder: Please use the 443 port code to generate the certificate through the acme.sh tool as follows: sudo ~/.acme.sh/acme.sh –issue -d domain name –alpn -k ec-256 (listening to port 443 To issue a certificate, please make sure that port 443 is turned on. When you operate port 80 to generate a certificate according to the procedure of the article, you will be prompted that the port is occupied. Of course, if you want to be simpler, you can pass the certificate you have purchased or apply for the pagoda or other certificates, and put the key and certificate directly Copy the copy to the specified path of the server, and configure nginx to point to the certificate and path. Some free certificates will lack the CA certificate, so the website ssl score will be greatly reduced. The solution is to re-add the CA certificate.</strong></p>
+<p><strong>Check whether the website has a lock by entering your domain name in the browser🔒 https is turned on, and the ssl score of the website domain name has reached A. If yes, congratulations on the successful construction. If you have learned it, then the next course will be better The more interesting it gets.</strong></p>
+<h3 id="10-BBr-installation"><a href="#10-BBr-installation" class="headerlink" title="10. BBr installation"></a>10. BBr installation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;ComeBey&#x2F;rootfw-bbr&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br></pre></td></tr></table></figure>
+<h3 id="v2ray-client"><a href="#v2ray-client" class="headerlink" title="v2ray client"></a>v2ray client</h3><p>Please upgrade the client <code>v2ray core</code> to the latest version, add a custom configuration server, copy the following code and save it as <code>**.json</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;port&quot;: 1080,</span><br><span class="line">      &quot;listen&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;socks&quot;,</span><br><span class="line">      &quot;sniffing&quot;: &#123;</span><br><span class="line">        &quot;enabled&quot;: true,</span><br><span class="line">        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">        &quot;udp&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;protocol&quot;: &quot;vless&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;</span><br><span class="line">                &quot;vnext&quot;: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        &quot;address&quot;: &quot;Domain Name&quot;,</span><br><span class="line">                        &quot;port&quot;: 443,</span><br><span class="line">                        &quot;users&quot;: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                &quot;encryption&quot;: &quot;none&quot;,</span><br><span class="line">                                &quot;id&quot;: &quot;UUID replace yourself&quot;,</span><br><span class="line">                                &quot;level&quot;: 0</span><br><span class="line">                            &#125;</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;streamSettings&quot;: &#123;</span><br><span class="line">                &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">                &quot;security&quot;: &quot;tls&quot;,</span><br><span class="line">                &quot;wsSettings&quot;: &#123;</span><br><span class="line">                    &quot;path&quot;: &quot;&#x2F;abcde&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Query-tls-on-status"><a href="#Query-tls-on-status" class="headerlink" title="Query tls on status"></a>Query tls on status</h3><p><a href="https://www.ssllabs.com/ssltest/index.html" rel="external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> Enter your own domain name to query</p>
+<h3 id="If-you-want-to-uninstall-V2Ray-execute-the-following-code"><a href="#If-you-want-to-uninstall-V2Ray-execute-the-following-code" class="headerlink" title="If you want to uninstall V2Ray, execute the following code"></a>If you want to uninstall V2Ray, execute the following code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash install-release.sh --remove</span><br></pre></td></tr></table></figure>
+
+<p><code>Reminder: If you want to improve yourself in a short period of time, you can participate in my training. For many years of practical experience, you can participate in the excellent courses. Basically, you can&#39;t find the VIP courses on all platforms. Seeing blood for a while helps you get through the second line of the governor, everyone can be an expert</code>。<br><a href="https://www.rootfw.com/posts/4b7bc44c.html">Click on course details</a><br><a href="https://t.me/RootInstitute" rel="external nofollow noreferrer">chat telegram group</a></p>
+<!--[Nginx前端模板下载-1](https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip)
+[Nginx前端模板下载-2](https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/Html%20Template.zip)
+[Nginx前端模板下载-3](https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/3DCEList.zip)
+
+<button class="button is-active"><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer" class="点击下载">Nginx前端模板下载-1</a></button>
+
+  <button class="button">
+    <span class="icon">
+    <i class="fas fa-cloud-download-alt"></i>
+    </span>
+    <a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer" class="download">Nginx Theme template download-1</a>
+  </button>
+</p> -->
+  </button>
+  <button class="button is-medium">
+    <span class="icon">
+    <i class="fas fa-cloud-download-alt"></i>
+    </span>
+    <a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer" class="download now">Nginx Theme template download</a>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/93baa7dd.html">V2ray vless+WS+TLS+Nginx</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/93baa7dd.html">https://www.rootfw.com/posts/93baa7dd.html</a></li>
+            <li><strong>发布时间：</strong>2020-08-23</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/en/tags/v2ray/" rel="tag">v2ray</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/vless/" rel="tag">vless</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/en/posts/b93a8b04.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">v2ray VS Trojan</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/en/posts/87f1021.html">
+                <span class="level-item">Github API</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://www.rootfw.com/posts/93baa7dd.html';
+        this.page.identifier = 'posts/93baa7dd.html';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hasan-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="/en/images/avatar.png" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/en/archives">
+                        <p class="title has-text-weight-normal">
+                            19
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/en/categories">
+                        <p class="title has-text-weight-normal">
+                            25
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/en/tags">
+                        <p class="title has-text-weight-normal">
+                            20
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/WangTao_Im">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Straightforward">
+        <span class="has-mr-6">1</span>
+        <span>Straightforward</span>
+        </a></li><li>
+        <a class="is-flex" href="#Install-dependencies">
+        <span class="has-mr-6">2</span>
+        <span>Install dependencies</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Debian">
+        <span class="has-mr-6">2.1</span>
+        <span>Debian</span>
+        </a></li><li>
+        <a class="is-flex" href="#Centos7">
+        <span class="has-mr-6">2.2</span>
+        <span>Centos7</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Execute-the-following-code-after-installation">
+        <span class="has-mr-6">3</span>
+        <span>Execute the following code after installation</span>
+        </a></li><li>
+        <a class="is-flex" href="#Install-and-update-V2Ray">
+        <span class="has-mr-6">4</span>
+        <span>Install and update V2Ray</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Code-output">
+        <span class="has-mr-6">4.1</span>
+        <span>Code output</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Install-the-latest-geoip-dat-and-geosite-dat">
+        <span class="has-mr-6">5</span>
+        <span>Install the latest geoip.dat and geosite.dat</span>
+        </a></li><li>
+        <a class="is-flex" href="#Create-and-edit-configuration-files">
+        <span class="has-mr-6">6</span>
+        <span>Create and edit configuration files</span>
+        </a></li><li>
+        <a class="is-flex" href="#Install-NGINX">
+        <span class="has-mr-6">7</span>
+        <span>Install NGINX</span>
+        </a></li><li>
+        <a class="is-flex" href="#Generate-Certificate">
+        <span class="has-mr-6">8</span>
+        <span>Generate Certificate</span>
+        </a></li><li>
+        <a class="is-flex" href="#8-Install-the-certificate-and-key-to-the-specified-path">
+        <span class="has-mr-6">9</span>
+        <span>8. Install the certificate and key to the specified path</span>
+        </a></li><li>
+        <a class="is-flex" href="#9-Configure-NGINX-conf">
+        <span class="has-mr-6">10</span>
+        <span>9. Configure NGINX *.conf</span>
+        </a></li><li>
+        <a class="is-flex" href="#10-BBr-installation">
+        <span class="has-mr-6">11</span>
+        <span>10. BBr installation</span>
+        </a></li><li>
+        <a class="is-flex" href="#v2ray-client">
+        <span class="has-mr-6">12</span>
+        <span>v2ray client</span>
+        </a></li><li>
+        <a class="is-flex" href="#Query-tls-on-status">
+        <span class="has-mr-6">13</span>
+        <span>Query tls on status</span>
+        </a></li><li>
+        <a class="is-flex" href="#If-you-want-to-uninstall-V2Ray-execute-the-following-code">
+        <span class="has-mr-6">14</span>
+        <span>If you want to uninstall V2Ray, execute the following code</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/en/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="V2ray vless+WS+TLS+Nginx" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/en/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/en/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/en/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/en/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/en/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/en/js/insight.js" defer></script>
+<link rel="stylesheet" href="/en/css/search.css">
+<link rel="stylesheet" href="/en/css/insight.css">
+    
+</body>
+</html>
