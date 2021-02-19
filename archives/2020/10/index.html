@@ -340,11 +340,16 @@ var _hmt = _hmt || [];
                 </div>
             </div>
         </nav>
+        <div id="knowledge-star">
         
-        <div class="level">
+    <div class="level">
             <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
-                关注我</a>
+                加入我的知识星球</a>
         </div>
+        <div clas="level" id="knowledge-qrcode" style="display:none;">
+            <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/ruz.png" alt="comebey" height="36">
+        </div>
+    </div>        
         
         
         
@@ -1662,6 +1667,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script>
+    $(function(){
+        var showing = false;
+        var headEnter = false;
+        var mouseArea =  $("#knowledge-star");
+        var qrcode = $("#knowledge-qrcode");
+        var headimg = $("#blog-head-img");
+        //var originalSrc = headimg.attr("src");
+
+        function knowStarAnim(show){
+            if(show === showing) return;
+            showing = show;
+            qrcode.stop();
+            qrcode.toggle(1000);
+        }
+
+        mouseArea.mouseenter(function(){
+            knowStarAnim(true);  
+        });
+
+        mouseArea.mouseleave(function(){
+            knowStarAnim(false);
+        });
+
+        function headChangeAnim(enter){
+            if(enter === headEnter) return;
+            headEnter = enter;
+            if(enter){
+                $("img").attr("title", function() { return this.src });
+                $("img").attr("src", function(){
+                    if(this.width < 150){
+                        return "https://dp2px.com/images/jok-head.jpg";
+                    }else{
+                        return this.src;
+                    }
+                })
+            }else{
+                $("img").attr("src", function() { return this.title });
+                $("img").removeAttr("title");
+            }
+        }
+
+        headimg.mouseenter(function(){
+            headChangeAnim(true);
+        });
+        headimg.mouseleave(function(){
+            headChangeAnim(false);
+        });
+    });
+</script>
 
     
     <div class="searchbox ins-search">
