@@ -20,7 +20,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/M_05.svg">
 <meta property="article:published_time" content="2020-07-28T06:54:23.000Z">
-<meta property="article:modified_time" content="2020-12-28T10:01:00.503Z">
+<meta property="article:modified_time" content="2021-04-16T12:28:32.141Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="v2ray">
 <meta name="twitter:card" content="summary">
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-07-28T06:54:23.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2020-07-28</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-12-28T10:01:00.503Z"><i class="far fa-calendar-check">&nbsp;</i>2020-12-28</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-16T12:28:32.141Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-16</time>-->
                 
                 
                 <div class="level-item">
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 <h3 id="6-生成证书"><a href="#6-生成证书" class="headerlink" title="6.生成证书"></a>6.生成证书</h3><p><strong>如果你已经有其他证书可忽略，把证书和密钥放到服务器指定目录下。申请证书方法太多可通过安装acme.sh工具生成证书或其他方法生成证书，可Google搜索。</strong></p>
 <p><strong>1.安装acem.sh证书生成工具，以下提供3种方法安装，选其中任意一种方法安装证书工具 (温馨提示：自动升级acme.sh在root下输入 acme.sh upgrade)</strong></p>
 <figure class="highlight bash"><figcaption><span>/root/.acme.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh   // 如提示安装失败 请先安装curl 输入 yum -y install curl</span><br><span class="line"></span><br><span class="line">wget -O -  https://get.acme.sh | sh     //如提示安装失败请（先安装wget）输入 yum -y install wget 已经安装了忽略</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/acmesh-official/acme.sh.git   // 如提示安装失败 先安装git 已经安装了的忽略 输入 yum install git</span><br><span class="line"><span class="built_in">cd</span> ./acme.sh</span><br><span class="line">./acme.sh --install</span><br></pre></td></tr></table></figure>
-<p>通过以上代码安装acme.sh提示<code>红色</code>抱错 你可以按实际相关情况而定安装依赖 比如安装socat 或者 netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install socat     <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line">centos7  yum isntall netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">安装成功后执行 <span class="built_in">source</span> ~/.bashrc   <span class="comment">#以确保脚本所设置的命令别名生效</span></span><br></pre></td></tr></table></figure></p>
+<p>通过以上代码安装acme.sh提示<code>红色</code>抱错 你可以按实际相关情况而定安装依赖 比如安装socat 或者 netcat<br>       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">centos7  yum install socat     <span class="comment">#通过80端口生成证书的依赖</span></span><br><span class="line">centos7  yum install netcat</span><br><span class="line"></span><br><span class="line">debian  apt-get install openssl cron socat curl</span><br><span class="line">debian  apt-get -y install netcat</span><br><span class="line"></span><br><span class="line">安装成功后执行 <span class="built_in">source</span> ~/.bashrc   <span class="comment">#以确保脚本所设置的命令别名生效</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>2.生成证书 路径为/root/.acme.sh文件下 安装好后可自行查看</strong><br>  <strong>温馨提示：通过acme.sh生成证书有多种方法：</strong><br>  例如—自动DNS API集成 如：cloudflare DNS API 令牌 和 使用全局API密钥 acme.sh支持大多数dns生成证书<br>  例如—使用DNS手动模式，等多种其他安装方法，如果你是个好学的人可Google </p>
 <p>  生成证书如下：本期视频只用指定端口 生成证书 <strong>推荐使用443端口生成证书</strong> （一般用单域名足以，毕竟是翻墙用无需搞那么多花里胡哨的多域，比如：主域baidu.com那么不建议使用 <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a> 因为是翻墙的前端web请自定义比如tw.baidu.com,前缀tw可以自定义请不要写太长，主域baidu.com和二级 <a href="http://www.baidu.com" rel="external nofollow noreferrer">www.baidu.com</a> 可以备用你懂的 ）</p>
 <p><strong>1.通过侦听80端口申请证书，如果80端口被占用,请使用443端口,请确保这些端口都打开了</strong></p>
@@ -415,7 +415,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            39
+                            40
                         </p>
                     </a>
                 </div>
@@ -427,7 +427,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            34
+                            36
                         </p>
                     </a>
                 </div>
@@ -439,7 +439,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            32
+                            33
                         </p>
                     </a>
                 </div>

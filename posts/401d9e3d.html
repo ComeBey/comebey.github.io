@@ -20,7 +20,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
 <meta property="article:published_time" content="2021-02-21T14:20:09.000Z">
-<meta property="article:modified_time" content="2021-04-06T08:16:26.360Z">
+<meta property="article:modified_time" content="2021-04-06T08:17:15.170Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="cn2 GT">
 <meta property="article:tag" content="cn2 GIA">
@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2021-02-21T14:20:09.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2021-02-21</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-06T08:16:26.360Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-06</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-06T08:17:15.170Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-06</time>-->
                 
                 
                 <div class="level-item">
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
 <h3 id="CN2-GT"><a href="#CN2-GT" class="headerlink" title="CN2 GT"></a>CN2 GT</h3><p>Global Transit(GT)，为全球客户提供访问全球互联网资源的转接服务。提供给全球的通讯运营商，本身接入网络是 ChinaNet(AS4134)，但是直连中国电信 CN2(AS4809) 的一个服务。CN2 GT 中国国际出口拥有自己的单独线路，但是在国内的链路还是使用的 163 骨干网络。</p>
 <h3 id="移动专线"><a href="#移动专线" class="headerlink" title="移动专线"></a>移动专线</h3><h3 id="联通专线"><a href="#联通专线" class="headerlink" title="联通专线"></a>联通专线</h3><h3 id="IPLC和IEPL"><a href="#IPLC和IEPL" class="headerlink" title="IPLC和IEPL"></a>IPLC和IEPL</h3><p>关于IPLC 「International Private Leased Circuit」，和IEPL 「International Ethernet Private Line」最好的一种 就是「内网线路」点对点的一种电路，MSTP基于SDH传输技术，一种透明传输协议，物理层隔离，带宽保证，提供一层点对点数据专线服务。因为内网线路，不受到GFW的审查，也就是你们常说的，IPLC和IEPL不过墙，自然IP不容易翻车，基本上很少很少，但是不是真的如此呢？但是如果您利用这些IP来做坏事，网安必定找你喝茶，因为在购买IEPL大部分需要实名认证，这是因为上流比如电信会把这些线路给代理，代理需要提供资质，不是谁都可以拿到这些线路。而我们大部分市面上的线路都是分了好几级代理后的，所以价格高的离谱。你拿这些比如诈骗，被人举报，网安完全可以追溯公网IP查层层代理。市面上一般NAT服务器比较多。主要提供给跨国金融跨国大企业等。优势就是 一段线路不过墙 极低延迟 和安全稳定性，这些企业不可能愿意忍受普通线路高延迟，IEPL和IPLC这也是他们对标硬性的标准。有时间我会单独开一篇文章画拓扑图让大家明白原理。</p>
 <h3 id="IEPL"><a href="#IEPL" class="headerlink" title="IEPL"></a>IEPL</h3><h4 id="广东移动回程测试"><a href="#广东移动回程测试" class="headerlink" title="广东移动回程测试"></a>广东移动回程测试</h4><p><code>IEPL和IPLC测试服务器不一样只用于参考</code><br>AS9808网络在北京/上海/广州均有进出海光缆直连</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> traceroute to 120.238%$#@@#$$$, 30 hops max, 32 byte packets</span><br><span class="line">  10.0.60.1  0.26 ms  *  局域网</span><br><span class="line">  gw-213-173-33-1.nerocloud.io (213.173.33.1)  2.49 ms  AS48024  中国, 香港, parsun.com</span><br><span class="line">  xg-2.vlan1710.eqhk2-r1.cn.nerocloud.io (91.132.57.33)  0.85 ms  AS48024  中国, 香港, parsun.com</span><br><span class="line">  203.131.242.153  1.67 ms  AS2914  中国, 香港, ntt.com</span><br><span class="line"><span class="addition">+ 221.183.52.85  7.64 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line"><span class="addition">+ 221.176.22.105  9.29 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line"><span class="addition">+ 111.24.5.189  11.46 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line"><span class="addition">+ 111.24.14.74  10.91 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line">  183.235.226.237  14.44 ms  AS56040  中国, 广东, 广州, chinamobile.com, 移动</span><br><span class="line">  211.136.249.117  12.81 ms  AS56040  中国, 广东, 广州, chinamobile.com, 移动</span><br></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> traceroute to 120.238%$#@@#$$$, 30 hops max, 32 byte packets</span><br><span class="line">  10.0.60.1  0.26 ms  *  局域网</span><br><span class="line">  gw-213-173-33-1.nerocloud.io (213.173.33.11)  2.49 ms  AS48024  中国, 香港, parsun.com</span><br><span class="line">  xg-2.vlan1710.eqhk2-r1.cn.nerocloud.io (91.132.57.33)  0.85 ms  AS48024  中国, 香港, parsun.com</span><br><span class="line">  203.131.242.153  1.67 ms  AS2914  中国, 香港, ntt.com</span><br><span class="line"><span class="addition">+ 221.183.52.85  7.64 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line"><span class="addition">+ 221.176.22.105  9.29 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line"><span class="addition">+ 111.24.5.189  11.46 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line"><span class="addition">+ 111.24.14.74  10.91 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span></span><br><span class="line">  183.235.226.237  14.44 ms  AS56040  中国, 广东, 广州, chinamobile.com, 移动</span><br><span class="line">  211.136.249.117  12.81 ms  AS56040  中国, 广东, 广州, chinamobile.com, 移动</span><br></pre></td></tr></table></figure>
 
 <h4 id="东莞电信回程测试"><a href="#东莞电信回程测试" class="headerlink" title="东莞电信回程测试"></a>东莞电信回程测试</h4><p><code>移动中转电信</code> 温馨提示：不同品牌服务器线路优化不一样，关键是线路是点对点电路接入香港POP，墙内公网进入IEPL前这段线路和PEPL进入墙外接入的公网后这段线路非常关键，如果延迟高，即使IEPL线路中间这段延迟低，也无济于事。所以不是IEPL就一定非常好！但是点对点内网是绝对的！好的线路贵的离谱！温馨提示：博主未更新完毕，请期待！因为博主有自己服务器和上流电信联通有合作！我会单独出一篇文章详细评测和相关机场内幕曝光。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">traceroute to 116.18*&amp;&amp;&amp;&amp;, 30 hops max, 32 byte packets</span><br><span class="line"> 1  10.0.60.1  0.10 ms  *  局域网</span><br><span class="line"> 2  gw-213-173-33-1.nerocloud.io (213.173.33.1)  4.86 ms  AS48024  中国, 香港, parsun.com</span><br><span class="line"> 3  xg-2.vlan1710.eqhk2-r1.cn.nerocloud.io (91.132.57.33)  0.69 ms  AS48024  中国, 香港, parsun.com</span><br><span class="line"> 4  103.49.131.188  0.77 ms  AS48024  中国, jazzvps.com</span><br><span class="line"> 5  36.255.56.104  2.76 ms  AS9498  中国, 香港, equinix.com</span><br><span class="line"> 6  223.118.5.117  3.72 ms  AS58453  中国, 香港, chinamobile.com, 移动</span><br><span class="line"> 7  221.183.30.137  40.61 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span><br><span class="line"> 8  221.176.24.57  39.57 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span><br><span class="line"> 9  221.176.24.157  38.19 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span><br><span class="line">10  *</span><br><span class="line">11  221.183.90.198  87.43 ms  AS9808  中国, 广东, 广州, chinamobile.com, 移动</span><br><span class="line">12  *</span><br><span class="line">13  113.98.37.99  85.44 ms  AS134772  中国, 广东, 东莞, chinatelecom.com.cn, 电信</span><br></pre></td></tr></table></figure>
@@ -284,6 +284,13 @@ var _hmt = _hmt || [];
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/c137e341.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">GitHub+Hexo 搭建个人网站详细教程</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -379,7 +386,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            39
+                            40
                         </p>
                     </a>
                 </div>
@@ -391,7 +398,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            34
+                            36
                         </p>
                     </a>
                 </div>
@@ -403,7 +410,7 @@ var _hmt = _hmt || [];
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            32
+                            33
                         </p>
                     </a>
                 </div>
