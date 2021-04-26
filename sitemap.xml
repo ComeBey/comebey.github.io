@@ -340,13 +340,6 @@
 
   
   <url>
-    <loc>https://www.rootfw.com/tags/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/tags/Brook/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -368,14 +361,14 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/v2ray/</loc>
+    <loc>https://www.rootfw.com/tags/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/brook/</loc>
+    <loc>https://www.rootfw.com/tags/github/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -390,6 +383,34 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/SSR/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/brook/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/v2ray/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/SS/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -424,28 +445,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/tags/github/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/tags/xtls/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/SS/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -543,6 +543,13 @@
   </url>
   
   <url>
+    <loc>https://www.rootfw.com/tags/%E9%80%9A%E7%9F%A5/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.rootfw.com/tags/cn2-GT/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -551,13 +558,6 @@
   
   <url>
     <loc>https://www.rootfw.com/tags/cn2-GIA/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/tags/%E9%80%9A%E7%9F%A5/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -573,13 +573,6 @@
 
   
   <url>
-    <loc>https://www.rootfw.com/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -587,35 +580,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/github/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/Centos7/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/</loc>
+    <loc>https://www.rootfw.com/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -629,7 +594,35 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/xtls/</loc>
+    <loc>https://www.rootfw.com/categories/Centos7/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/Brook/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/SSR/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/github/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -643,14 +636,21 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/v2ray/</loc>
+    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/Centos7/python/</loc>
+    <loc>https://www.rootfw.com/categories/xtls/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/v2ray/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -671,13 +671,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/categories/VPS%E8%AF%84%E6%B5%8B/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -685,7 +678,21 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/VIp/</loc>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/vless/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/github/hexo/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -706,13 +713,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/vless/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/categories/Linux/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -720,7 +720,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/xtls/vless/</loc>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/VIp/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -728,6 +728,13 @@
   
   <url>
     <loc>https://www.rootfw.com/categories/cn2-GT/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.rootfw.com/categories/xtls/vless/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -755,13 +762,6 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/%E6%B4%8B%E8%91%B1/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.rootfw.com/categories/VPS%E8%AF%84%E6%B5%8B/linode/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -769,7 +769,7 @@
   </url>
   
   <url>
-    <loc>https://www.rootfw.com/categories/github/hexo/</loc>
+    <loc>https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/tor/%E6%B4%8B%E8%91%B1/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
