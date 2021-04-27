@@ -8,21 +8,26 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>GitHub+Hexo 搭建个人网站详细教程 - comebey</title>
+<title>GitHub+Hexo 搭建个人博客详细教程 - comebey</title>
 
 
     <meta name="description" content="什么是Hexo ?Hexo是一款基于Node.js的静态博客框架，易于安装使用，可以方便的生成静态网页托管在GitHub，所以服务器免费！你没听错就是免费！是搭建博客的首选框架。Hexo同时也是GitHub上的开源项目，是台湾同胞开发的项目，使用非常简单。对于新手而言，缺点就是中国内陆访问自己搭建的hexo博客会非常卡，因为托管在GitHub的项目网页使用的服务器是GitHub美国服务器。当然其">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub+Hexo 搭建个人网站详细教程">
+<meta property="og:title" content="GitHub+Hexo 搭建个人博客详细教程">
 <meta property="og:url" content="https://www.rootfw.com/posts/c137e341.html">
 <meta property="og:site_name" content="comebey">
 <meta property="og:description" content="什么是Hexo ?Hexo是一款基于Node.js的静态博客框架，易于安装使用，可以方便的生成静态网页托管在GitHub，所以服务器免费！你没听错就是免费！是搭建博客的首选框架。Hexo同时也是GitHub上的开源项目，是台湾同胞开发的项目，使用非常简单。对于新手而言，缺点就是中国内陆访问自己搭建的hexo博客会非常卡，因为托管在GitHub的项目网页使用的服务器是GitHub美国服务器。当然其">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/11-01.svg">
 <meta property="article:published_time" content="2021-04-16T12:17:12.000Z">
-<meta property="article:modified_time" content="2021-04-27T07:47:04.741Z">
+<meta property="article:modified_time" content="2021-04-27T07:57:54.419Z">
 <meta property="article:author" content="comebey">
-<meta property="article:tag" content="hexo博客搭建">
+<meta property="article:tag" content="hexo搭建">
+<meta property="article:tag" content="hexo托管GitHub">
+<meta property="article:tag" content="hexo GitHub page">
+<meta property="article:tag" content="hexo GitHub搭建个人blog">
+<meta property="article:tag" content="rootfw官方博客">
+<meta property="article:tag" content="hexo搭建详细教程">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/11-01.svg">
 
@@ -93,7 +98,7 @@ var _hmt = _hmt || [];
 
 
 
-    <meta name="keywords" content="v2ray,xtls,comebey,v2ray搭建,vless,hasan W,xray,rootfw">
+    <meta name="keywords" content="hexo搭建,hexo托管GitHub,hexo GitHub page,hexo GitHub搭建个人blog,rootfw官方博客,hexo搭建详细教程,v2ray,xtls,comebey,v2ray搭建,vless,hasan W,xray,rootfw">
     
 
  
@@ -105,7 +110,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="GitHub+Hexo 搭建个人网站详细教程" height="36">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="GitHub+Hexo 搭建个人博客详细教程" height="36">
                 <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span>
             
             </a>
@@ -156,14 +161,14 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/11-01.svg" alt="GitHub+Hexo 搭建个人网站详细教程">
+            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/11-01.svg" alt="GitHub+Hexo 搭建个人博客详细教程">
         </span>
     </div>
     
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>GitHub+Hexo 搭建个人网站详细教程
+                <i class="fas fa-angle-double-right"></i>GitHub+Hexo 搭建个人博客详细教程
             
         </h1>
         
@@ -171,12 +176,12 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2021-04-16T12:17:12.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2021-04-16</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-27T07:47:04.741Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-27</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-27T07:57:54.419Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-27</time>-->
                 
                 
                 <div class="level-item">
                     <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
-                <a class="has-link-grey -link" href="/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hexo博客搭建</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/github/">github</a>
+                <a class="has-link-grey -link" href="/categories/hexo%E6%90%AD%E5%BB%BA/">hexo搭建</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/hexo%E6%90%AD%E5%BB%BA/github-page/">github page</a>
                 </div>
                 
                 
@@ -234,7 +239,7 @@ var _hmt = _hmt || [];
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/c137e341.html">GitHub+Hexo 搭建个人网站详细教程</a></li>
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/c137e341.html">GitHub+Hexo 搭建个人博客详细教程</a></li>
             <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
             <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/c137e341.html">https://www.rootfw.com/posts/c137e341.html</a></li>
             <li><strong>发布时间：</strong>2021-04-16</li>
@@ -248,7 +253,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">hexo博客搭建</a>
+                    <a class="has-link-grey -link" href="/tags/hexo%E6%90%AD%E5%BB%BA/" rel="tag">hexo搭建</a>
                 </div>
             </div>
         </div>
@@ -557,7 +562,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="GitHub+Hexo 搭建个人网站详细教程" height="28">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="GitHub+Hexo 搭建个人博客详细教程" height="28">
                 
                 </a>
                 <p class="is-size-7">
