@@ -20,7 +20,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/11-01.svg">
 <meta property="article:published_time" content="2021-04-16T12:17:12.000Z">
-<meta property="article:modified_time" content="2021-04-26T10:59:48.136Z">
+<meta property="article:modified_time" content="2021-04-27T07:47:04.741Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="hexo博客搭建">
 <meta name="twitter:card" content="summary">
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2021-04-16T12:17:12.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2021-04-16</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-26T10:59:48.136Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-26</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-04-27T07:47:04.741Z"><i class="far fa-calendar-check">&nbsp;</i>2021-04-27</time>-->
                 
                 
                 <div class="level-item">
@@ -224,11 +224,13 @@ var _hmt = _hmt || [];
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <figure class="highlight diff"><figcaption><span>输出模板内容如下仅供参考</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.</span><br><span class="line">Deprecated as of 10.7.0. Please use highlight(code, options) instead.</span><br><span class="line">https://github.com/highlightjs/highlight.js/issues/2277</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
 
-<h3 id="推送Github"><a href="#推送Github" class="headerlink" title="推送Github"></a>推送Github</h3><p>因为前面我们已经在github 添加了key所以我们hexo d直接就推GitHub仓库去了。我们可以在浏览器输入<code>GitHub用户名.github.io</code>（推过去后等2分钟左右查看）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="推送Github"><a href="#推送Github" class="headerlink" title="推送Github"></a>推送Github</h3><p>因为前面我们已经在github 添加了key所以我们把模块项目直接就推GitHub仓库去了。然后我们可以在浏览器输入<code>GitHub用户名.github.io</code>（推过去后等2分钟左右查看）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;写自己更新的内容&quot;</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;用户名&#x2F;仓库名.github.io.git #参考 目录：2.Github创建个人仓库 2.3 步骤三中图片内容</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>过几天更新</p>
-<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><h3 id="MarkDown语法"><a href="#MarkDown语法" class="headerlink" title="MarkDown语法"></a>MarkDown语法</h3><h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><h3 id="VSC配置Git-bash"><a href="#VSC配置Git-bash" class="headerlink" title="VSC配置Git bash"></a>VSC配置Git bash</h3>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>在Github仓库中按图所示设置完成后<br><img src="https://cdn.jsdelivr.net/gh/Hasan-W/svg/pic/14.png" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Hasan-W/svg/pic/15.png" alt=""></p>
+<p>在自己模板source文件夹下创建一个名为CNAME文件打开编辑输入你需要解析的域名如：<code>www.rootfw.com</code>解析域名CNAME 名称为：<code>*</code> 内容为：<code>你的用户名.github.io</code><br>在分别添加<code>两条A记录</code>名称分别为你的域名如：<code>rootfw.com</code> 内容分别为<code>185.199.109.153和185.199.108.153</code>即可，添加成功后。然后过几分钟后在输入你域名查看效果。</p>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p><a href="https://hexo.io/themes/" rel="external nofollow noreferrer">hexo官方主题</a>这里很多主题，大家可以自己去使用。随便找个免费的，点进去会跳转到GitHub项目仓库，一般别人开发的模板会公开也有教程自己按步骤安装即可。hexo g -d即可。模板很多大家没事可以去搜集下。下次在详细出教程吧！都非常简单！</p>
+
         </div>
         
             <ul class="post-copyright">
@@ -532,18 +534,6 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#更换主题">
         <span class="has-mr-6">9</span>
         <span>更换主题</span>
-        </a></li><li>
-        <a class="is-flex" href="#MarkDown语法">
-        <span class="has-mr-6">10</span>
-        <span>MarkDown语法</span>
-        </a></li><li>
-        <a class="is-flex" href="#发布文章">
-        <span class="has-mr-6">11</span>
-        <span>发布文章</span>
-        </a></li><li>
-        <a class="is-flex" href="#VSC配置Git-bash">
-        <span class="has-mr-6">12</span>
-        <span>VSC配置Git bash</span>
         </a></li></ul>
             </div>
         </div>
