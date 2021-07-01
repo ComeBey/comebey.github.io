@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>xray配置gRPC协议搭配cloudflare可加CDN - comebey</title>
+
+
+    <meta name="description" content="进几个月v2fly推出了gRPC协议，应粉丝要求开一篇博文。仅供大家参考。gRPC 使用 HTTP&#x2F;2 协议传输，内置连接复用（mux）功能。(v4.36.0+)（请大家更新最新版本，不管是v2fly还是xray）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xray配置gRPC协议搭配cloudflare可加CDN">
+<meta property="og:url" content="https://www.rootfw.com/posts/a8658ecb.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="进几个月v2fly推出了gRPC协议，应粉丝要求开一篇博文。仅供大家参考。gRPC 使用 HTTP&#x2F;2 协议传输，内置连接复用（mux）功能。(v4.36.0+)（请大家更新最新版本，不管是v2fly还是xray）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
+<meta property="article:published_time" content="2021-07-01T08:55:41.000Z">
+<meta property="article:modified_time" content="2021-07-01T10:53:09.731Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="vless搭建gRPC">
+<meta property="article:tag" content="xray配置gRPC">
+<meta property="article:tag" content="v2lay配置gRPC">
+<meta property="article:tag" content="v2ray搭建gRPC">
+<meta property="article:tag" content="gRPC加cdn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.rootfw.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.4.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?eb7ec9441757d71902ddc95dbe898eb4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+    <meta name="keywords" content="vless搭建gRPC,xray配置gRPC,v2lay配置gRPC,v2ray搭建gRPC,gRPC加cdn,v2ray,xtls,comebey,v2ray搭建,vless,hasan W,xray,rootfw">
+    
+
+ 
+<link rel="alternate" href="/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="xray配置gRPC协议搭配cloudflare可加CDN" height="36">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span>
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com/en/">English</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" rel="external nofollow noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/搜索框中的放大镜.svg" style="height: 25px;width: 25px;">
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>xray配置gRPC协议搭配cloudflare可加CDN
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2021-07-01T08:55:41.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2021-07-01</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-07-01T10:53:09.731Z"><i class="far fa-calendar-check">&nbsp;</i>2021-07-01</time>-->
+                
+                
+                <div class="level-item">
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/文档 (1).svg" style="height: 16px;width: 16px;">&nbsp;
+                <a class="has-link-grey -link" href="/categories/vless-gRPC/">vless gRPC</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/vless-gRPC/xray-gRpc/">xray gRpc</a>
+                </div>
+                
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <article class="message is-default"><div class="message-body">
+<p>进几个月v2fly推出了gRPC协议，应粉丝要求开一篇博文。仅供大家参考。gRPC 使用 HTTP/2 协议传输，内置连接复用（mux）功能。(v4.36.0+)（请大家更新最新版本，不管是v2fly还是xray）</p>
+</div></article>
+
+<a id="more"></a>
+
+
+<p>##<code>重要提示：</code><br><a href="https://github.com/2dust/v2rayN/releases" rel="external nofollow noreferrer">v2ray N最新下载</a><br><a href="https://github.com/v2fly/v2ray-core/releases" rel="external nofollow noreferrer">v2ray core最新下载</a><br><a href="https://github.com/XTLS/Xray-core/releases" rel="external nofollow noreferrer">xray core最新下载</a><br><a href="https://www.hostbuf.com/t/988.html" rel="external nofollow noreferrer">Finalshell SSH连接工具下载</a><br><a href="https://mobaxterm.mobatek.net/download-home-edition.html" rel="external nofollow noreferrer">Mobaxterm SSH连接工具下载</a></p>
+<h3 id="准备工作及环境"><a href="#准备工作及环境" class="headerlink" title="准备工作及环境"></a>准备工作及环境</h3><p>1.准备一台VPS服务器<code>centos7系统</code>（博主搭建使用GCP测试）自行选择服务器<br>2.<a href="https://dash.cloudflare.com/sign-up" rel="external nofollow noreferrer">注册cloudflare等会需要解析用到gRPC</a><br>3.准备一个域名（自己去买个域名）</p>
+<h3 id="安装Xray服务"><a href="#安装Xray服务" class="headerlink" title="安装Xray服务"></a>安装Xray服务</h3><p>温馨提示：请选择最新官方推荐版本安装。<br>更新下系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br></pre></td></tr></table></figure>
+<p>Install &amp; Upgrade Xray-core and .dat files<br>老版本（备用）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/ComeBey/xray/master/install-release.sh)</span><br></pre></td></tr></table></figure>
+<p>新版本（官方）推荐使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">"<span class="variable">$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)</span>"</span> @ install</span><br></pre></td></tr></table></figure>
+<h3 id="仅更新-geoip和geosite-dat"><a href="#仅更新-geoip和geosite-dat" class="headerlink" title="仅更新(geoip和geosite)dat"></a>仅更新(geoip和geosite)dat</h3><p>老版本（备用）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/ComeBey/xray/master/install-dat-release.sh)</span><br></pre></td></tr></table></figure>
+<p>新版本（官方）推荐使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">"<span class="variable">$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)</span>"</span> @ install-geodata</span><br></pre></td></tr></table></figure>
+<h3 id="编辑config-json"><a href="#编辑config-json" class="headerlink" title="编辑config.json"></a>编辑config.json</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/etc/xray <span class="comment">#推荐通过Finalshell 或者Mobaxterm ssh链接服务器编辑</span></span><br><span class="line">vim /usr/<span class="built_in">local</span>/etc/v2ray <span class="comment">#vim编辑  部分VPS需要安装依赖</span></span><br><span class="line">vi /usr/<span class="built_in">local</span>/etc/v2ray  <span class="comment">#vi编辑</span></span><br><span class="line">nano /usr/<span class="built_in">local</span>/etc/v2ray <span class="comment">#nano编辑 部分VPS需要安装依赖</span></span><br></pre></td></tr></table></figure>
+
+<p>在/usr/local/etc/xray下面编辑config.json配置文件<br>复制以下代码到config.json</p>
+<figure class="highlight json"><figcaption><span>/usr/local/etc/xray/config.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"log"</span>: &#123;</span><br><span class="line">        <span class="attr">"loglevel"</span>: <span class="string">"warning"</span> <span class="comment">//级别</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"inbounds"</span>: [&#123;</span><br><span class="line">        <span class="attr">"listen"</span>: <span class="string">"0.0.0.0"</span>, <span class="comment">//监听所有</span></span><br><span class="line">        <span class="attr">"port"</span>: <span class="number">443</span>, <span class="comment">//端口</span></span><br><span class="line">        <span class="attr">"protocol"</span>: <span class="string">"vless"</span>, <span class="comment">//协议</span></span><br><span class="line">        <span class="attr">"settings"</span>: &#123;</span><br><span class="line">            <span class="attr">"clients"</span>: [&#123;</span><br><span class="line">                <span class="attr">"id"</span>: <span class="string">"&amp;*&amp;*&amp;*&amp;**&amp;*……%……￥￥"</span>,<span class="comment">//uuid</span></span><br><span class="line">                <span class="attr">"email"</span>: <span class="string">"rootfw.com"</span> <span class="comment">//随便写一个邮箱</span></span><br><span class="line">            &#125;],</span><br><span class="line">            <span class="attr">"decryption"</span>: <span class="string">"none"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"streamSettings"</span>: &#123;</span><br><span class="line">            <span class="attr">"network"</span>: <span class="string">"gun"</span>, <span class="comment">//type伪装类型</span></span><br><span class="line">            <span class="attr">"security"</span>: <span class="string">"tls"</span>,</span><br><span class="line">            <span class="attr">"tlsSettings"</span>: &#123;</span><br><span class="line">                <span class="attr">"serverName"</span>: <span class="string">"rootfw.com"</span>, <span class="comment">//直接写域名</span></span><br><span class="line">                <span class="attr">"alpn"</span>: [ </span><br><span class="line">                    <span class="string">"h2"</span> <span class="comment">//HTTP/2 协议传输</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">"certificates"</span>: [&#123;</span><br><span class="line">                    <span class="attr">"certificateFile"</span>: <span class="string">"/etc/rootfw/v2ray.pem"</span>, <span class="comment">//路径证书注意后缀：列如*.pem *.cer *.crt等等</span></span><br><span class="line">                    <span class="attr">"keyFile"</span>: <span class="string">"/etc/rootfw/v2ray.key"</span>  <span class="comment">//密钥确保路径文件夹有v2ray.key</span></span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"grpcSettings"</span>: &#123;</span><br><span class="line">                <span class="attr">"serviceName"</span>: <span class="string">"GCPService"</span> <span class="comment">//防止探测是否部署了本传输协议。请使用复杂的随机字符串。（请不要设置特别特别长即可）</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;],</span><br><span class="line">    <span class="attr">"outbounds"</span>: [&#123;</span><br><span class="line">        <span class="attr">"protocol"</span>: <span class="string">"freedom"</span>, <span class="comment">//出站协议当然其实这里还可以自己添加点，可以用来向任意网络发送 TCP 或 UDP 数据。</span></span><br><span class="line">        <span class="attr">"tag"</span>: <span class="string">"direct"</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以上配置只是个模板，解释的很清楚，当然如果你想json更多功能，你完全可以参考v2ray和xray官方文档规范匹配相关code （不要忘记给 https://www.rootfw.com 点赞）</span></span><br></pre></td></tr></table></figure>
+<h3 id="v2ray调试"><a href="#v2ray调试" class="headerlink" title="v2ray调试"></a>v2ray调试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart xray</span><br><span class="line">sudo systemctl status -l xray</span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+<p>设置v2ray开机启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> xray</span><br></pre></td></tr></table></figure>
+<h3 id="cloudflare配置"><a href="#cloudflare配置" class="headerlink" title="cloudflare配置"></a>cloudflare配置</h3><ol>
+<li><p>转到您在 CloudFlare 中的域。在“网络”选项卡中，打开 gRPC。</p>
+</li>
+<li><p>在“SSL/TLS”选项卡中，选择“源服务器”子选项卡。创建一个新证书并保存为 <code>cert.pem</code> 和 <code>cert.key</code>。</p>
+</li>
+<li><p>在“DNS”选项卡中，添加指向您自己的服务器的记录。确保代理状态为“已代理”。（也可以先不勾选代理，灰色没有开代理，橙色为代理打开状态）</p>
+</li>
+</ol>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/a8658ecb.html">xray配置gRPC协议搭配cloudflare可加CDN</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/a8658ecb.html">https://www.rootfw.com/posts/a8658ecb.html</a></li>
+            <li><strong>发布时间：</strong>2021-07-01</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/vless-gRPC/" rel="tag">vless gRPC</a>,&nbsp;<a class="has-link-grey -link" href="/tags/xray-gRpc/" rel="tag">xray gRpc</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/3e91a09f.html">
+                <span class="level-item">GitBook 搭建个人博客</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'Ipp1FU7Rr7KCIYgNnv1mrOvj-gzGzoHsz',
+        app_key: '1pOvMu9iiGMSqeykFKQ5xcNM',
+        placeholder: 'Say something...'
+    });
+</script>
+
+    </div>
+</div>
+
+
+
+
+
+    <script type="text/javascript">
+    // 禁止右键菜单
+    document.oncontextmenu = function(){ return false; };
+    // 禁止文字选择
+    document.onselectstart = function(){ return false; };
+    // 禁止复制
+    document.oncopy = function(){ return true; };
+    // 禁止剪切
+    document.oncut = function(){ return false; };
+    // 禁止粘贴
+    document.onpaste = function(){ return false; };
+    </script></div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/4.svg" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            43
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            39
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            36
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div id="knowledge-star">
+        
+    <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
+                加入我的知识星球</a>
+        </div>
+        <div clas="level" id="knowledge-qrcode" style="display:none;">
+            <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/ruz.png" alt="comebey" height="36">
+        </div>
+    </div>        
+        
+        
+        
+        <div class="level is-mobile">
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/abt.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/abt.svg"></i>
+                
+            </a>
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/fb.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/fb.svg"></i>
+                
+            </a>
+             
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="youtube" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1">
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg" style="height: 25px;width: 25px;"></img>
+                
+                <i class="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/youtube2.svg"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#准备工作及环境">
+        <span class="has-mr-6">1</span>
+        <span>准备工作及环境</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装Xray服务">
+        <span class="has-mr-6">2</span>
+        <span>安装Xray服务</span>
+        </a></li><li>
+        <a class="is-flex" href="#仅更新-geoip和geosite-dat">
+        <span class="has-mr-6">3</span>
+        <span>仅更新(geoip和geosite)dat</span>
+        </a></li><li>
+        <a class="is-flex" href="#编辑config-json">
+        <span class="has-mr-6">4</span>
+        <span>编辑config.json</span>
+        </a></li><li>
+        <a class="is-flex" href="#v2ray调试">
+        <span class="has-mr-6">5</span>
+        <span>v2ray调试</span>
+        </a></li><li>
+        <a class="is-flex" href="#cloudflare配置">
+        <span class="has-mr-6">6</span>
+        <span>cloudflare配置</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/防火墙.svg" alt="xray配置gRPC协议搭配cloudflare可加CDN" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+<script>
+    $(function(){
+        var showing = false;
+        var headEnter = false;
+        var mouseArea =  $("#knowledge-star");
+        var qrcode = $("#knowledge-qrcode");
+        var headimg = $("#blog-head-img");
+        //var originalSrc = headimg.attr("src");
+
+        function knowStarAnim(show){
+            if(show === showing) return;
+            showing = show;
+            qrcode.stop();
+            qrcode.toggle(1000);
+        }
+
+        mouseArea.mouseenter(function(){
+            knowStarAnim(true);  
+        });
+
+        mouseArea.mouseleave(function(){
+            knowStarAnim(false);
+        });
+
+        function headChangeAnim(enter){
+            if(enter === headEnter) return;
+            headEnter = enter;
+            if(enter){
+                $("img").attr("title", function() { return this.src });
+                $("img").attr("src", function(){
+                    if(this.width < 150){
+                        return "https://dp2px.com/images/jok-head.jpg";
+                    }else{
+                        return this.src;
+                    }
+                })
+            }else{
+                $("img").attr("src", function() { return this.title });
+                $("img").removeAttr("title");
+            }
+        }
+
+        headimg.mouseenter(function(){
+            headChangeAnim(true);
+        });
+        headimg.mouseleave(function(){
+            headChangeAnim(false);
+        });
+    });
+</script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: 'https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/search.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ComeBey/comebey.github.io@master/css/insight.css">
+    
+
+    
+</body>
+</html>
