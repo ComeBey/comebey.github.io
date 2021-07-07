@@ -20,7 +20,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.rootfw.com/images/og_image.png">
 <meta property="article:published_time" content="2021-07-02T08:51:50.000Z">
-<meta property="article:modified_time" content="2021-07-07T11:50:56.047Z">
+<meta property="article:modified_time" content="2021-07-07T11:59:07.630Z">
 <meta property="article:author" content="comebey">
 <meta property="article:tag" content="vless搭建gRPC nginx">
 <meta property="article:tag" content="xray配置gRPC">
@@ -170,7 +170,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2021-07-02T08:51:50.000Z"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/日历 (1).svg"style="height: 17px;width: 17px;">&nbsp;2021-07-02</time>
                 
-                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-07-07T11:50:56.047Z"><i class="far fa-calendar-check">&nbsp;</i>2021-07-07</time>-->
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2021-07-07T11:59:07.630Z"><i class="far fa-calendar-check">&nbsp;</i>2021-07-07</time>-->
                 
                 
                 <div class="level-item">
@@ -258,6 +258,7 @@ var _hmt = _hmt || [];
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1.本篇博客用的是cloudflare证书，手动的，你用acme.sh申请也可以。当然也可以用CF aip令牌下播证书。证书配置很多种不管你用acme.sh温馨提示：<a href="https://github.com/acmesh-official/acme.sh" rel="external nofollow noreferrer">acme.sh申请证书方法官方更改了请参考</a> 还是freessl，还是宝塔账号申请还是怎么滴，都可以申请。只需要记住证书格式。<br>2.密钥记得给权限不是无法使用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 &#x2F;etc&#x2F;v2ray&#x2F;v2ray.key</span><br></pre></td></tr></table></figure>
 <p>3.cloudflare加CDN或者不加你们自己拿主意。个人建议：个人翻墙真没必要搞那么多花里胡哨的东西，v2fly优化了那么多迭代更新包括xray，已经很不错了和安全了。只是有些老铁基础不行，瞎搞导致IP瓦特了。假设你要有内网线路IEPL或者iplc 搭建ssr是最理想的选择，怕锤子了，根本不需要捣腾这些。当然每个人情况不一样，请各位墙友自己斟酌吧！</p>
+<p>重要提示：<code>弄好域名解析后，先申请证书和密钥（如果你是通过acme.sh申请443或者80端口），cloudflare申请证书忽略此步骤。然后在安装nginx是最后安装。如果端口占用同一个，你先安装nginx后通过443端口在下播证书会失败。可以使用sudo systemctl stop nginx 停止nginx运行在申请证书。如果还是不成功就自己kill端口，自己Google方法kill端口</code></p>
 <h3 id="电报群讨论组"><a href="#电报群讨论组" class="headerlink" title="电报群讨论组"></a>电报群讨论组</h3><p>温馨提示：如果遇到问题电报群找我，把报错代码贴出发群里或在博客留言栏告知。我看到信息会第一时间回答你问题。<br><a href="https://t.me/RootInstitute" rel="external nofollow noreferrer"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/telegram23.svg" style="height: 100px;width: 150px;"></a><br><a href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/html.zip" rel="external nofollow noreferrer">Nginx前端模板下载</a></p>
 
         </div>
