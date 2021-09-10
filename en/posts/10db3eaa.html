@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Brook crontab use - comebey</title>
+
+
+    <meta name="description" content="Choose one of the following synchronization time. If you cannot synchronize the local time, please google the next one (keywords such as centos7 or centos6 or debian time synchronization local time)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Brook crontab use">
+<meta property="og:url" content="https://www.rootfw.com/posts/10db3eaa.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="Choose one of the following synchronization time. If you cannot synchronize the local time, please google the next one (keywords such as centos7 or centos6 or debian time synchronization local time)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.rootfw.com/en/images/og_image.png">
+<meta property="article:published_time" content="2020-06-10T04:45:36.000Z">
+<meta property="article:modified_time" content="2020-09-20T13:11:37.972Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="Brook">
+<meta property="article:tag" content="crontab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.rootfw.com/en/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/en/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?eb7ec9441757d71902ddc95dbe898eb4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1986829,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    
+    <link rel="stylesheet" href="/en/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/en/css/style.css">
+<link rel="alternate" href="/en/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/en/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="Brook crontab use" height="50">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span> <!--导航栏logo-->
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/en/">Home</a>
+                
+                <a class="navbar-item"
+                href="/en/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/en/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/en/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com">中文</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Brook crontab use
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-10T04:45:36.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-06-10</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T13:11:37.972Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>-->
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/en/categories/vpn/">vpn</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/vpn/Brook/">Brook</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey"></span> <!-- 2020-06-10 <span class="level-item has-text-grey"> -->
+                    <i class="far fa-clock"></i>&nbsp;
+                    
+                    
+                    4 minutes read (About 582 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <p>Choose one of the following synchronization time. If you cannot synchronize the local time, please google the next one (keywords such as centos7 or centos6 or debian time synchronization local time)</p>
+<a id="more"></a>
+
+<p><strong>Method 1. Calibrate time and synchronize local time date -R view vps time sudo -i root permission to enter</strong><br>``<br>yum -y install ntp ntpdate //install ntpdate tool<br>ntpdate cn.pool.ntp.org //Set the system time to synchronize with the local network time<br>hwclock –systohc //write system time into hardware time</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">**Method 2. Calibrate time to synchronize local time date -R to view vps time**</span><br><span class="line">&#96;&#96;</span><br><span class="line">yum install ntp &#x2F;&#x2F;install ntp service</span><br><span class="line">systemctl enable ntpd &#x2F;&#x2F;Start the service</span><br><span class="line">systemctl start ntpd &#x2F;&#x2F;Start the service</span><br><span class="line">timedatectl set-timezone Asia&#x2F;Shanghai&#x2F;&#x2F;Change time zone</span><br><span class="line">timedatectl set-ntp yes &#x2F;&#x2F;Enable ntp synchronization</span><br><span class="line">ntpq -p &#x2F;&#x2F;Sync time</span><br></pre></td></tr></table></figure>
+
+<p>** crontab service **<br>``<br>/ sbin / service crond start (open crontab without any prompt indicating it has been opened)<br>/sbin/service crond status (view status)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Install crontab: (Some systems do not have crontab installed, you need to install it, if the system itself is already installed, please skip this step)</span><br><span class="line"></span><br><span class="line">** yum install crontabs ** (install crontab)</span><br><span class="line"></span><br><span class="line">##Service operation instructions:</span><br><span class="line">&#96;&#96;</span><br><span class="line">&#x2F; sbin &#x2F; service crond start (start service)</span><br><span class="line"></span><br><span class="line">&#x2F; sbin &#x2F; service crond stop (turn off the service)</span><br><span class="line"></span><br><span class="line">&#x2F;sbin&#x2F;service crond restart (restart service)</span><br><span class="line"></span><br><span class="line">&#x2F; sbin &#x2F; service crond reload (reload configuration&#x2F;&#x2F;reload configuration)</span><br><span class="line"></span><br><span class="line">&#x2F;sbin&#x2F;service crond status (check whether crond is running normally)</span><br></pre></td></tr></table></figure>
+<p>crontab -e (Enter the i key, copy the following code ctrl + c, paste ctrl + v to join the scheduled task, you can customize and add the required functions)</p>
+<p>``</p>
+<ul>
+<li>/ 1 * * * *Date&gt;&gt;~/a.log 2&gt;&amp;1</li>
+<li>/ 1 * * * * sudo journalctl -b -u brook &gt;&gt;~/ a.log 2&gt;&amp;1</li>
+<li>/ 1 * * * * /bin/systemctl restart brook.service &gt;&gt;~/a.log 2&gt;&amp;1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;</span><br><span class="line">crontab -l (view the crontab tasks that have been added)</span><br><span class="line">tail~&#x2F;a.log View the last 10 logs</span><br><span class="line">More&#x2F;root&#x2F;a.log View all logs</span><br><span class="line">tail -f &#x2F;var&#x2F;log&#x2F;cron to view normal running crontab scheduled tasks</span><br><span class="line">Verify the running status of crontab scheduled task brook</span><br><span class="line">The output can be filtered according to specific segments</span><br><span class="line">journalctl -b displays all logs after this startup:</span><br><span class="line"></span><br><span class="line">journalctl -f view the progress being output</span><br><span class="line"></span><br><span class="line">sudo journalctl -b -u Brook view Brooke status</span><br><span class="line"></span><br><span class="line">man 1 journalctl view all the usage of journalctl</span><br><span class="line"></span><br><span class="line">rm -rf~&#x2F;a.log log clearing method</span><br><span class="line"></span><br><span class="line">Example 1: execute a command every 1 minute</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">* * * * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 2: Execute at the 3rd and 15th minutes of every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 * * * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 3: Execute at the 3rd and 15th minutes from 8 am to 11 am</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 4: Execute at the 3rd and 15th minutes from 8 am to 11 am every two days</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 8-11 * &#x2F; 2 * *Command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 5: Execute on the 3rd and 15th minutes from 8 am to 11 am every Monday</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">3,15 8-11 * * 1 command</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 6: Restart at 21:30 every night</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">30 21 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 7: Restart at 4:45 on the 1, 10, and 22 of each month</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">45 4 1,10,22 * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 8: Restart at 1:10 every Saturday and Sunday</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">10 1 * * 6,0 &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 9: Restart smb every 30 minutes from 18:00 to 23:00 every day</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0,30 18-23 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 10: restart every Saturday at 11:00 pm</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0 23 * * 6 &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 11: Restart smb every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">* * &#x2F; 1 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 12: Between 11 pm and 7 am, restart smb every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">* 23-7 &#x2F; 1 * * * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 13: Restart smb on the 4th of every month and 11 o’clock every Monday to Wednesday</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0 11 4 * mon-wed &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 14: restart smb at 4 o&#39;clock on January 1st</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">0 4 1 jan * &#x2F;etc&#x2F;init.d&#x2F;smb restart</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Example 15: Execute the script in the &#x2F;etc&#x2F;cron.hourly directory every hour</span><br><span class="line"></span><br><span class="line">command:</span><br><span class="line"></span><br><span class="line">01 * * * *Root running component &#x2F;etc&#x2F;cron.hourly</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">Brook crontab use</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/10db3eaa.html">https://www.rootfw.com/posts/10db3eaa.html</a></li>
+            <li><strong>发布时间：</strong>2020-06-10</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/en/tags/Brook/" rel="tag">Brook</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/crontab/" rel="tag">crontab</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/en/posts/43d67d1c.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">SSR multi-user script construction</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/en/posts/c695a206.html">
+                <span class="level-item">Brook install</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://www.rootfw.com/posts/10db3eaa.html';
+        this.page.identifier = 'posts/10db3eaa.html';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hasan-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="/en/images/avatar.png" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/en/archives">
+                        <p class="title has-text-weight-normal">
+                            19
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/en/categories">
+                        <p class="title has-text-weight-normal">
+                            25
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/en/tags">
+                        <p class="title has-text-weight-normal">
+                            20
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/WangTao_Im">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/en/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="Brook crontab use" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/en/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/en/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/en/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/en/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/en/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/en/js/insight.js" defer></script>
+<link rel="stylesheet" href="/en/css/search.css">
+<link rel="stylesheet" href="/en/css/insight.css">
+    
+</body>
+</html>
