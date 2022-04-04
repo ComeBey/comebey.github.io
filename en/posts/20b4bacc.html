@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Network speed conversion - comebey</title>
+
+
+    <meta name="description" content="access without permission, only for VIP users to learn and read.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Network speed conversion">
+<meta property="og:url" content="https://www.rootfw.com/posts/20b4bacc.html">
+<meta property="og:site_name" content="comebey">
+<meta property="og:description" content="access without permission, only for VIP users to learn and read.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/referral.svg">
+<meta property="article:published_time" content="2020-07-24T03:02:19.000Z">
+<meta property="article:modified_time" content="2020-09-20T13:24:10.000Z">
+<meta property="article:author" content="comebey">
+<meta property="article:tag" content="v2ray">
+<meta property="article:tag" content="vip">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/referral.svg">
+
+
+
+
+
+
+
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/en/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174250713-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-174250713-1');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?eb7ec9441757d71902ddc95dbe898eb4";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1986829,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+    
+    <link rel="stylesheet" href="/en/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/en/css/style.css">
+<link rel="alternate" href="/en/atom.xml" title="comebey" type="application/atom+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/en/">
+            
+                <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="Network speed conversion" height="50">
+                <span style="font-size:16px;display:inline-block;vertical-align:top;font-weight:600">ROOTFW</span> <!--导航栏logo-->
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/en/">Home</a>
+                
+                <a class="navbar-item"
+                href="/en/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/en/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/en/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="https://rootfw.com">中文</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener external nofollow noreferrer" title="Download on GitHub" href="https://github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" rel="external nofollow noreferrer">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/referral.svg" alt="Network speed conversion">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Network speed conversion
+            
+        </h1>
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-07-24T03:02:19.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-07-24</time>
+                
+                <!--<time class="level-item has-text-grey is-hidden-mobile" datetime="2020-09-20T13:24:10.000Z"><i class="far fa-calendar-check">&nbsp;</i>2020-09-20</time>-->
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/en/categories/VIP/">VIP</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/en/categories/VIP/speed/">speed</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey"></span> <!-- 2020-07-24 <span class="level-item has-text-grey"> -->
+                    <i class="far fa-clock"></i>&nbsp;
+                    
+                    
+                    3 minutes read (About 407 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <div id="hexo-blog-encrypt" data-wpm="The article has been encrypted and a password is required to continue reading." data-whm="Invalid password. Please check and try again.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Please enter the access password.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="881bc8470c9922d56d1a00b0ba07a7afae30afef5a0d971974415ba9b7e78e85">8cc8ce47510351edb8082631c245f5a65722a4506d04eeeac7f43a911b7ce9c075ab30779fe7b111e7563f6ec7131ff9c404e9996010d56b52e3a3e407df4263731b8ee0cf6b5684efe4af572a1e270ca2c6a6c2925e9c9a1ab0fa543d69cddbb0b998fbcaff343fe40bb84ba6911ce3f11a95f0a63f0077f6a77c6b8b0f5ac9125929cfe8e85261c6fcb44e797c32c03eec302e1307f3e7cf1bae805522e3e60f1f595b063a199c6d039c71dec118b1887f73834912ec507408e3b9333bd1ad6bcc8db589d2d0fe3ef6d8eb1d62be80130ff34f4fb69e36cc165029c7b1a361c9dc29cfe0a01a3384855defa3e4fbb3a01ab7fffb124dff7d143c6929f9fd761ede62de4e61eaed54c63af8df7da0890fd6adb048bf1cdae60c17b4b141e2aa4706a306411e819d93e717364f45e49d390e8f12a0c991b35ee1e00793da2a4fc6ffe9d51042854e579060e5b5451bf3797b6c249077d5cf2833e6a7e4daf17ceca9edd5a854d3900544fccd6c7b7954d3dc16d1899e7ffb584ab3ee48c5704745a34dd33497fbd1d6e87d52d40eabcb6fbaa40ed1b39c1b985e18a157008b84687ed5e9d0bcc5b4c7fa80b3999e6669f6f77d38fe33aae63e6b8c0ec33663110b8ade4271ef475d380e41aff7bd5033b50c44e68bef1414765305680f0d746a11540e53d21a0ac36e86e43d3c57e1e830ace6a062f36b9f3c060cfdffc5914e62d9b2933073dc6ebcd2aed0d88a15fed6eadd1f8db9c59887f34bf9acfa578f708533992d152f769cfd7fcfc7a8c217251e6f01e89ef80af56480e28a6a09ebd7e646e0771a61beb4abb3547f9e91219765cf82aef651a262de3637e75df3cc454e636c4f14da5de2b3f425f11a79bbcdcd5bcb8e1d1d7c490c37f8adf268b06336d27f5eb9ebce3c65dca59f3e4d44d21173cb6d75e13ebc7ddc73743c12de8e4e45cd3bc0fd1b6c57dbc61d25ff5818891cc892ecbe5363aa0a326220f6550df3cf74f6d1883a6054a66ea877101c683a12818cab9b07c5cefaf214af38aa7ee5533e1fbe81efa0f05882f55d388e2cf5b3912febb471732b4317a52bbdea2945864b1934e6a6bd9ff06cf3c7e43b981c94596e6b9c9726371f92ff5dfec7ed9a3e32fae3128d3f7ef69a79d30a8057a1d2b389460edcf3dfd88c927a88c03ed095142c63a0b1e1551da4e45217b7810980553edf3e92e6bfcc153e01de1a932c84130f040e5e37001d08dca786ef521c55c7ed32b35e9d54a88cbf57d5a725cc10c00538dea8144fa120c2e741ef10f68f7f55f7c01dc9d09d50e0bce140b0f3eda198a4da1c7ffd2a7f33666701a5023e951c9f9f491597b1f6224ad8409123bf586b78137a58fba2181ed077965e90a50de8ec6e268940358e53a2e227c3e79137faa37f40546701271dc9905a41504de03b4708fd0baec773df25a3d59d2208cde1b1506eb8b4557004aa89870839a9605cf0a4d9062e99927b412bc6db03c009a6e8564f1875e984464c62d7fae903bcc6d59676b9dde527382fa154a2707a3432a2af706669aa54982693c91c4cb313b95d6c5938e4b8d8441d9e865775c634a3517fea3ce8cf13619cd8a753ef22af5bbab54e21241cf7b0818937bd0fddfeb6f637f2e902f0952c1fb5b3acf1098ffd2a00c47e88f4b44b76b5db305c96fe8b56f39e1f2285f6ce89f4115d52815b148431244117cf447d2d4b89c8aefa4505490a4aa9478ea87cc02931d781f42249a32aef9e863d1d23ef1e8c9e7e01c95f2be1fee952b78a6945163401a4326d624aea097a93f3dfbd6ab39c3420bffc41fc7f7006742debc46bfc79430affac4598f8974420fa1ca0b614b53b01e4d8309b0a8d0f0481d29b3d7d6ca243ea5fcd0500c674a478d74f407de7a88ffaa6a7cdcb5f69ba32268f39c2c54d669475f4e4f4c2684aa388b4d5600e24a3738c293cb3d3618473b7520c7e7928c717ebf359e33c26834675566608ea7cc239c3e447f6956ca614121f99e0241831e4189f36a0064bba5bc9c17a30e88562a0256fd27ddc5efecae1a637cba76f245dbc3471938ed7be1113828ec8a50f6d3ecab69e3150ef22e86368a5f7dc25560e57195ba5afe074ec3606dff559f871a54ff484f37b87f6b4f876b0084bceeabd2672e71f1d73f1f7bb264e1d61666e4994b61d529a02be46747267f1732fc4a8f0993881073ac958c729b69590b52a3b7bd407627feea941d634a373be1bb89916fa9a0f82550134c8e6541befdfc4720f8e6c487c08b5fda17aa4325420c5cfccec7f4e5ed58e22ae9f17f75925adfcc9d0f86f535150f389ea111d10daf9a6b9b9011a7f3cd0a0f15808c76272c39b5ba084948879bdf9feb2d393fca57fe88ffb5c571626d459f4ad325875bd73462e501e1f86f73454c73b9c4d86fb1f939e9554558766651dabad2bbf7888687a3f0458c19da5aa8071be6ca99d4364695b02d0b88e19f3a0fcefc6ecb33d5b27dd491af7bd86b384f540454ebd0ec8aeca083ef3f7a114222a34923f4048fa84bbbfe4f42209af362deb98a2615259ca9fccba6f572222e3bd65744ddf7636a16efdf803317c070f44d4679a2e09a472e09a0f7e5cc7e3ccdeb3e54871506197b74363e62d615341713f1744ec76d587e429803f1dc780b673f0c5d88825e19d49826eae0cbe0916bd26aae44aef658d5e131ea793637af056cc6f659ae8d8d0180392948955eac426c8398411c0595303ffbd0d82c4c45a04e0bbe20fb93bdcb22a0e2841126fedd47571fa770895d3e614fac03e1f65be55f6afec47a3673cb1d5f34ae599a006ba2fb75e52ca4c0ebf7c7cac765e9cb05d17b99518ddd662872051936544cf7fd319ffe4813ec42aaaef1bfbd7d06f66caf46aa7683f8cb9d453af843eb071bcb6c070fb4978894dd13a8f42ab388070be03c266a5c14d346865f5614d8d1f0573b994b499e664b119e629233aadccc5b360b74cf9742b9b81fdf7f3cb14831aa1c48e77487edcd36dd80b80874086edbd4f8a5a72b3afea571cdf628bf630f03fe7b2af4e87bfacf189e2ef7db8d100aa4b2f94c75dcbcd9dd84384abedfa9f47a3680e7f3e71456bfbd6608fb221a82f8af970434af0cecccf60d21b8168a17ab71f9953da0df71e596b291450e4759973351c71954c755521682be23025196c3764c42d883e7b62df5889877a181ad9fd37c1bf81b7b366beca94bfc29397dc34c60dc2e0df89a598cf22ca2130faaf8acfd333a7f3ad77d109b0b7887e33a1725b58b655035ba3348919594cf3f2dc0b13205b590b5b51d56f6e7a0df78aec0dee5fcddac998065eced3ebd05ae05797770d3b9eae4340523a6631bf07ae72ca91a1375c5d3cc8b727d2ef0374966f2ed1ad0cceefa9193f8fd23bece5b4b649bc2eb6d41c0187bc0f26686a7f2e82df5716f9c885fb237190ce52e16174bd3924d5002ab8f1ae59788cfaf4a0965385a0f33a3d779213a29de7ea354bc130bab1a3296c5c3e964a51ee6bf814edcb5335f7a4c70257ea873435ba09ef9355e6d001ef207d077be564c065150255ad694c0baec6e5e6c1de27e8358657fcbe116f9495f7219adb7726ac6e780b37594efcb357a5282eba609c52d3e47b30dad835545b14c83629febb39cdf03e409ca3fbda376ee64ca8150f02700854840d9bde67b8897eca964cfed1c144e2f7dd01d6e56b4fc832467e035561d192fdc54774e057ec172245f84eb4df6574548b51b1611d0e605196a0b6be1a56e76a3a26c7467957cb99ca77c754aa9d597ab4f952d9990c36547763c7b0c39d5d81332f3c8b94853c7cece3e6e519478cc4f59fbf6516d25a26da88e2b24e1fa511e4f075bd694a1fe4fe5541d44ad53c3b1b49824827e9b67cd2ade3c288308be32883eb9a36c7fd5415ce56cc2243cd5148b46cd1bb6e3385d8cc8dd5f912318ef1743e6b35f5e7987ec9918eee3c96353ad28c4c5fb6b68644e10d9303911d5d30ace9934a3484b986373ccecb0150126f46c082aa4c2c07baee249724012a566f0c73454b9a5c8a658dde51d352d71e0bcf36de1c4efb64db60acce99bf1e96e126b88930a9df1080585b9e2f0557c9e8d69d854c92449f161f1ef2a21c628e212ca622948d22806ad520b81e8f1121be0994ca2556b1b5479107e0e26c99c3b2797311a845deb751ff66e4af3966b6ba03db04bbf30f8a7e84fa6f4a77300bdb3e933d0d12f3bdea69d00bf794db5ac5be63f954cd5f0736feb0646e7acf5ef7512f798d9cb32cf14a35e904925441c759c2f4b3693ada63589a01f671aca85580f56495619f40a170c75b0c86b8e4e12f91b8981c7ac2eff3eab2c7d34ada383dcb3f8bb66d684e815b929dcd4ff0e2116d566501abac484ee292beda94ec6626be9bc169c22d0682f71a17b551cf88484d4525874dc14f86982a17b0e21b5aa7bce97e</script>
+</div>
+<script src="/en/lib/blog-encrypt.js"></script><link href="/en/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="https://www.rootfw.com/posts/20b4bacc.html">Network speed conversion</a></li>
+            <li><strong>本文作者：</strong><a href="https://www.rootfw.com">comebey</a></li>
+            <li><strong>本文链接：</strong><a href="https://www.rootfw.com/posts/20b4bacc.html">https://www.rootfw.com/posts/20b4bacc.html</a></li>
+            <li><strong>发布时间：</strong>2020-07-24</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/en/tags/v2ray/" rel="tag">v2ray</a>,&nbsp;<a class="has-link-grey -link" href="/en/tags/vip/" rel="tag">vip</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f5759bfd449570011d2b344&amp;product=sop' async='async'></script>
+
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/alipay.png" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/wechat.png" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/en/posts/3828c730.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Set server login password</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/en/posts/70b5ad4f.html">
+                <span class="level-item">Delay test qperf between servers</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://www.rootfw.com/posts/20b4bacc.html';
+        this.page.identifier = 'posts/20b4bacc.html';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hasan-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+    
+    
+    
+    
+    <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-200x200 has-mb-6">
+                        <img class="" src="/en/images/avatar.png" alt="ComeBey">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        ComeBey
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Hasan
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/en/archives">
+                        <p class="title has-text-weight-normal">
+                            19
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/en/categories">
+                        <p class="title has-text-weight-normal">
+                            25
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/en/tags">
+                        <p class="title has-text-weight-normal">
+                            20
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ComeBey">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/Comebey.Blog/?modal=admin_todo_tour">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/WangTao_Im">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+
+        
+        
+            <div class="column-right-shadow is-hidden-widescreen ">
+            
+            </div>
+        
+    </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/en/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/ComeBey/imghosting/comebey-pic/火箭.svg" alt="Network speed conversion" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2022 comebey&nbsp;
+                Powered by <a href="https://www.youtube.com/channel/UC1BAUCyjE7NLpvcwSUInOIg/?sub_confirmation=1" target="_blank" rel="noopener external nofollow noreferrer">comebey</a> & <a
+                        href="https://github.com/ComeBey" target="_blank" rel="noopener">Hasan</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener external nofollow noreferrer" title="AlphaLxy GitHub" href="https://www.github.com/ComeBey">
+                        
+                        <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.rootfw.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/en/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/en/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noreferrer">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;" rel="external nofollow noreferrer">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/en/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/en/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/en/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/en/js/insight.js" defer></script>
+<link rel="stylesheet" href="/en/css/search.css">
+<link rel="stylesheet" href="/en/css/insight.css">
+    
+</body>
+</html>
