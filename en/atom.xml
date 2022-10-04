@@ -323,9 +323,9 @@
       <category term="centos7" scheme="https://www.rootfw.com/categories/Linux/centos7/"/>
     
     
-      <category term="firewall" scheme="https://www.rootfw.com/tags/firewall/"/>
-    
       <category term="Linux" scheme="https://www.rootfw.com/tags/Linux/"/>
+    
+      <category term="firewall" scheme="https://www.rootfw.com/tags/firewall/"/>
     
   </entry>
   

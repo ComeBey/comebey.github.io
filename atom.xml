@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.rootfw.com/"/>
-  <updated>2022-03-09T14:45:45.996Z</updated>
+  <updated>2022-10-04T06:37:37.003Z</updated>
   <id>https://www.rootfw.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>9158上线公告</title>
+    <link href="https://www.rootfw.com/posts/9befd002.html"/>
+    <id>https://www.rootfw.com/posts/9befd002.html</id>
+    <published>2022-10-04T06:09:08.000Z</published>
+    <updated>2022-10-04T06:37:37.003Z</updated>
+    
+    <content type="html"><![CDATA[<div class="message message-immersive is-warning"><div class="message-body"><i class="fas fa-info-circle mr-2"></i>9158 Cloud 10月5号正式上线，金秋十月买一送一</a>。</div></div><a id="more"></a><h2 id="金秋十月9158-Cloud-10月5号正式上线放号，IPLC专线机场，增加了IPLC-VDS专用服务器。为庆祝🎉-WEB上线，十月活动买一送一折扣。年费低至120RMB，内测体验中，数量有限。正式上线10月10号价格恢复原价。"><a href="#金秋十月9158-Cloud-10月5号正式上线放号，IPLC专线机场，增加了IPLC-VDS专用服务器。为庆祝🎉-WEB上线，十月活动买一送一折扣。年费低至120RMB，内测体验中，数量有限。正式上线10月10号价格恢复原价。" class="headerlink" title="金秋十月9158 Cloud 10月5号正式上线放号，IPLC专线机场，增加了IPLC VDS专用服务器。为庆祝🎉 WEB上线，十月活动买一送一折扣。年费低至120RMB，内测体验中，数量有限。正式上线10月10号价格恢复原价。"></a>金秋十月9158 Cloud 10月5号正式上线放号，IPLC专线机场，增加了IPLC VDS专用服务器。为庆祝🎉 WEB上线，十月活动买一送一折扣。年费低至120RMB，内测体验中，数量有限。正式上线10月10号价格恢复原价。</h2><figure class="highlight diff"><figcaption><span>官方网站</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.9158.cloud</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;div class=&quot;message message-immersive is-warning&quot;&gt;
+&lt;div class=&quot;message-body&quot;&gt;
+&lt;i class=&quot;fas fa-info-circle mr-2&quot;&gt;&lt;/i&gt;9158 Cloud 10月5号正式上线，金秋十月买一送一&lt;/a&gt;。
+&lt;/div&gt;
+&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
+    
+    
+      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP CSS缓存问题解决方法</title>
@@ -64,35 +93,6 @@
       <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
       <category term="机场" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/%E6%9C%BA%E5%9C%BA/"/>
-    
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最新公告</title>
-    <link href="https://www.rootfw.com/posts/9befd002.html"/>
-    <id>https://www.rootfw.com/posts/9befd002.html</id>
-    <published>2021-12-27T02:11:56.000Z</published>
-    <updated>2021-12-27T03:14:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<div class="message message-immersive is-info"><div class="message-body"><i class="fas fa-info-circle mr-2"></i>ROOTFW官方包含（国内用户ipsilo中端机场主要IPLC线路现运营中），comebey（国内用户普通线路公益机场运营中），anyiplc（国内用户中高端机场IPLC专线现运营中），云6（国内国外用户高端机场独立专线私人定制邀请），云9（有缘江湖见）等机场用户，为了更好的让用户体验，区分不同的群体，团队决定将迁移数据库，所有在ipsilo.net付费用户均迁移到[anyiplc.com](https://www.anyiplc.com)新域名中，用户数据不变（如果有问题请联系官方客服）。最新公告本站将提供“cloud6”高端私人特殊机场支持私人定制均为内外专线定制级及优质线路CN2 GIA 双向，机场用户主要为各大机场及站长维护的多家万人机场及特殊群体邀请制资格</a>。</div></div><a id="more"></a><p>有特殊需求的某某人可以联系我们官方电报群客服点击<a href="https://t.me/ipsilo_net" rel="external nofollow noreferrer">IPSILO</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div class=&quot;message message-immersive is-info&quot;&gt;
-&lt;div class=&quot;message-body&quot;&gt;
-&lt;i class=&quot;fas fa-info-circle mr-2&quot;&gt;&lt;/i&gt;ROOTFW官方包含（国内用户ipsilo中端机场主要IPLC线路现运营中），comebey（国内用户普通线路公益机场运营中），anyiplc（国内用户中高端机场IPLC专线现运营中），云6（国内国外用户高端机场独立专线私人定制邀请），云9（有缘江湖见）等机场用户，为了更好的让用户体验，区分不同的群体，团队决定将迁移数据库，所有在ipsilo.net付费用户均迁移到[anyiplc.com](https://www.anyiplc.com)新域名中，用户数据不变（如果有问题请联系官方客服）。最新公告本站将提供“cloud6”高端私人特殊机场支持私人定制均为内外专线定制级及优质线路CN2 GIA 双向，机场用户主要为各大机场及站长维护的多家万人机场及特殊群体邀请制资格&lt;/a&gt;。
-&lt;/div&gt;
-&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="科学上网" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="v2ray" scheme="https://www.rootfw.com/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/v2ray/"/>
     
     
       <category term="v2ray" scheme="https://www.rootfw.com/tags/v2ray/"/>
